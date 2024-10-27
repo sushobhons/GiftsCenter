@@ -61,7 +61,7 @@ steps:
 # Step 6: Copy updated files over SSH
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'ssh-pos'
+    sshEndpoint: 'ssh-web'
     sourceFolder: '$(Build.SourcesDirectory)'  # Ensure this is the correct source folder
     contents: '$(filesToCopy)'  # Use the variable with file list
     targetFolder: '/var/www/html/web/'
