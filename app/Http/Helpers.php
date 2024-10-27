@@ -53,7 +53,7 @@ class Helper
         $headerBackgroundColor = $headerRecord->color_code ?? '#ffffff';
         $headerLogo = $headerRecord->image
             ? config('app.amazon_url') . $headerRecord->image
-            : config('app.url') . 'public/img/logo.svg';
+            : config('app.app_url') . 'public/img/logo.svg';
 
         return [
             'header_background_color' => $headerBackgroundColor,
@@ -61,7 +61,7 @@ class Helper
         ];
     }
 
-    function getCurrentDomain()
+    public static function getCurrentDomain()
     {
         $currentDomain = config('app.domain_name');
 
@@ -976,7 +976,7 @@ class Helper
         return $response->body();
     }
 
-    function getReferenceURLs()
+    public static function getReferenceURLs()
     {
         $currentDomain = self::getCurrentDomain();
         $domainId = $currentDomain ? $currentDomain->id : 1;
