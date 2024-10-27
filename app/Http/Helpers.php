@@ -44,7 +44,7 @@ class Helper
 
     public static function getHeaderDetails()
     {
-        //$currentDomain = self::getCurrentDomain();
+        $currentDomain = self::getCurrentDomain();
         $domainId = $currentDomain ? $currentDomain->id : 1;
         $headerRecord = Header::select('image', 'color_code')
             ->where('domain_id', $domainId)
