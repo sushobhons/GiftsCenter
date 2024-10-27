@@ -1,0 +1,69 @@
+trigger:
+  branches:
+    include:
+      - main  # Adjust the branch as per your repo structure
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  targetServer: '20.194.199.229'
+  targetFolder: '/var/www/html/web'  # Folder on the remote server
+  sourceFolder: '$(Build.SourcesDirectory)'  # Source directory in the pipeline
+  sshConnection: 'ssh-web'  # The SSH service connection
+
+steps:
+# Step 1: Checkout the code
+- checkout: self
+  fetchDepth: 0
+
+# Step 2: Find updated files
+- script: |
+    if [ $(git rev-list --count HEAD) -eq 1 ]; then
+      git diff --name-only HEAD > changed_files.txt
+    else
+      git diff --name-only HEAD~1 HEAD > changed_files.txt
+    fi
+  displayName: 'Find updated files'
+
+# Step 3: Display the contents of changed_files.txt
+- script: |
+    echo "Changed files:"
+    cat $(Build.SourcesDirectory)/changed_files.txt
+  displayName: 'Display updated files'
+
+# Step 4: Verify the files exist in the source folder
+- script: |
+    echo "Verifying files in source folder:"
+    while IFS= read -r file; do
+      if [ -f "$(Build.SourcesDirectory)/$file" ]; then
+        echo "$file exists."
+      else
+        echo "$file does not exist."
+      fi
+    done < $(Build.SourcesDirectory)/changed_files.txt
+  displayName: 'Verify files in source folder'
+
+# Step 5: Prepare to copy updated files over SSH
+- script: |
+    files=$(<changed_files.txt)  # Read all lines from the file
+    fileList=""
+
+    for file in $files; do
+        fileList="$fileList$file,"  # Append each file to the list with a comma
+    done
+
+    # Remove the trailing comma
+    fileList=${fileList%,}
+    echo "##vso[task.setvariable variable=filesToCopy]$fileList"
+  displayName: 'Prepare list of files to copy'
+
+# Step 6: Copy updated files over SSH
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'ssh-web'
+    sourceFolder: '$(Build.SourcesDirectory)'  # Ensure this is the correct source folder
+    contents: '$(filesToCopy)'  # Use the variable with file list
+    targetFolder: '/var/www/html/web/'
+    readyTimeout: '20000'
+
