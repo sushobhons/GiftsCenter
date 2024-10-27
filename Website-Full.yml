@@ -1,0 +1,37 @@
+trigger:
+  branches:
+    include:
+      - main  # Adjust as needed
+
+pool:
+  vmImage: 'ubuntu-latest'  # or windows-latest if you're using Windows agents
+
+steps:
+#- checkout: self  # Check out the current repository
+
+- script: |
+    echo "Listing files in $(Build.SourcesDirectory)"
+    ls -R $(Build.SourcesDirectory)  # List files recursively
+  displayName: 'List source directory'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'ssh-pos'
+    sourceFolder: '$(Build.ArtifactStagingDirectory)'
+    contents: '$(Build.BuildId).zip'
+    targetFolder: '/var/www/html/'
+    readyTimeout: '20000'
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'ssh-pos'
+    runOptions: 'commands'
+    commands: |
+      unzip -o /var/www/html/$(Build.BuildId).zip -d /var/www/html/web
+      chmod -R 777 /var/www/html/web
+    readyTimeout: '20000'
