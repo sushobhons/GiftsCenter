@@ -1,0 +1,240 @@
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (hover: hover) and (min-width: 600px) {
+}
+
+@media (min-width: 1600px) {
+}
+
+@media (min-width: 1850px) {
+}
+
+@media (min-width: 1920px) {
+}
+
+@media (min-width: 2300px) {
+}
+
+@media (min-width: 2500px) {
+}
+
+@media screen and (max-width: 991px) {
+.mobile-hide { display: none; }
+.web-hide { display: block !important; }
+.dview { display: none; }
+.mview { display: block; }
+.mobile-display-inline-block { display: inline-block !important; }
+.body-class { display: block !important; }
+.body-class.show { overflow: hidden; }
+/*~~~~~~~~~~~~~~ GLOBAL STYLES End ~~~~~~~~~~~~~~*/ 
+
+/*~~~~~~~~~~~~~~ Header Start ~~~~~~~~~~~~~~*/ 
+.mobile-header-navbar { position: static; }
+.mobile-header-navbar { display: block !important; }
+.mobile-top-header { align-items: center; display: flex; justify-content:  center; height: auto; padding-bottom: 10px; padding-top: 10px; }
+.mobile-top-header .logo { margin-left: 0; }
+.mobile-top-header .logo img { height: auto; width: 177px; }
+.mobile-top-header .logo .navbar-brand { margin-right: 0; padding-bottom: 0; padding-top: 0; }
+.mobile-bottom-header { align-items: center; display: flex; justify-content: space-between; height: 34px; padding-right: 10px; }
+.mobile-bottom-header .logo { margin-left: 13px; }
+.mobile-bottom-header .logo img { height: auto; width: 177px; }
+.mobile-bottom-header .logo .navbar-brand { margin-right: 0; padding-bottom: 0; padding-top: 0; }
+.mobile-bottom-header .mobile-bottom-left-header { align-items: center; display: flex; justify-content: center; }
+.mobile-bottom-header .navbar-toggler { border: none; border-radius: 0; display: block; height: 15px; margin-left: 15px; margin-right: 8px; padding: 0; position: relative; width: 20px; z-index: 3333; }
+.mobile-bottom-header .navbar-toggler .navbar-toggler-icon { background: #002855; border-radius: 10px; height: 3px; left: 0; margin-top: 0; position: absolute; top: 6px; width: 100%; }
+.mobile-bottom-header .navbar-toggler .navbar-toggler-icon { transform: scaleY(0); transform-origin: 0% 0%; transition: transform 0.7s ease-in-out; }
+.mobile-bottom-header .navbar-toggler .navbar-toggler-icon1 { background: #002855; border-radius: 10px; content: ""; height: 3px; left: 0; position: absolute; top: 0; width: 100%;  }
+.mobile-bottom-header .navbar-toggler .navbar-toggler-icon1 { transform: rotate(39deg); transform-origin: 0% 0%; transition: transform 0.7s ease-in-out; }
+.mobile-bottom-header .collapsed .navbar-toggler-icon1 { top: 0; }
+.mobile-bottom-header .navbar-toggler .navbar-toggler-icon3 { background: #002855; border-radius: 10px; bottom: 0; content: ""; height: 3px; left: 0; position: absolute; width: 100%;  }
+.mobile-bottom-header .navbar-toggler .navbar-toggler-icon3 { transform: rotate(-39deg); transform-origin: 0% 100%; transition: transform 0.7s ease-in-out; }
+.mobile-bottom-header .mobile-bottom-left-header .search-link img { height: auto; width: 20px; }
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search { display: none; left: 0; position: absolute; top: 95px; width: 100%; }
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .search_input { border: none; border-bottom: 1px solid #D5D5D5; border-radius: 0; color: #002855; font-size: 13px; font-weight: 500;  }
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .typeahead { border-radius: 0; left: 0 !important; margin-top: 0; padding:0; border:none; width: 100%; }
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .typeahead li a { color:#002855; display: flex; font-size: 11px; font-weight: 400; line-height: 17px; white-space:normal; padding:5px 10px; border-bottom:2px solid transparent !important;}
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .typeahead li a .search_li_image { margin-right: 10px; min-width: 42px; width: 42px; }
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .typeahead li a .search_li_image img { height: auto; width: 100%;  }
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .typeahead li a .search_li_text { display:block; overflow:hidden;}
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .typeahead li a strong { font-weight: 700; font-size: 12px; }
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .typeahead li.active a { text-decoration:none;}
+.mobile-bottom-header .mobile-bottom-left-header .mobile-search .typeahead li:hover a { text-decoration:none; background:#002855; color:#fff;}
+
+.mobile-bottom-header .collapsed .navbar-toggler-icon { transform: scaleY(100%); }
+.mobile-bottom-header .collapsed .navbar-toggler-icon1 { transform: rotate(0deg); }
+.mobile-bottom-header .collapsed .navbar-toggler-icon3 { transform: rotate(0deg); }
+.mobile-bottom-header .top-nav { height: 24px; list-style: none; margin-bottom: 0; padding: 0; }
+.mobile-bottom-header .top-nav li { float: left; margin-right: 15px; position: relative; }
+.mobile-bottom-header .top-nav li a { display: block; line-height: 24px; }
+.mobile-bottom-header .top-nav li a .fa { color: #002855; font-size: 20px; position: relative; top: 2px; }
+.mobile-bottom-header .top-nav li .wish_count_html { background: #ff003c; border-radius: 100%; color: #FFF; font-size: 11px; height: 18px; line-height: 18px; position: absolute; right: -12px; text-align: center; top: -6px; width: 18px; }
+.mobile-bottom-header .top-nav li .cart_count_html { background: #ff003c; border-radius: 100%; color: #FFF; font-size: 11px; height: 18px; line-height: 18px; position: absolute; right: -7px; text-align: center; top: -3px; width: 18px; }
+.mobile-bottom-header .top-nav li .dropdown-toggle { background: none; border: none; border-radius: 0; color: #002855; font-size: 14px; padding: 0; }
+.mobile-bottom-header .top-nav li .dropdown-toggle:focus { box-shadow: none; outline: none; }
+.mobile-bottom-header .top-nav li .dropdown-toggle:active { background: none; color: #002855; }
+.mobile-bottom-header .top-nav li .dropdown-toggle:active:focus { box-shadow: none; }
+/*.mobile-bottom-header .top-nav li .dropdown-toggle:after { display: none; }*/
+.mobile-bottom-header .top-nav li .dropdown-toggle:after { position: relative; top: 0; }
+.mobile-bottom-header .top-nav .HeartList a { position: relative; top: 1px; }
+.mobile-bottom-header .top-nav .CartList a { position: relative; top: -3px; }
+.mobile-bottom-header .top-nav .dropdown .dropdown-menu { left: auto; margin-top: 0; right: 0; }
+.mobile-bottom-header .top-nav .dropdown:hover .dropdown-menu { display: block; }
+.mobile-bottom-header .top-nav .dropdown .dropdown-menu ul { list-style: none; margin-bottom: 0; padding-left: 0; }
+.mobile-bottom-header .top-nav .dropdown .dropdown-menu ul li { float: none; margin-left: 0; }
+.mobile-bottom-header .top-nav .dropdown .dropdown-menu ul li a { background-image: none; color: #002855; font-size: 13px; font-weight: 500; padding-left: 0; text-align: center; }
+.mobile-header-navbar .bottom-header { background: #C6DEDE; border-top: none; color: #002855; font-size: 14px; font-weight: 500; padding: 5px 30px; text-align: center; }
+.navbar-collapse { background: #EFF5F5; border-top: 1px solid #D1D1D1; bottom: 0; display: block !important; left: -100%; overflow-y: auto; min-height: calc(100% - 58px); margin-top: 115px; padding: 0 25px 25px 25px; position: fixed; top: 0; transition: all 0.5s ease; width: 100%; z-index: 9; }
+.navbar-collapse.show { left: 0; }
+.navbar-collapse .navbar-nav { display: none; }
+.navbar-collapse .watches-btn { display: block; left: 0; position: relative; right: 0; text-align: center; top: 0; }
+.navbar-collapse .main-accordion { padding-bottom: 20px; padding-top: 30px; }
+.navbar-collapse .main-accordion .card { background: #EFF5F5; border: none; border-radius: 0; }
+.navbar-collapse .main-accordion .card .card-header { background: #EFF5F5; border-bottom: 1px solid #D1D1D1; margin-bottom: 0; padding: 0 0 0 33px; }
+.navbar-collapse .main-accordion .card .card-header h2 { height: 56px; line-height: 56px; margin-bottom: 0; position: relative; }
+.navbar-collapse .main-accordion .card .card-header h2 a { color: #002855; font-size: 16px; font-weight: 500; left: 0; line-height: 56px; position: absolute; top: 0; }
+.navbar-collapse .main-accordion .card .card-header h2 a:focus { text-decoration: none; }
+.navbar-collapse .main-accordion .card .card-header .btn { background: url(../img/accordion-arrow-icon.svg) no-repeat right 10px top 50%; border-radius: 0; height: 56px; line-height: 56px; padding: 0 33px 0 0; }
+.navbar-collapse .main-accordion .card .card-header .collapsed { background: url(../img/accordion-down-arrow-icon.png) no-repeat right center; }
+.navbar-collapse .main-accordion .card .card-header .btn:focus { box-shadow: none; outline: none; }
+.navbar-collapse .main-accordion .card .card-body { min-height: 0; padding: 0; }
+.navbar-collapse .main-accordion .card .sub-accordion .card:last-child { border-bottom: none; }
+.navbar-collapse .main-accordion .card .sub-accordion .card .card-header { border-bottom: none; }
+.navbar-collapse .main-accordion .card .sub-accordion .card .card-header h2 a { font-weight: 700; text-transform: uppercase; }
+.navbar-collapse .main-accordion .card .sub-accordion .card .card-body { padding-left: 33px; padding-right: 33px; }
+.navbar-collapse .main-accordion .card .sub-accordion .card .card-body .sub-menu-list { list-style: none; margin-bottom: 0; padding-left: 20px; }
+.navbar-collapse .main-accordion .card .sub-accordion .card .card-body .sub-menu-list li { margin-bottom: 10px; }
+.navbar-collapse .main-accordion .card .sub-accordion .card .card-body .sub-menu-list li a { border-bottom: none; color: #002855; font-weight: 500; line-height: 24px; }
+.navbar-collapse .main-accordion .card .sub-accordion .card .card-body .sub-menu-list li .shop-all-link { background: url(../img/right-arrow-icon.png) no-repeat right 2px; padding-right: 25px !important; }
+/*~~~~~~~~~~~~~~ Header End ~~~~~~~~~~~~~~*/ 
+
+.inner-banner img { height: 224px; object-fit: cover; }
+/*~~~~~~~~~~~~~~ Banner End ~~~~~~~~~~~~~~*/ 
+
+.arrivalBanner { background-position: 0 0; height: 362px }
+.newArrivalBanner .arrivalHolder { float: right; width: 52%; }
+.arrivalBanner img { height: auto; width: 104px; }
+.arrivalBanner h3 { font-size: 16px; margin-bottom: 20px; margin-top: 20px; text-transform: uppercase; }
+.arrivalBanner a { font-size: 10px; line-height: 24px; padding: 0 23.7px; }
+/*~~~~~~~~~~~~~~ Body Bottom Banner End ~~~~~~~~~~~~~~*/ 
+
+/*~~~~~~~~~~~~~~ You May Also Like Body Section Start ~~~~~~~~~~~~~~*/
+.sliderBox { padding: 0 15px 0; }
+.sliderBox .imgHldr { margin-bottom: 10px; margin-top: 20px; }
+.sliderBox h2 { font-size: 12px; }
+.sliderBox h3 { font-size: 10px; margin-bottom: 5px; margin-top: 5px; }
+.sliderBox h4 { font-size: 12px; }
+/*~~~~~~~~~~~~~~ You May Also Like Body Section End ~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~ E-Gift Voucher Page Body Section Start ~~~~~~~~~~~~~~*/
+.egift-voucher-section { padding-left: 0 !important; padding-right: 0 !important; }
+.egift-voucher-section .gftDv { max-width: 492px; width: 100%; }
+/*~~~~~~~~~~~~~~ E-Gift Voucher Page Body Section End ~~~~~~~~~~~~~~*/
+
+/* Country Select Style Start */
+.country .bootstrap-select .dropdown-toggle { background-color: #fff; margin-top: 1px; }
+.country .dropdown { background: none; }
+/* Country Select Style End */
+
+/*~~~~~~~~~~~~~~ Footer Start ~~~~~~~~~~~~~~*/
+.top-footer { margin-bottom: 20px; padding-bottom: 20px; padding-top: 40px; text-align: center; }
+.top-footer .footer-logo { margin-bottom: 20px; }
+.footer-news-list { display: block; margin-top: 20px; }
+.footer-news-list li { margin-right: 0; }
+.footer-news-list li label { margin-bottom: 20px; }
+.footer-news-list li .form-control { width: 100%; }
+.midFooter { padding-bottom: 0; }
+.midFooter .row { margin-left: 0; margin-right: 0; }
+.midFooter .footer-menu h3 { font-size: 15px; margin-bottom: 10px; }
+.midFooter .footer-menu { border-bottom: 1px solid #E9E9E9; -ms-flex: 0 0 100%; flex: 0 0 100%; margin-bottom: 20px; max-width: 100%; padding-left: 0; padding-right: 0; }
+.midFooter .footer-menu ul li { font-size: 14px; margin-bottom: 5px; }
+.bottomFooter { border-top: none; padding-top: 0; }
+.bottomFooter .left-bottom-footer { margin-bottom: 0; padding-left: 0; padding-right: 0; }
+.bottomFooter .left-bottom-footer li { margin-bottom: 15px; margin-right: 0; text-align: center; width: 100%; }
+.bottomFooter .left-bottom-footer li:nth-child(2) { padding-right: 7.5px; width: 50%; }
+.bottomFooter .left-bottom-footer li:nth-child(3) { padding-left: 7.5px; width: 50%; }
+.bottomFooter .left-bottom-footer li a { display: block; text-align: center; }
+.bottomFooter .left-bottom-footer li a img { height: auto; width: 100%; }
+.bottomFooter .right-bottom-footer li { margin-left: 10px; margin-right: 10px; }
+.bottomFooter .right-bottom-footer li img { width: 32px; }
+/*~~~~~~~~~~~~~~ Footer End ~~~~~~~~~~~~~~*/
+
+/* MODAL Start
+-------------------------------------------------- */
+.cmnModal .modal-dialog { height: 100%; margin: 0; }
+.cmnModal .modal-content { background: #EFF5F5; height: 100%; }
+.cmnModal .modal-header { padding-bottom: 0; padding-top: 0; }
+.cmnModal .modal-header .close { right: 14px; top: 14px; }
+.cmnModal .modal-header .modal-title { font-size: 28px; margin-top: 35px; text-align: center; }
+.cmnModal .modal-header h5 { color: #002855; font-size: 18px; font-weight: 600; line-height: 56px; margin-bottom: 0; margin-top: 0; }
+.cmnModal .modal-footer .btn-primary { margin: 0; margin-bottom: 16px; width: 100%; }
+.cmnModal .modal-footer .btn-default { margin: 0; width: 100%; }
+
+/*------------------------- Quick View Modal Start -------------------------*/ 
+.quickViewModal .modal-body { background: #EFF5F5; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; }
+.quickViewModal .right-quick-view-detsils { padding-left: 30px; padding-right: 30px; }
+.right-quick-view-detsils h3 { font-size: 34px; }
+.right-quick-view-detsils h5 { font-size: 28px; }
+.right-quick-view-detsils h5 span { font-size: 16px; }
+.right-quick-view-detsils .add-to-basket-btn { width: 100%; }
+.right-quick-view-detsils .add-loves-btn { text-align: center; width: 100%; }
+
+/*------------------------- Add To Cart Modal Start -------------------------*/ 
+.addCartModal .cart-sec { background-color: #fff; padding: 20px 14px 20px 14px; }
+.addCartModal .cart-sec .table tr { display: block; }
+.addCartModal .cart-sec .table td { border-bottom: none; display: block; padding-bottom: 5px; padding-top: 5px; }
+.addCartModal .cart-sec .table td:nth-child(3) { display: inline-block; height: 49px; }
+.addCartModal .cart-sec .table td:nth-child(4) { display: inline-block; height: 49px; }
+.addCartModal .cart-sec .table td img { max-width: 116px; }
+.addCartModal .cart-sec .table td h3 { font-size: 18px; line-height: 21.94px; margin-top: 20px; }
+.addCartModal .cart-sec .table td p { font-size: 14px; }
+.addCartModal .cart-sec .table td p span { display: block; font-weight: 500; }
+.addCartModal .cart-sec .table td .qty-text-span { line-height: 39px; margin-top: 0; }
+.addCartModal .cart-sec .table td .price-spna { font-size: 21.2px; line-height: 39px; margin-left: 10px; }
+
+/*------------------------- Redeem Voucher Points Modal Start -------------------------*/
+.loyaltyPointsModal .modal-body p { margin-left: 0; margin-right: 0; }
+.loyaltyPointsModal .modal-body .redeem-small-box { width: 100%; }
+.loyaltyPointsModal .modal-body .redeem-small-box .promo-list li .form-control { font-size: 12px; height: 40px;  line-height: 38px; }
+.loyaltyPointsModal .modal-body .redeem-small-box .promo-list li .btn { font-size: 13px; line-height: 30px; padding: 0 22.612px; margin-top: -34px; }
+
+/*------------------------- Review Modal Start -------------------------*/
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list { float: left; margin-bottom: 20px; width: 100%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li { float: left; margin-left: 4%; margin-right: 4%; width: 16%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li:nth-child(1) { display: none; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li:last-child { display: none; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li:nth-child(2) { margin-left: 0; margin-right: 0; text-align: left; width: 14%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li:nth-child(6) { margin-left: 0; margin-right: 0; text-align: right; width: 14%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li:nth-child(2) .num-span { margin-left: 10px; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li:nth-child(6) .num-span { margin-right: 9px; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .excellent-list { float: left; list-style: none; margin-bottom: 40px; padding-left: 0; width: 100%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .excellent-list li { color: #002855; float: left; font-size: 16px; font-weight: 400; width: auto; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .excellent-list li:last-child { float: right; }
+
+
+}
+
+@media screen and (max-width: 767px) {
+
+/*~~~~~~~~~~~~~~ E-Gift Voucher Page Body Section Start ~~~~~~~~~~~~~~*/
+.egift-voucher-container { padding-left: 0; padding-right: 0; }
+.egift-voucher-section { margin-bottom: 40px !important; margin-top: 0 !important; padding-left: 15px !important; padding-right: 15px !important; }
+.egift-voucher-section .gftDv { margin-top: 0 !important; width: 90% !important; }
+.egift-voucher-section .gftDv .rdo { margin-top: 0; }
+.egift-voucher-section .gftDv .recipient { margin-bottom: 40px; }
+.egift-voucher-section .gftDv .svs-send-time-button .svs-send-time-button-inner-block .cta-text { font-size: 11px; font-weight: 600; }
+.svs-send-time-button--later { padding-top: 3px !important; }
+.egift-voucher-section .gftDv .svs-send-time-button--later .svs-send-time-button-inner-block .cta-text { font-size: 11px; font-weight: 600; }
+/*~~~~~~~~~~~~~~ E-Gift Voucher Page Body Section End ~~~~~~~~~~~~~~*/    
+
+/*~~~~~~~~~~~~~~ Footer Start ~~~~~~~~~~~~~~*/
+.bottomFooter .right-bottom-footer { padding-left: 0; padding-right: 0; width: 100%; }
+/*~~~~~~~~~~~~~~ Footer End ~~~~~~~~~~~~~~*/
+
+/* MODAL Start
+-------------------------------------------------- */
+.cmnModal .modal-header .modal-title { font-size: 25px; }
+
+/*------------------------- Quick View Modal Start -------------------------*/ 
+.quickViewModal .modal-body { padding-bottom: 20px; }
+
+}

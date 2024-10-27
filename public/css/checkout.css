@@ -1,0 +1,76 @@
+/*~~~~~~~~~~~~~~ Checkout Body Section Start ~~~~~~~~~~~~~~*/
+.checkout-white-box { background-color: #fff; margin: 88px 0 33px 0; padding: 40px 30px; width: 100%; }
+.checkout-white-box h3 { color: #002855; font-size: 42px; font-weight: 400; margin:  0 0 40px 0; text-align: center; text-transform: uppercase; }
+.checkout-white-box .nav-tabs { border-bottom: none; justify-content: center; margin-bottom: 32px; }
+.checkout-white-box .nav-tabs .nav-item { position: relative; }
+.checkout-white-box .nav-tabs .nav-item:after { background-color: #D5D5D5; bottom: -1px; content: ""; height: 1px; left: 0; position: absolute; width: 100%; z-index: 0; }
+.checkout-white-box .nav-tabs .nav-item .nav-link { border: none; border-radius: 0; color: #002855; font-size: 18px; padding: 0 24px 20px 24px; position: relative; text-transform: uppercase; z-index: 1; }
+.checkout-white-box .nav-tabs .nav-item.show .nav-link, .checkout-white-box .nav-tabs .nav-link.active { background: none; border-bottom: 2px solid #002855; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list { list-style: none; margin-bottom: 40px; margin-left: -8px; margin-right: -8px; padding: 0; width: 100%; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li { margin-bottom: 16px; padding-left: 8px; padding-right: 8px; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list .cus-md-4 { -ms-flex: 0 0 44%; flex: 0 0 44%; max-width: 44%; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list .cus-md-8 { -ms-flex: 0 0 56%; flex: 0 0 56%; max-width: 56%; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .form-control { border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; padding: 0 24px; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .form-check { margin-bottom: 0; margin-top: 20px; }
+
+.selectpicker { background: #fff; border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; cursor: pointer; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; overflow: hidden; padding: 0 24px 0 24px; position: relative; text-align: right; text-overflow: ellipsis; white-space: nowrap; width: 150px; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group { width: 100% !important; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-toggle { background: url(../img/select-sort-arrow-icon.png) no-repeat right 12px top 18px; color: #002855; border: 1px solid #B8BBC5; font-size: 15px; padding: 0 24px; position: relative; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-toggle:hover { color: #002855; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-toggle:after { display: none; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-toggle:focus { box-shadow: none; outline: none !important; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .caret { display: none; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .flag-icon { line-height: 32px; margin-right: 5px; width: 32px; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-menu { min-width: 151px; min-height: 251px !important; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-menu .dropdown-menu { display: block; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-menu .dropdown-menu li { margin-bottom: 5px; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-menu .dropdown-menu li a { color: #002855; display: block; font-size: 15px; line-height: normal; padding-left: 24px; padding-right: 24px; text-align: left; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .topLang .btn-group .dropdown-menu .dropdown-menu li a:hover { text-decoration: none; }
+
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .btn { background-color: #002855; border: 2px solid #002855; border-radius: 30px; display: block; font-size: 13px; font-weight: 400; height: 56px; line-height: 52px; letter-spacing: 0.065px; line-height: 52px; padding: 0; text-transform: uppercase; width: 100%; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .country .bootstrap-select .dropdown-toggle { background: none; border: 1px solid #B8BBC5; border-radius: 30px; padding: 0 24px; font-size: 13px; font-weight: 400; letter-spacing: 0.065px; line-height: 52px; text-transform: none; }
+.checkout-white-box .left-content-checkout-sec .tab-content .tab-pane h4 { color: #002855; font-size: 18px; font-weight: 400; margin: 0 0 24px 0; text-align: left; text-transform: uppercase; }
+.checkout-white-box .left-content-checkout-sec .tab-content .tab-pane .setDefaultAddress { list-style: none; padding-left: 0; }
+.checkout-white-box .left-content-checkout-sec .tab-content .tab-pane .setDefaultAddress li { color: #002855; font-size: 14px; font-weight: 500; }
+.checkout-white-box .left-content-checkout-sec .tab-content .tab-pane .setDefaultAddress li a { color: #002855; font-size: 14px; font-weight: 600; }
+.checkout-white-box .left-content-checkout-sec .tab-content .tab-pane .setDefaultAddress li .editLink { float: right; text-decoration: underline; }
+.checkout-white-box .left-content-checkout-sec .tab-content .tab-pane .setDefaultAddress li .add_new_addr { text-transform: uppercase; text-decoration: underline; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box { border: 1px solid #D5D5D5; border-radius: 10px; margin: 0; padding: 40px 0 0 0; width: 100%; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec { margin: 0; padding: 0 30px 30px 30px; width: 100%; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec h4 { color: #002855; font-size: 18px; font-weight: 400; margin:  0 0 20px 0; text-align: center; text-transform: uppercase; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline { width: 100%; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline .table-condensed { width: 100%; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline .datepicker-days .table-condensed thead th { color: #002855; font-size: 11.818px; font-weight: 600; letter-spacing: 1.773px; text-transform: uppercase; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline .datepicker-days .table-condensed thead tr:nth-child(2) th:nth-child(2) { color: #002855; font-size: 16.545px; text-transform: none; } 
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline .datepicker-days .table-condensed tbody td { color: #002855; font-size: 18.909px; font-weight: 500; line-height: 21.273px; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline .datepicker-days .table-condensed tbody td.disabled, .checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline .datepicker-days .table-condensed tbody td.new, .checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline .datepicker-days .table-condensed tbody td.old { color: #B5BEC6; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec .datepicker-inline .datepicker-days .table-condensed tbody td.active { background-color: #002855; color: #fff; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .bottom-caln-sec { border-top: 1px solid #D5D5D5; margin: 0; padding: 32px; width: 100%; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .bottom-caln-sec ul { padding-left: 10px; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .bottom-caln-sec ul li { color: #002855; font-size: 14px; font-weight: 500; line-height: 120%; margin-bottom: 12px; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .bottom-caln-sec p { color: #002855; font-size: 14px; font-weight: 500; line-height: 120%; margin-bottom: 12px; white-space: pre-line; }
+/*~~~~~~~~~~~~~~ Checkout Body Section End ~~~~~~~~~~~~~~*/
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media screen and (max-width: 991px) {
+.checkout-white-box { background: none; margin: 26px 0 40px 0; padding: 0 0 0 0; }
+.checkout-white-box h3 { font-size: 28px; }
+
+.checkout-white-box .left-content-checkout-sec .tab-content .tab-pane h4 {  text-align: center; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list { margin-bottom: 20px; margin-left: 0; margin-right: 0; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li { padding-left: 0; padding-right: 0; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list .cus-md-4 { -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; } 
+.checkout-white-box .left-content-checkout-sec .checkout-form-list .cus-md-8 { -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-list li .form-check { margin-top: 0; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box { background-color: #fff; }
+}
+
+@media screen and (max-width: 767px) {
+.bottom-buttons-section { padding-bottom: 132px; position: relative; } 
+.bottom-buttons-section .left-content-checkout-sec { position: static; }
+.checkout-white-box .left-content-checkout-sec .checkout-form-buttons-list { bottom: 0; left: 0; margin-bottom: 0; padding-left: 15px; padding-right: 15px; position: absolute; }     
+.checkout-white-box .right-content-checkout-sec { margin-bottom: 30px; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .top-caln-sec { padding: 0 5px 30px 5px; }
+.checkout-white-box .right-content-checkout-sec .right-checkout-box .bottom-caln-sec { padding: 32px 15px; }
+}

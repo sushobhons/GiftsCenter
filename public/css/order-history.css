@@ -1,0 +1,86 @@
+/*~~~~~~~~~~~~~~ Brands Body Section Start ~~~~~~~~~~~~~~*/
+.custom-max-container { max-width: 1360px; }
+.order-history-white-sec { background-color: #fff; margin: 88px 0; padding: 45px 69px 67px 69px; width: 100%; color: #002855;}
+.order-history-white-sec h3 { color: hsl(212, 100%, 17%); font-size: 42px; font-weight: 400; line-height: 112%; margin: 0 0 71px 0; text-align: center; text-transform: uppercase; }
+.order-history-white-sec h4 { color: hsl(212, 100%, 17%); font-size: 32px; font-weight: 400; line-height: 112%; margin: 0 0 71px 0; text-align: left; text-transform: uppercase; }
+.order-history-white-sec .royalty-btn-sec {float: right; margin-top: -123px; }
+.order-history-white-sec .royalty-btn-sec .royalty-btn-span { background: #002855; border-radius: 30px; color: #FFF; display: inline-block; font-size: 13px; font-weight: 400; letter-spacing: 0.065px; padding: 16px 48px; text-transform: uppercase; }
+.order-history-white-sec .oder-history-table-sec { margin: 0; padding: 0; width: 100%; display: flex; }
+.order-history-white-sec .oder-history-table-sec .table { margin-bottom: 0; }
+.order-history-white-sec .oder-history-table-sec .table th { border-top: none; color: #002855; font-size: 15px; font-weight: 500; padding: 0 15px 28px 15px; white-space: nowrap; }
+.order-history-white-sec .oder-history-table-sec .table td { background-color: #fff; border-top: none; color: #002855; font-size: 14px; font-weight: 600; padding: 23px 15px 34px 15px; position: relative; vertical-align: middle; white-space: nowrap; z-index: 1; }
+.order-history-white-sec .oder-history-table-sec .table td a { position: relative; z-index: 1; text-decoration: none; color: #002855; }
+.order-history-white-sec .oder-history-table-sec .table td a.add-cart-item { margin-right: 10px; }
+.order-history-white-sec .oder-history-table-sec .table td .product-image { height: auto; max-height: 86px; max-width: 127px; width: auto; }
+.order-history-white-sec .oder-history-table-sec .table .blank-td { padding-bottom: 8px; padding-top: 8px; }
+.order-history-white-sec .oder-history-table-sec .table td:after { border-bottom: 1px solid #E8EFF4; border-top: 1px solid #E8EFF4; content: ""; height: 100%; left: 0; position: absolute; top: 0; width: 100%; z-index: 0;  }
+.order-history-white-sec .oder-history-table-sec .table td:nth-child(1):after { border-left: 1px solid #E8EFF4; }
+.order-history-white-sec .oder-history-table-sec .table td:last-child:after { border-right: 1px solid #E8EFF4; }
+.order-history-white-sec .oder-history-table-sec .table .blank-td:after { display: none; }
+.order-history-white-sec .oder-history-table-sec .table td .eclips-icon { background: url(../img/eclips-icon.svg) no-repeat center; display: inline-block; height: 4px; position: relative; top: 12px; width: 20px; }
+.order-history-white-sec .oder-history-table-sec .table td .eclips-icon:hover { background-image: url(../img/eclips-active-icon.svg	); }
+.eclips-icon-sec{ position: relative; cursor: pointer; z-index: 999; }
+.hoverTxt{ display: none; position: absolute;padding: 16px 23px 22px 23px; z-index: 999; top:-140px; left: -24px; text-align: left; border-radius: 5px; background: #002855; box-shadow: 0px 9px 20px -1px rgba(0, 0, 0, 0.10); }
+.hoverTxt a{ width: 100%; float: left; font-size: 12px; font-weight: 500; color: #FFF; }
+.hoverTxt::after{ content: ''; width: 14px; height: 8px; background: url(../img/bottom-arrow.svg) no-repeat; position: absolute;
+    bottom: -8px;
+    left: 48px; }
+
+/*~~~~~~~~~~~~~~ Brands Body Section End ~~~~~~~~~~~~~~*/
+.cms-top-heading { margin: 70px 0 40px; text-align: center; }
+.cms-top-heading h2 { color: #002855; font-size: 18px; font-weight: 600; text-transform: uppercase; margin: 0 0 15px; }
+.cms-top-heading h3 { color: #002855; font-size: 42px; font-weight: 400; margin: 0 0 10px; text-transform: uppercase; }
+.cms-top-heading p { color: #002855; font-size: 15px; margin: 0; text-transform: uppercase; }
+.find-store-white-sec { padding-left: 15px; padding-right: 15px; }
+.store-details-white-sec { padding: 15px; }
+.find-store-list { list-style: none; margin-bottom: 0; margin-left: -10px; margin-right: -10px; padding-left: 0; }
+.find-store-list li { padding-left: 10px; padding-right: 10px; margin-bottom: 20px; }
+.find-store-list li a { display: block; }
+.find-store-list li a:hover { text-decoration: none; }
+.find-store-list li .adrs_detail { background-color: #fff; border: 1px solid #c6c6c6; height: auto; min-height: 171px; padding: 15px; width: 100%; }
+.find-store-list li .adrs_detail h2 { color: #002855; font-size: 15px; font-weight: 400; margin: 0 0 10px; }
+.find-store-list li .adrs_detail ul { list-style: none; margin: 0; padding-left: 0; width: 100%; }
+.find-store-list li .adrs_detail ul li { background: url(../img/loc2.png) no-repeat left 4px; color: #002855; font-size: 14px; margin: 0 0 5px; padding: 0 0 0 20px; width: 100%; }
+.find-store-list li .adrs_detail ul li:nth-child(2) { background: url(../img/phone.png) no-repeat left 5px; }
+.find-store-list li .adrs_detail ul li:last-child { background: none; }
+
+#MapCanvas { height: 400px; margin: 0; width: 100%; }
+
+.contForm { list-style: none; margin-bottom: 0; padding-left: 0; }
+.contForm li { margin-bottom: 16px; }
+.contForm li .form-control { border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; padding: 0 24px; width: 100%; }
+.contForm li .form-select { border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; padding: 0 24px; width: 100%; }
+.contForm li .btn { background-color: #002855; border: 2px solid #002855; border-radius: 30px; display: block; font-size: 13px; font-weight: 400; height: 56px; line-height: 52px; letter-spacing: 0.065px; padding: 0; text-transform: uppercase; width: 100%; }
+
+.conAdrs { list-style: none; margin-bottom: 0; padding-left: 0; }
+.conAdrs li { margin-bottom: 20px; }
+.conAdrs li h2 { color: #002855; font-size: 24px; font-weight: 400; margin: 0 0 0; }
+.conAdrs li p { color: #002855; font-size: 16px; font-weight: 400; line-height: 24px; margin: 0 0 8px 0; }
+.conAdrs li p a { color: #002855; }
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media screen and (max-width: 991px) {
+.cms-top-heading { margin-top: 30px; }
+.cms-top-heading h2 { font-size: 14px; }
+.cms-top-heading h3 { font-size: 22px; }
+
+.order-history-white-sec{ margin: 40px 0; }
+.order-history-white-sec{ padding: 45px 40px 67px 40px; }
+.order-history-white-sec h3{ text-align: left; font-size: 32px; }
+.order-history-white-sec .oder-history-table-sec{ width: 100%; overflow-x: auto;}
+.hoverTxt{ left: -54px; }
+.hoverTxt::after{ left: 72px; }
+
+.find-store-list li .adrs_detail { min-height: 195px }
+.find-store-list li .adrs_detail ul li { font-size: 13px; }
+}
+
+@media screen and (max-width: 767px) {
+.order-history-white-sec{ padding: 45px 15px 67px 15px; }
+.order-history-white-sec h3{ font-size: 32px; margin: 0 0 30px; text-align: center; }
+.order-history-white-sec .royalty-btn-sec{ width: 100%; float: left; margin: 0 0 45px; display: flex;  justify-content: center; }
+
+.find-store-list li .adrs_detail { min-height: 0; }
+.find-store-list li .adrs_detail ul li { font-size: 14px; }
+}

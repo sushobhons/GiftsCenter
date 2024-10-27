@@ -1,0 +1,78 @@
+/*~~~~~~~~~~~~~~ Payment Body Section Start ~~~~~~~~~~~~~~*/
+.payment-sec { margin-bottom: 133px; padding-top: 121px; }
+.payment-sec .container { max-width: 1440px; }
+.payment-sec h3 { color: #002855; font-size: 42px; font-weight: 400; line-height: 112%;  margin: 0 0 40px 0; text-transform: uppercase; }
+.payment-sec h4 { color: #002855; font-size: 18px; font-weight: 400;  margin: 0 0 30px 0; text-transform: uppercase; }
+.payment-sec .left-payment-content-sec .payment-product-list { float: left; list-style: none; margin: 0 0 47px 0; padding: 0; width: 100%; }
+.payment-sec .left-payment-content-sec .payment-product-list li { float: left; margin-bottom: 15px; width: 100%; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card { background-color: #fff; border: none; border-radius: 0px; padding:  24px 15px 14px 15px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table { margin-bottom: 0; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td { border-top: none; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td:nth-child(1) { width: 151px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td:nth-child(3) { text-align: right; vertical-align: middle; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td:nth-child(4) { text-align: right; vertical-align: middle; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td .product-img { height: auto; max-height: 86px; max-width: 127px; width: auto; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td .price-span { color: #002855; display: inline-block; font-size: 18px; font-weight: 600; line-height: 24px; text-transform: uppercase; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td .size-span { color: #002855; display: block; font-size: 16px; font-weight: 500; line-height: 24px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td .qty-text-span { color: #002855; display: inline-flex; margin-right: 5px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td .quantity-block { display: inline-flex; float: none; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td h5 { color: #002855; font-size: 24px; font-weight: 400; margin: 0 0 0 0; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td p { color: #002855; font-size: 16px; font-weight: 400; line-height: 24px; margin: 0; max-width: 350px; }
+.payment-sec .left-payment-content-sec .payment-list { float: left; list-style: none; margin-bottom: 0; padding-left: 0; width: 100%; }
+.payment-sec .left-payment-content-sec .payment-list li { float: left; margin: 0 0 13px 0; padding: 0; width: 100%; }
+.payment-sec .left-payment-content-sec .payment-list li .card { background-color: #fff; border: none; border-radius: 0; padding: 20px 23px 20px 23px; }
+.payment-sec .left-payment-content-sec .payment-list li .card .form-radio-check { margin-bottom: 0; }
+.payment-sec .left-payment-content-sec .payment-list li .card .form-radio-check .form-check-label { text-transform: capitalize; }
+.payment-sec .left-payment-content-sec .btn-list { float: left; list-style: none; margin: 15px 0 0 0; padding: 0; width: 100%; }
+.payment-sec .left-payment-content-sec .btn-list li { float: left; margin: 0; padding: 0; width: 100%; }
+.payment-sec .left-payment-content-sec .btn-list li .btn { background: #002855; border: 2px solid #002855; border-radius: 30px; display: block; font-size: 13px; font-weight: 400; height: 56px; line-height: 52px; letter-spacing: 0.065px; padding: 0 48px; text-transform: uppercase; width: 100%; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec { background-color: #fff; margin: 0; padding: 36px 32px 46px 32px; width: 100%; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec h5 { color: #002855; font-size: 24px; font-weight: 400; margin:  0 0 0 0; text-transform: uppercase; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table { margin-bottom: 38px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td { border-top: none; color: #002855; font-size: 16px; font-weight: 600; line-height: 24px; padding: 14px 0 14px 0; vertical-align: middle; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td:nth-child(2) { text-align: right; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td .btn { background: #002855; border: 2px solid #002855; border-radius: 30px; font-size: 18px; font-weight: 500; letter-spacing: 0.09px; padding: 7.5px 32px; text-transform: capitalize; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td .btn:focus { box-shadow: none; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .summary-table { margin-bottom: 0; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .summary-table td { border-bottom: 1px solid #D5D5D5; border-top: none; color: #002855; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 0 15px 0; vertical-align: middle; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .summary-table td:nth-child(2) { font-weight: 500; text-align: right; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .summary-table tr:last-child td { border-bottom: none; text-transform: uppercase; }
+/*~~~~~~~~~~~~~~ Payment Body Section End ~~~~~~~~~~~~~~*/
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media screen and (max-width: 991px) {
+.payment-sec { margin-bottom: 40px; padding-top: 30px; }
+.payment-sec h3 { font-size: 28px; margin-bottom: 25px; text-align: center; }
+.payment-sec .left-payment-content-sec .payment-product-list { margin-bottom: 25px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card { padding: 14px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table tr { display: block; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td { display: block; padding: 5px 0 5px 0; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td:nth-child(3) { text-align: left; } 
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td:nth-child(4) { text-align: left; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td .product-img { margin-bottom: 10px; max-width: 116px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td h5 { font-size: 18px; margin-bottom: 10px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td p { font-size: 14px; line-height: 15.171px; margin-bottom: 5px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td .size-span { font-size: 14px; }
+.payment-sec .left-payment-content-sec .payment-product-list li .card .table td .price-span { font-size: 21.199px; }
+.payment-sec .left-payment-content-sec .btn-list { margin-bottom: 50px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec { padding: 21px 21px 0 21px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table { margin-bottom: 30px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td { display: block; font-size: 12px; padding-bottom: 8px; padding-top: 8px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td:nth-child(2) { padding-top: 0; text-align: left; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td .btn { font-size: 12.719px; padding: 8.48px 22.612px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec h5 { font-size: 17px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .summary-table td { font-size: 12px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .summary-table td:nth-child(2) { font-size: 12px; }
+}
+
+@media screen and (max-width: 767px) {
+.bottom-buttons-section { padding-bottom: 262px; position: relative; }    
+.payment-sec .left-payment-content-sec { position: static; }
+.payment-sec .left-payment-content-sec .payment-buttons-section { bottom: 0; float: left; left: 0; position: absolute; width: 100%; }
+.payment-sec .left-payment-content-sec .payment-product-list { margin-bottom: 0; }
+.payment-sec .left-payment-content-sec .btn-list { margin-bottom: 0; margin-top: 0; padding-left: 15px; padding-right: 15px; }
+.payment-sec .right-payment-content-sec { margin-bottom: 30px; margin-top: 15px; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td { display: table-cell; }
+.payment-sec .right-payment-content-sec .right-payment-white-sec .royal-table td:nth-child(2) { padding-top: 14px; text-align: right; }
+}

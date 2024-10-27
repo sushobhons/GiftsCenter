@@ -1,0 +1,48 @@
+/*~~~~~~~~~~~~~~ Brands Body Section Start ~~~~~~~~~~~~~~*/
+.custom-max-container { max-width: 1360px; }
+.after-login-white-sec { background-color: #fff; float: left; margin: 88px 0; padding: 45px 69px 5px 69px; width: 100%; }
+.after-login-white-sec h3 { color: #002855; font-size: 42px; font-weight: 400; line-height: 112%; margin: 0 0 71px 0; text-align: center; text-transform: uppercase; }
+.after-login-white-sec .my-account-box { margin: 0; padding: 0 39px 0 39px; width: 100%; }
+.after-login-white-sec .my-account-box h4 { color: #002855; font-size: 18px; font-weight: 400; text-transform: uppercase; margin: 0 0 24px 0; }
+.after-login-white-sec .my-account-box .my-account-form-list { list-style: none; margin-bottom: 40px; margin-left: -6.5px; margin-right: -6.5px; padding: 0; }
+.after-login-white-sec .my-account-box .my-account-form-list li { margin-bottom: 16px; padding-left: 6.5px; padding-right: 6.5px; }
+.after-login-white-sec .my-account-box .my-account-form-list li .form-control { border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; padding: 0 24px; }
+.after-login-white-sec .my-account-box .my-account-form-list li .btn-primary { background-color: #002855; border: 2px solid #002855; border-radius: 30px; font-size: 13px; font-weight: 400; height: 56px; line-height: 52px; letter-spacing: 0.065px; line-height: 52px; margin-top: 11px; padding: 0 48px; text-transform: uppercase; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group { width: 100% !important; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-toggle { background: url(../img/select-sort-arrow-icon.png) no-repeat right 12px top 18px; color: #002855; font-size: 15px; padding: 0 24px; position: relative; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-toggle:hover { color: #002855; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-toggle:after { display: none; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-toggle:focus { box-shadow: none; outline: none !important; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-toggle .caret { display: none; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .flag-icon { line-height: 32px; margin-right: 5px; width: 32px; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-menu { min-width: 151px; min-height: 251px !important; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-menu .dropdown-menu { display: block; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-menu .dropdown-menu li { margin-bottom: 10px; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-menu .dropdown-menu li a { color: #002855; display: block; font-size: 15px; padding-left: 24px; padding-right: 24px; text-align: left; }
+.after-login-white-sec .my-account-box .my-account-form-list li .topLang .btn-group .dropdown-menu .dropdown-menu li a:hover { text-decoration: none; }
+.odrDtls { float: left; height: auto; margin: 0; padding: 0; width: 100%; }
+.odrDtls h2 { clear: both; color: #002855; font-size: 16px; margin: 0 0 15px 0; }
+.odrDtls .dtlTbl { border: 1px solid #c6c6c6; clear: both; float: left; height: auto; margin: 0 0 50px 0; width: 100%; }
+.odrDtls .dtlTbl thead { background: #e7e7e7; }
+.odrDtls .dtlTbl thead th { color:#002855; font-size: 14px; padding: 10px; text-align: left; }
+.odrDtls .dtlTbl td { color:#002855; font-size: 14px; padding: 10px; text-align: left; }
+.odrDtls .dtlTbl tr { border-bottom: 1px solid #c6c6c6; }
+.order_tbl { border: 1px solid #c6c6c6; float: left; height: auto; margin: 0 0 20px 0; width: 100%; }
+.order_tbl thead { background: #e7e7e7; }
+.order_tbl thead th { color:#002855; font-size: 14px; padding: 10px; text-align: center; }
+.order_tbl tbody td { color: #002855; font-size: 14px; padding: 10px; text-align: center;}
+.order_tbl tbody tr { border-bottom: 1px solid #c6c6c6;}
+.order_tbl tbody td .vw { background: #002855; color:#fff; float: left; height: 34px; font-size: 12px; line-height: 34px; margin: 0; padding: 0 15px; text-decoration: none; width: auto; }
+/*~~~~~~~~~~~~~~ Brands Body Section End ~~~~~~~~~~~~~~*/
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media screen and (max-width: 991px) {
+.after-login-white-sec{ margin: 40px 0; padding: 45px 15px 5px 15px; }
+.after-login-white-sec h3 { font-size: 28px; margin-bottom: 40px; }
+.after-login-white-sec .my-account-box{ padding: 0; }
+
+.res-tbl { overflow-y: auto; width: 100%; }
+.res-tbl .order_tbl { }
+.res-tbl .order_tbl th { white-space: nowrap; }
+}

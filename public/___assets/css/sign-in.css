@@ -1,0 +1,18 @@
+.login-sec { display: flex; margin: 0 auto; max-width: 570px; padding-bottom: 88px; padding-top: 88px; width: 100%; }
+.login-white-box { background-color: #fff; float: left; margin: 0; padding: 56px 32px; text-align: center; width: 100%; }
+.login-white-box h3 { color: #002855; font-size: 42px; font-weight: 400; line-height: 112%; margin: 0 0 24px 0; text-transform: uppercase; }
+.login-white-box h4 { color: #002855; font-size: 18px; font-weight: 400; line-height: 24px; margin:  0 0 32px 0; }
+.login-white-box .nav-tabs { border-bottom: none; justify-content: center; margin-bottom: 32px; }
+.login-white-box .nav-tabs .nav-item { position: relative; }
+.login-white-box .nav-tabs .nav-item:after { background-color: #D5D5D5; bottom: -1px; content: ""; height: 1px; left: 0; position: absolute; width: 100%; z-index: 0; }
+.login-white-box .nav-tabs .nav-item .nav-link { border: none; border-radius: 0; color: #002855; font-size: 18px; padding: 0 24px 20px 24px; position: relative; text-transform: uppercase; z-index: 1; }
+.login-white-box .nav-tabs .nav-item.show .nav-link, .login-white-box .nav-tabs .nav-link.active { background: none; border-bottom: 2px solid #002855; }
+.login-white-box .tab-content .tab-pane .sign-in-list { list-style: none; margin-bottom: 0; padding-left: 0; }
+.login-white-box .tab-content .tab-pane .sign-in-list li { margin-bottom: 24px; }
+.login-white-box .tab-content .tab-pane .sign-in-list li .form-control { background-color: #fff; border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; padding: 0 24px; }
+.login-white-box .tab-content .tab-pane .sign-in-list li .btn { background-color: #002855; border: 2px solid #002855; border-radius: 30px; font-size: 13px; font-weight: 400; height: 56px; letter-spacing: 0.065px; line-height: 52px; padding: 0; text-transform: uppercase; width: 100%; }
+.login-white-box .bottom-sign-in-sec { margin: 0; padding: 0; text-align: center; width: 100%; } 
+.login-white-box .bottom-sign-in-sec .or-span-text { color: #000; display: block; font-size: 14px; font-weight: 400; line-height: 24px; margin-bottom: 20px; text-transform: uppercase; }
+.login-white-box .bottom-sign-in-sec .guest-btn { border: 2px solid #002855; border-radius: 30px; color: #002855; cursor: pointer; display: block; font-size: 14px; line-height: normal; letter-spacing: 0.07px; padding: 16px 48px; text-transform: uppercase; }
+.login-white-box .bottom-sign-in-sec p { color: #002855; font-size: 18px; font-weight: 400; margin: 0 0 20px 0; text-transform: uppercase; }
+.login-white-box .bottom-sign-in-sec .guest-btn:hover { text-decoration: none; }

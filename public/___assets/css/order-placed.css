@@ -1,0 +1,50 @@
+/*~~~~~~~~~~~~~~ Oder Placed Body Section Start ~~~~~~~~~~~~~~*/
+.order-placed-sec { background-color: #fff; margin: 87px 0 87px 0; padding: 83px 0 83px 0; text-align: center; width: 100%; }
+.order-placed-sec h3 { color: #002855; font-size: 42px; font-weight: 400; margin: 0 0 8px 0; text-align: center; text-transform: uppercase; }
+.order-placed-sec h4 { color: #002855; font-size: 30px; font-weight: 400; line-height: 30px; margin: 0 0 15px 0; text-transform: uppercase; }
+.order-placed-sec h4 span { display: inline-block; font-size: 16px; position: relative; text-transform: none; top: -5px; }
+.order-placed-sec h5 { color: #002855; font-size: 24px; font-weight: 400; line-height: 36px; margin:  0 0 46px 0; text-transform: capitalize; }
+.order-placed-sec p { color: #002855; font-size: 16px; font-weight: 400; line-height: 24px; margin: 0 0 60px 0; }
+.order-placed-sec .blue-tick-img { margin-bottom: 30px; }
+.order-placed-sec .rating-list { list-style: none; margin-bottom: 62px; padding-left: 0; text-align: center; width: 100%; }
+.order-placed-sec .rating-list li { display: inline-block; margin:  0 15px 0 15px; text-align: center; }
+.order-placed-sec .rating-list li .text-span { color: #002855; display: block; font-size: 16px; font-weight: 400; line-height: 24px; }
+.order-placed-sec .rating-list li .num-span { color: #002855; display: block; font-size: 16px; font-weight: 400; line-height: 24px; margin-bottom: 5px; }
+.order-placed-sec .rating-list li .form-radio-check { color: #002855;display: block; margin-bottom: 0; }
+.order-placed-sec .rating-list li .form-radio-check .form-check-label { display: inline-block; padding-left: 26px; vertical-align: top; }
+.order-placed-sec .openion-list { display: flex; flex-direction: column; justify-content: center; list-style: none; margin: 0 0 20px 0; padding: 0; width: 100%; }
+.order-placed-sec .openion-list li { margin: 0 0 31px 0; padding: 0; text-align: center; width: 100%; }
+.order-placed-sec .openion-list li .text-control { background: #FFF; border: 1px solid #D5D5D5; border-radius: 0; color: #002855; display: inline-block; font-size: 15px; font-weight: 400; height: 124px; line-height: 24px;  padding: 16px 24px; width: 669px; }
+.order-placed-sec .openion-list li .btn { background: #002855; border: 2px solid #002855; border-radius: 30px; font-size: 13px; font-weight: 400; letter-spacing: 0.065px; padding: 16.25px 48px; text-transform: uppercase; }
+.order-placed-sec .share-list { list-style: none; margin: 0; padding: 0; text-align: center; width: 100%; }
+.order-placed-sec .share-list li { display: inline-block; margin: 0 5px 0 5px; }
+/*~~~~~~~~~~~~~~ Oder Placed Body Section End ~~~~~~~~~~~~~~*/
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media screen and (max-width: 767px) {
+.order-placed-sec { background: none; margin-bottom: 75px; margin-top: 50px; padding-bottom: 0; padding-top: 0; }
+.order-placed-sec .blue-tick-img { height: auto; margin-bottom: 21px; width: 58px; }
+.order-placed-sec h3 { font-size: 28px; }
+.order-placed-sec p { margin-bottom: 50px; }
+.order-placed-sec h4 span { display: block; top: 0; }
+.order-placed-sec h5 { font-size: 20px; margin-bottom: 30px; }
+
+.order-placed-sec .rating-list { float: left; margin-bottom: 20px; width: 100%; }
+.order-placed-sec .rating-list li { float: left; margin-left: 4%; margin-right: 4%; width: 16%; }
+.order-placed-sec .rating-list li:nth-child(1) { display: none; }
+.order-placed-sec .rating-list li:last-child { display: none; }
+.order-placed-sec .rating-list li:nth-child(2) { margin-left: 0; margin-right: 0; text-align: left; width: 14%; }
+.order-placed-sec .rating-list li:nth-child(6) { margin-left: 0; margin-right: 0; text-align: right; width: 14%; }
+.order-placed-sec .rating-list li:nth-child(2) .num-span { margin-left: 10px; }
+.order-placed-sec .rating-list li:nth-child(6) .num-span { margin-right: 9px; }
+
+.excellent-list { float: left; list-style: none; margin-bottom: 40px; padding-left: 0; width: 100%; }
+.excellent-list li { color: #002855; float: left; font-size: 16px; font-weight: 400; }
+.excellent-list li:last-child { float: right; }
+
+.order-placed-sec .openion-list li { margin-bottom: 20px; }
+.order-placed-sec .openion-list li .text-control { width: 100%; }
+
+.order-placed-sec h4 { font-size: 24px; }
+}
