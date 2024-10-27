@@ -22,14 +22,14 @@ steps:
     replaceExistingArchive: true
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'ssh-pos'
+    sshEndpoint: 'ssh-web'
     sourceFolder: '$(Build.ArtifactStagingDirectory)'
     contents: '$(Build.BuildId).zip'
     targetFolder: '/var/www/html/'
     readyTimeout: '20000'
 - task: SSH@0
   inputs:
-    sshEndpoint: 'ssh-pos'
+    sshEndpoint: 'ssh-web'
     runOptions: 'commands'
     commands: |
       unzip -o /var/www/html/$(Build.BuildId).zip -d /var/www/html/web
