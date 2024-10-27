@@ -5,13 +5,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: DownloadPipelineArtifact@2
-  inputs:
-    buildType: 'current'
-    artifactName: 'drop'
-    targetPath: '$(Pipeline.Workspace)'
-
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: '$(Pipeline.Workspace)/website.zip'
-    destinationFolder: '$(Pipeline.Workspace)/'
+    archiveFilePatterns: '**/*.zip'
+    destinationFolder: ''
+    cleanDestinationFolder: true
+    overwriteExistingFiles: false
