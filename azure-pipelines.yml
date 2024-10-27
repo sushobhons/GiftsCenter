@@ -8,6 +8,6 @@ steps:
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: '**/*.zip'
-    destinationFolder: '$(Pipeline.Workspace)/'
+    destinationFolder: '$(Pipeline.Workspace)/extracted-files'
     cleanDestinationFolder: true
     overwriteExistingFiles: false
