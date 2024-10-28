@@ -1,0 +1,611 @@
+.container-fluid {
+    background-color: #fff;
+    margin: 88px 0;
+    padding: 45px 69px 67px 69px;
+    width: 100%;
+    color: #002855;
+}
+
+.row {
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+}
+
+.col-8-desktop {
+
+    width: calc((100% / 12) * 8);
+
+}
+
+.section-title {
+
+    font-weight: 700; font-size: 24px; line-height: 30px;
+
+    color: #002855;
+
+}
+
+.text-center {
+
+    text-align: center;
+
+}
+
+.egift-card-carousel .item {
+
+    padding: 2px 10px;
+
+}
+
+.egift-card-carousel .image-wrapper {
+
+    padding: 5px;
+
+    margin: 2px 0 0 2px;
+
+    outline: none; cursor: pointer;
+
+}
+
+.egift-card-carousel .image-wrapper.selected {
+
+    border:#002855 2px solid;
+
+    margin: 0;
+
+}
+
+.egift-card-carousel .image-wrapper img {
+
+    display: block;
+
+    width: 90px;
+
+}
+
+
+
+#owl-egiftcards{ display:flex; justify-content:center; margin-top: 30px;}
+
+//#owl-egiftcards .owl-item{ display:inline-block; float:none; margin: 0 10px;}
+
+.egift-card-large{ margin-top:50px; margin-bottom:80px; }
+
+.egift-card-large img{ border:#002855 2px solid; width: 335px;}
+
+
+
+
+
+.crnbudget--subtitle {
+
+    margin-bottom: 15px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    width: 100%;
+
+    margin-top:40px;
+
+}
+
+.crnbudget--h3 {
+
+    display: inline-block;
+
+    position: relative;
+
+    text-align: center;
+
+    font-size: 30px;
+
+    font-size: 1.875rem;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+
+    padding: 0 15px;
+
+    margin-bottom: 5px;
+
+}
+
+
+
+.crnbudget--h3:after, .crnbudget--h3:before {
+
+    content: "";
+
+    display: block;
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 190px;
+
+    height: 2px;
+
+    background: #e5e5e5;
+
+    left:100%;
+
+}
+
+.crnbudget--h3:before {
+
+    right: 100%;
+
+    left:auto;
+
+}
+
+svs-gift-card-form .section-title {
+
+    /*font-family: "ClarinsRegular","Times New Roman",Times,serif;*/
+
+    font-size: 40px;
+
+}
+
+.crn-container {
+
+    /*font-family: "Gotham SSm book A", "Gotham SSm book B", Gotham, Helvetica, Arial, sans-serif;*/
+
+    box-sizing: border-box;
+
+    margin-top:25px;
+
+    margin-bottom: 50px;
+
+}
+
+.crnbudget {
+
+    padding: 0 20px;
+
+    margin: 0 auto;
+
+}
+
+.crnbudget--logo-txt {
+
+    display: flex;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+
+    text-align: center;
+
+    /*font-family: "Gotham SSm book A", "Gotham SSm book B", Gotham, Helvetica, Arial, sans-serif;*/
+
+    font-weight: 500;
+
+    max-width: 300px;
+
+    margin: 0 auto 15px;
+
+}
+
+.crnbudget--conseil{    text-align: center;
+
+    display: flex;
+
+    width: 100%;
+
+    max-width: 765px;
+
+    justify-content: center;
+
+    margin: 0 auto;}
+
+
+
+
+
+.crn-container * {
+
+    box-sizing: inherit;
+
+}
+
+.crnbudget--el {
+
+    border: solid 2px #e5e5e5;
+
+    padding: 0;
+
+    margin-bottom: 10px;
+
+    font-weight: 700; font-size: 14px; line-height: 40px;
+
+    color:#002855;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+.crnbudget--el.active {
+
+    border: solid 2px #002855;
+
+}
+
+.crndelivery--el {
+
+    border: solid 2px #e5e5e5;
+
+    padding: 0;
+
+    margin-bottom: 10px;
+
+    font-weight: 700; font-size: 14px; line-height: 40px;
+
+    color:#002855;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+.crnbudget--price {
+    cursor: pointer;
+}
+
+.crndelivery--el.active {
+
+    border: solid 2px #002855;
+
+}
+
+.send_details {
+    width: 100%;
+    height: auto;
+    float: left;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+}
+
+.crnbudget--idees {
+
+    width: 100%;
+
+    max-width: 180px;
+
+    margin:0 2px;
+
+}
+
+input[type=text] {
+
+    background:none;
+
+    font-size: 14px;
+
+    letter-spacing: .28px;
+
+    -webkit-box-sizing: border-box;
+
+    box-sizing: border-box;
+
+    border:none;
+
+    border-bottom: 1px solid #7f93aa;
+
+    height: 50px;
+
+    padding: 0 18px;
+
+    color: #000;
+
+    width: 100%;
+
+    margin: 0;
+
+    border-radius: 0;
+
+    font-weight: 700; font-size: 14px; line-height: 22px;
+
+    outline:none !important;
+
+    padding:0;
+
+}
+
+input[type=email] {
+
+    background:none;
+
+    font-size: 14px;
+
+    letter-spacing: .28px;
+
+    -webkit-box-sizing: border-box;
+
+    box-sizing: border-box;
+
+    border:none;
+
+    border-bottom: 1px solid #7f93aa;
+
+    height: 50px;
+
+    padding: 0 18px;
+
+    color: #000;
+
+    width: 100%;
+
+    margin: 0;
+
+    border-radius: 0;
+
+    font-weight: 700; font-size: 14px; line-height: 22px;
+
+    outline:none !important;
+
+    padding:0;
+
+}
+
+textarea {
+
+    background:none;
+
+    padding: 0;
+
+    height: 80px;
+
+    margin-top:30px !important;
+
+    font-weight: 700; line-height: 22px;
+
+    font-size: 14px;
+
+    letter-spacing: .28px;
+
+    outline:none !important;
+
+    -webkit-box-sizing: border-box;
+
+    box-sizing: border-box;
+
+    border:none;
+
+    border-bottom: 1px solid #7f93aa;
+
+
+
+    color: #000;
+
+    width: 100%;
+
+    margin: 0;
+
+    border-radius: 0;
+
+}
+
+.egift-card-carousel .image-wrapper img{ width:100%; }
+
+.recnt ul { list-style: none; padding-left: 0; }
+.recnt ul li{ width:49%; padding:0; float:left; background:none; }
+
+.recnt ul li:nth-child(2){ float:right; }
+
+.recnt2 ul li{ width:49%; padding:0; float:left; background:none; }
+
+.recnt2 ul li:nth-child(2){ float:right; }
+
+.rdo{ width:100%; float:left; margin:40px 0 5px 0; text-align: left; font-weight: 700; font-size: 15px; color:#002855; }
+
+.rdo input[ type="radio" ]{ position:relative; top:1px; margin-right:2px; }
+
+
+
+
+
+.gftDv{
+
+    width: calc((100% / 12) * 8);
+
+    margin:50px auto auto;
+
+}
+
+.amount-banner {
+
+    margin: 40px 0;
+
+    clear: both;
+
+    display: inline-block;
+
+    border: 1px solid #002855;
+
+    height: 100%;
+
+    padding: 0 20px 30px;
+
+}
+
+.amount-banner .icon {
+
+    margin-right: 40px;
+
+}
+
+.amount-banner .message {
+
+    font-weight: 700; font-size: 16px;
+
+    margin: 37px 60px 0 0;
+
+}
+
+.amount-banner .amount {
+
+    font-weight: 700;
+
+    font-size: 28px;
+
+    margin-top: 37px;
+
+    color:#002855;
+
+}
+
+.svg-gift_card_svs {
+
+    background: url(../img/Screenshot_1.png) center no-repeat;
+
+    background-size: 67px 57.4px;
+
+}
+
+.svg-gift_card_svs-dims {
+
+    width: 67px;
+
+    height: 57.4px;
+
+}
+
+.amount-banner div {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    vertical-align: top;
+
+}
+
+.amount-banner div {
+
+    margin-top: 30px;
+
+}
+
+.addBtn{ display:block; width:140px; height:45px; background:#002855; font-weight: 400; font-size:  15px; line-height: 45px; color:#FFF; margin: auto auto 100px; border:none; }
+
+.addBtn:hover,.addBtn:focus{ background:#FFF; color:#002855; border:1px solid #002855; }
+
+
+
+.svs-send-time-button{ width:300px; float:left; border:#002855 1px solid; padding:20px; font-weight: 400; font-size:  15px; line-height: 30px; cursor: pointer;}
+
+.svs-send-time-button--later{ width:300px; float:right; border:#002855 1px solid; padding: 5px 20px 20px; font-weight: 400; font-size: 15px; line-height: 30px; position:relative;  cursor: pointer;}
+
+.asset-block{ width:100%; float:left; text-align:center; font-weight: 400; font-size: 15px; line-height: 28px; }
+
+.date-block{ }
+
+#native-date-picker{
+
+    opacity: 0;
+
+    position: absolute;
+
+    padding: 0;
+
+    top: 0;
+
+    left: 0;
+
+    font-size: 295px;
+
+    width: 100%;
+
+    height: 100%;
+    cursor: pointer;
+
+}
+
+.svs-select-send-time-wrapper{ margin:25px auto 20px;width:620px;     display: inline-block;}
+
+
+
+.delivery_radio_btn {position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    opacity: 0;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .egift-card-large{display:none;}
+
+    #owl-egiftcards {margin-bottom: 30px;}
+
+    .svs-select-send-time-wrapper{ width:100%; }
+
+    .svs-send-time-button--later{ width:230px; }
+
+    .svs-send-time-button{ width:230px; }
+
+}
+
+@media (min-width: 300px) and (max-width: 767px) {
+
+    .egift-card-large{display:none;}
+
+    #owl-egiftcards {margin-bottom: 30px;}
+
+    .gftDv{ width:90%; }
+
+    .egift-card-large img{ width:100%; }
+
+    .svs-select-send-time-wrapper{ width:100%; }
+
+    .svs-send-time-button--later{ width:48%; float:right; font-weight: 400; font-size: 12px; line-height: 22px; padding:5px 10px 20px; }
+
+    .svs-send-time-button{ width:48%; font-weight: 400; font-size: 12px; line-height: 22px; padding:18px 10px 22px; }
+
+    .recnt ul li{ width:100%; }
+
+    .owl-nav{position: absolute;width: 100%;top: 125px;}
+
+    .owl-prev{float: left;margin-left: -25px;}
+
+    .owl-next{float: right;margin-right: -25px;}
+
+    .owl-carousel .owl-stage-outer {z-index: 999;}
+
+    .gift-email{ width:100%; float:left; }
+
+    .button-wrapper-later{ position:relative; }
+
+    .svs-select-send-time-wrapper{margin:0px auto 20px;}
+
+    .rdo{ position:relative; z-index:99; margin-bottom:20px;}
+
+    .amount-banner{ padding: 0 0 30px; width:100%; }
+
+    .amount-banner .icon{margin-right: 40px; float: left;  margin-left: 12px;}
+
+    .amount-banner .message{ font-weight: 700; font-size: 16px; margin: 39px 0 0 -26px; float: left; }
+
+    .amount-banner .amount{ font-weight: 700; font-size: 20px; margin-top: 43px; color: #002855; float: right;  margin-right: 12px;}
+
+    .recnt{ width:100%; float:left; position:relative; z-index:99;}
+
+}

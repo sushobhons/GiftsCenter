@@ -1,0 +1,53 @@
+/*~~~~~~~~~~~~~~ CMS Page Body Section Start ~~~~~~~~~~~~~~*/
+
+.cms-top-heading { margin: 70px 0 40px; text-align: center; }
+.cms-top-heading h2 { color: #002855; font-size: 18px; font-weight: 600; text-transform: uppercase; margin: 0 0 15px; }
+.cms-top-heading h3 { color: #002855; font-size: 42px; font-weight: 400; margin: 0 0 10px; text-transform: uppercase; }
+.cms-top-heading p { color: #002855; font-size: 15px; margin: 0; text-transform: uppercase; }
+
+.brands-white-sec { background-color: #fff; margin: 60px 0 60px 0; padding: 45px 85px 45px 85px; width: 100%; }
+
+.find-store-white-sec { padding-left: 15px; padding-right: 15px; }
+
+.brands-white-sec .brands-list { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; list-style: none; margin-bottom: 0; padding-left: 0; width: 100%; }
+
+
+.brands-white-sec .brands-list li { -ms-flex: 0 0 16.66666666666667%; flex: 0 0 16.66666666666667%; max-width: 16.66666666666667%; } 
+
+.brands-white-sec .brands-list li h3 { color: #002855; font-size: 18px; font-weight: 600; margin: 0 0 20px 0; text-transform: uppercase; }
+
+.brands-white-sec .brands-list li ul { list-style: none; margin-bottom: 45px; padding-left: 0; width: 100%; }
+
+.brands-white-sec .brands-list li ul li { -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; margin: 0 0 3px 0; padding: 0; width: 100%; }
+
+.brands-white-sec .brands-list li ul li a { color: #002855; display: block; font-size: 14px; font-weight: 400; line-height: 26px; }
+
+
+/*~~~~~~~~~~~~~~ CMS Page Body Section End ~~~~~~~~~~~~~~*/
+
+
+
+/* RESPONSIVE CSS
+
+-------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+.cms-top-heading { margin-top: 30px; }
+.cms-top-heading h2 { font-size: 14px; }
+.cms-top-heading h3 { font-size: 22px; }
+
+.brands-white-sec { background: none; margin-bottom: 60px; margin-top: 60px; padding: 0; }
+
+.brands-white-sec .brands-list li { -ms-flex: 0 0 33.33333333333333%; flex: 0 0 33.33333333333333%; max-width: 33.33333333333333%; padding-right: 10px; }
+.brands-white-sec .brands-list li ul { margin-bottom: 30px; }
+.brands-white-sec .brands-list li ul li { margin-bottom: 8px; }
+
+.find-store-list li .adrs_detail { min-height: 195px }
+.find-store-list li .adrs_detail ul li { font-size: 13px; }
+
+}
+
+@media screen and (max-width: 767px) {
+.find-store-list li .adrs_detail { min-height: 0; } 
+.find-store-list li .adrs_detail ul li { font-size: 14px; }
+}

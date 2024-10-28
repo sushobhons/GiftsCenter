@@ -1,0 +1,145 @@
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (hover: hover) and (min-width: 600px) {
+}
+
+@media (min-width: 1600px) {
+}
+
+@media (min-width: 1850px) {
+}
+
+@media (min-width: 1920px) {
+}
+
+@media (min-width: 2300px) {
+}
+
+@media (min-width: 2500px) {
+}
+
+@media screen and (max-width: 991px) {
+    .mobile-hide { display: none; }
+    .web-hide { display: block !important; }
+    .mobile-display-inline-block { display: inline-block !important; }
+    .body-class { display: block !important; }
+    .body-class.show { overflow: hidden; }
+    /*~~~~~~~~~~~~~~ GLOBAL STYLES End ~~~~~~~~~~~~~~*/
+
+    /*~~~~~~~~~~~~~~ Header Start ~~~~~~~~~~~~~~*/
+    .mobile-header-navbar { position: static; }
+    .mobile-header-navbar { display: block !important; }
+    .mobile-top-header { align-items: center; display: flex; justify-content: space-between; }
+    .mobile-top-header .logo { margin-left: 67px; }
+    .mobile-top-header .logo .navbar-brand { margin-right: 0; padding-bottom: 0; padding-top: 0; }
+    .mobile-top-header .navbar-toggler { border: none; border-radius: 0; height: 26px; margin-left: 15px; padding: 0; position: relative; width: 32px; }
+    .mobile-top-header .navbar-toggler .navbar-toggler-icon { background: #002855; border-radius: 10px; height: 4px; margin-top: -3px; width: 100%; }
+    .mobile-top-header .navbar-toggler .navbar-toggler-icon { transform: scaleY(0); transform-origin: 0% 0%; transition: transform 0.7s ease-in-out; }
+    .mobile-top-header .navbar-toggler .navbar-toggler-icon1 { background: #002855; border-radius: 10px; content: ""; height: 4px; left: 0; position: absolute; top: 0; width: 100%;  }
+    .mobile-top-header .navbar-toggler .navbar-toggler-icon1 { transform: rotate(45deg); transform-origin: 0% 0%; transition: transform 0.7s ease-in-out; }
+    .mobile-top-header .navbar-toggler .navbar-toggler-icon3 { background: #002855; border-radius: 10px; bottom: 0; content: ""; height: 4px; left: 0; position: absolute; width: 100%;  }
+    .mobile-top-header .navbar-toggler .navbar-toggler-icon3 { transform: rotate(-45deg); transform-origin: 0% 100%; transition: transform 0.7s ease-in-out; }
+    .mobile-top-header .collapsed .navbar-toggler-icon { transform: scaleY(100%); }
+    .mobile-top-header .collapsed .navbar-toggler-icon1 { transform: rotate(0deg); }
+    .mobile-top-header .collapsed .navbar-toggler-icon3 { transform: rotate(0deg); }
+    .mobile-top-header .top-nav { height: 24px; list-style: none; margin-bottom: 0; padding: 0; }
+    .mobile-top-header .top-nav li { float: left; margin-right: 21px; }
+    .mobile-top-header .top-nav li a { display: block; line-height: 24px; }
+    .mobile-top-header .top-nav li a .fa { color: #002855; font-size: 20px; position: relative; top: 2px; }
+    .mobile-header-navbar .bottom-header { background: #C6DEDE; border-top: none; color: #002855; font-size: 14px; font-weight: 500; padding: 14px 30px; text-align: center; }
+    .navbar-collapse { background: #EFF5F5; border-top: 1px solid #D1D1D1; bottom: 0; display: block !important; left: -100%; overflow-y: auto; min-height: calc(100% - 58px); margin-top: 58px; padding: 0 25px 25px 25px; position: fixed; top: 0; transition: all 0.5s ease; width: 100%; z-index: 2; }
+    .navbar-collapse.show { left: 0; }
+    .navbar-collapse .navbar-nav { display: none; }
+    .navbar-collapse .watches-btn { display: block; left: 0; position: relative; right: 0; text-align: center; top: 0; }
+    .navbar-collapse .main-accordion { padding-bottom: 20px; padding-top: 30px; }
+    .navbar-collapse .main-accordion .card { background: #EFF5F5; border: none; border-radius: 0; }
+    .navbar-collapse .main-accordion .card .card-header { background: #EFF5F5; border-bottom: 1px solid #D1D1D1; margin-bottom: 0; padding: 0 0 0 33px; }
+    .navbar-collapse .main-accordion .card .card-header h2 { height: 56px; line-height: 56px; margin-bottom: 0; position: relative; }
+    .navbar-collapse .main-accordion .card .card-header h2 a { color: #002855; font-size: 16px; font-weight: 500; left: 0; line-height: 56px; position: absolute; top: 0; }
+    .navbar-collapse .main-accordion .card .card-header h2 a:focus { text-decoration: none; }
+    .navbar-collapse .main-accordion .card .card-header .btn { background: url(../img/accordion-arrow-icon.svg) no-repeat right 10px top 50%; border-radius: 0; height: 56px; line-height: 56px; padding: 0 33px 0 0; }
+    .navbar-collapse .main-accordion .card .card-header .collapsed { background: url(../img/accordion-down-arrow-icon.png) no-repeat right center; }
+    .navbar-collapse .main-accordion .card .card-header .btn:focus { box-shadow: none; outline: none; }
+    .navbar-collapse .main-accordion .card .card-body { min-height: 0; padding: 0; }
+    .navbar-collapse .main-accordion .card .sub-accordion .card:last-child { border-bottom: none; }
+    .navbar-collapse .main-accordion .card .sub-accordion .card .card-header { border-bottom: none; }
+    .navbar-collapse .main-accordion .card .sub-accordion .card .card-header h2 a { font-weight: 700; text-transform: uppercase; }
+    .navbar-collapse .main-accordion .card .sub-accordion .card .card-body { padding-left: 33px; padding-right: 33px; }
+    .navbar-collapse .main-accordion .card .sub-accordion .card .card-body .sub-menu-list { list-style: none; margin-bottom: 0; padding-left: 20px; }
+    .navbar-collapse .main-accordion .card .sub-accordion .card .card-body .sub-menu-list li { margin-bottom: 10px; }
+    .navbar-collapse .main-accordion .card .sub-accordion .card .card-body .sub-menu-list li a { border-bottom: none; color: #002855; font-weight: 500; line-height: 24px; }
+    .navbar-collapse .main-accordion .card .sub-accordion .card .card-body .sub-menu-list li .shop-all-link { background: url(../img/right-arrow-icon.png) no-repeat right 2px; padding-right: 25px !important; }
+    /*~~~~~~~~~~~~~~ Header End ~~~~~~~~~~~~~~*/
+
+    .inner-banner img { height: 224px; object-fit: cover; }
+    /*~~~~~~~~~~~~~~ Banner End ~~~~~~~~~~~~~~*/
+
+    .arrivalBanner { background-position: 0 0; height: 362px }
+    .newArrivalBanner .arrivalHolder { float: right; width: 52%; }
+    .arrivalBanner img { height: auto; width: 104px; }
+    .arrivalBanner h3 { font-size: 16px; margin-bottom: 20px; margin-top: 20px; text-transform: uppercase; }
+    .arrivalBanner a { font-size: 10px; line-height: 24px; padding: 0 23.7px; }
+    /*~~~~~~~~~~~~~~ Body Bottom Banner End ~~~~~~~~~~~~~~*/
+
+    /*~~~~~~~~~~~~~~ Footer Start ~~~~~~~~~~~~~~*/
+    .top-footer { margin-bottom: 20px; padding-bottom: 45px; padding-top: 40px; text-align: center; }
+    .top-footer .footer-logo { margin-bottom: 20px; }
+    .footer-news-list { display: block; margin-top: 20px; }
+    .footer-news-list li { margin-right: 0; }
+    .footer-news-list li label { margin-bottom: 20px; }
+    .footer-news-list li .form-control { width: 100%; }
+    .midFooter { padding-bottom: 0; }
+    .midFooter .row { margin-left: 0; margin-right: 0; }
+    .midFooter .footer-menu h3 { font-size: 15px; margin-bottom: 10px; }
+    .midFooter .footer-menu { border-bottom: 1px solid #E9E9E9; -ms-flex: 0 0 100%; flex: 0 0 100%; margin-bottom: 20px; max-width: 100%; padding-left: 0; padding-right: 0; }
+    .midFooter .footer-menu ul li { font-size: 14px; margin-bottom: 5px; }
+    .bottomFooter { border-top: none; padding-top: 0; }
+    .bottomFooter .left-bottom-footer { margin-bottom: 0; padding-left: 0; padding-right: 0; }
+    .bottomFooter .left-bottom-footer li { margin-bottom: 15px; margin-right: 0; text-align: center; width: 100%; }
+    .bottomFooter .left-bottom-footer li:nth-child(2) { padding-right: 7.5px; width: 50%; }
+    .bottomFooter .left-bottom-footer li:nth-child(3) { padding-left: 7.5px; width: 50%; }
+    .bottomFooter .left-bottom-footer li a { display: block; text-align: center; }
+    .bottomFooter .left-bottom-footer li a img { height: auto; width: 100%; }
+    .bottomFooter .right-bottom-footer li { margin-left: 10px; margin-right: 10px; }
+    .bottomFooter .right-bottom-footer li img { width: 32px; }
+    /*~~~~~~~~~~~~~~ Footer End ~~~~~~~~~~~~~~*/
+
+    /* MODAL Start
+    -------------------------------------------------- */
+    .cmnModal .modal-dialog { height: 100%; margin: 0; }
+    .cmnModal .modal-content { background: #EFF5F5; height: 100%; }
+    .cmnModal .modal-header { padding-bottom: 0; padding-top: 0; }
+    .cmnModal .modal-header .close { right: 14px; top: 14px; }
+    .cmnModal .modal-header .modal-title { font-size: 28px; margin-top: 35px; text-align: center; }
+    .cmnModal .modal-header h5 { color: #002855; font-size: 18px; font-weight: 600; line-height: 56px; margin-bottom: 0; margin-top: 0; }
+    .cmnModal .modal-footer .btn-primary { margin: 0; margin-bottom: 16px; width: 100%; }
+    .cmnModal .modal-footer .btn-default { margin: 0; width: 100%; }
+
+    /*------------------------- Quick View Modal Start -------------------------*/
+    .quickViewModal .modal-body { padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; }
+    .quickViewModal .right-quick-view-detsils { padding-left: 30px; padding-right: 30px; }
+    .right-quick-view-detsils h3 { font-size: 34px; }
+    .right-quick-view-detsils h5 { font-size: 28px; }
+    .right-quick-view-detsils h5 span { font-size: 16px; }
+    .right-quick-view-detsils .add-to-basket-btn { width: 100%; }
+    .right-quick-view-detsils .add-loves-btn { text-align: center; width: 100%; }
+
+    /*------------------------- Add To Cart Modal Start -------------------------*/
+    .addCartModal .cart-sec { background-color: #fff; padding: 20px 14px 20px 14px; }
+    .addCartModal .cart-sec .table tr { display: block; }
+    .addCartModal .cart-sec .table td { border-bottom: none; display: block; padding-bottom: 5px; padding-top: 5px; }
+    .addCartModal .cart-sec .table td:nth-child(3) { display: inline-block; height: 49px; }
+    .addCartModal .cart-sec .table td:nth-child(4) { display: inline-block; height: 49px; }
+    .addCartModal .cart-sec .table td img { max-width: 116px; }
+    .addCartModal .cart-sec .table td h3 { font-size: 18px; line-height: 21.94px; margin-top: 20px; }
+    .addCartModal .cart-sec .table td p { font-size: 14px; }
+    .addCartModal .cart-sec .table td p span { display: block; font-weight: 500; }
+    .addCartModal .cart-sec .table td .qty-text-span { line-height: 39px; margin-top: 0; }
+    .addCartModal .cart-sec .table td .price-spna { font-size: 21.2px; line-height: 39px; margin-left: 10px; }
+
+    /*------------------------- Redeem Voucher Points Modal Start -------------------------*/
+    .loyaltyPointsModal .modal-body p { margin-left: 0; margin-right: 0; }
+    .loyaltyPointsModal .modal-body .redeem-small-box { width: 100%; }
+    .loyaltyPointsModal .modal-body .redeem-small-box .promo-list li .form-control { font-size: 12px; height: 40px;  line-height: 38px; }
+    .loyaltyPointsModal .modal-body .redeem-small-box .promo-list li .btn { font-size: 13px; line-height: 30px; padding: 0 22.612px; margin-top: -34px; }
+}

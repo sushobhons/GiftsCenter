@@ -1,0 +1,3728 @@
+/* GLOBAL STYLES
+
+-------------------------------------------------- */
+
+body { background-color: #EFF5F5; font-family: 'Montserrat', sans-serif; line-height: 24px; }
+
+html, body { height: 100%; }
+
+input:focus, .form-control { box-shadow: none !important; }
+
+:root { --d: 700ms; --e: cubic-bezier(0.19, 1, 0.22, 1); }
+
+.web-hide { display: none !important; }
+
+
+
+.signup-text p strong { font-weight: 500; }
+
+.alert-msg{ color:#ff003c;}
+
+.red-span { color:#ff003c; }
+.red-text { color:#ff003c !important;}
+
+.loader{ text-align: center; margin-bottom: 20px; display: none; }
+
+/* HEADER
+
+-------------------------------------------------- */
+
+.header-navbar { background: none; display: block; padding: 0; }
+
+.top-header { background-color: #c6dede; /*border-bottom: 5px solid #fff;*/ color: #002855; font-size: 18px; font-weight: 700; line-height: 40px; text-align: center; width: 100%; }
+
+.bottom-header { background-color: #fff; border-top: 4px solid #002855; width: 100%; }
+
+.bottom-header-top { align-items: center; display: flex; justify-content: space-between; padding-left: 30px; padding-right: 30px; padding-top: 10px; width: 100%; }
+
+.bottom-header-top .logo { margin-left: -130px; }
+
+.bottom-header-top .navbar-brand { margin-right: 0; padding-bottom: 0; padding-top: 0; }
+
+.bottom-header-top .top-search { position: relative; width: 344px; }
+
+.bottom-header-top .top-search .form-control { background: url(../img/search-icon.png) no-repeat 0 center; border: none; border-bottom: 1px solid #D5D5D5; border-radius: 0; color: #002855; font-size: 13px; font-weight: 500; height: 56px; padding: 0 0 0 29px; width: 100%; }
+.bottom-header-top .top-search .form-inline .typeahead { left:0 !important; width: 100%; padding:0; border:none; border-radius: 0; }
+.bottom-header-top .top-search .form-inline .typeahead li a { color:#002855; display: flex; font-size: 11px; font-weight: 400; line-height: 17px; white-space:normal; padding:5px 10px; border-bottom:2px solid transparent !important;}
+.bottom-header-top .top-search .form-inline .typeahead li a .search_li_image { margin-right: 10px; min-width: 42px; width: 42px; }
+.bottom-header-top .top-search .form-inline .typeahead li a .search_li_image img { height: auto; width: 100%;  }
+.bottom-header-top .top-search .form-inline .typeahead li a .search_li_text { display:block; overflow:hidden;}
+.bottom-header-top .top-search .form-inline .typeahead li a strong { font-weight: 700; font-size: 12px; }
+.bottom-header-top .top-search .form-inline .typeahead li.active a { text-decoration:none;}
+.bottom-header-top .top-search .form-inline .typeahead li:hover a { text-decoration:none; background:#002855; color:#fff;}
+
+.bottom-header-top .top-right-nav .top-nav { list-style: none; }
+
+.bottom-header-top .top-right-nav .top-nav li { float: left; margin-left: 20px; position: relative; }
+
+
+.bottom-header-top .top-right-nav .top-nav li a { display: block; line-height: 23px; }
+
+.bottom-header-top .top-right-nav .top-nav li a img { position: relative; top: -4px; }
+
+.bottom-header-top .top-right-nav .top-nav li a .fa { color: #002855; font-size: 20px; }
+
+.bottom-header-top .top-right-nav .top-nav li a .count{
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  background: #ff003c;
+  border-radius: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  top: -6px;
+  right: -12px;
+  font-size: 11px;
+}
+
+.bottom-header-top .top-right-nav .top-nav .user-link a { background: url(../img/user-icon.png) no-repeat 0 center; color: #002855; font-size: 13px; font-weight: 500; padding-left: 30px; }
+
+.bottom-header-top .top-right-nav .top-nav li .dropdown-toggle { background: none; border: none; border-radius: 0; color: #002855; padding: 0; }
+.bottom-header-top .top-right-nav .top-nav li .dropdown-toggle:focus { box-shadow: none; outline: none; }
+.bottom-header-top .top-right-nav .top-nav .dropdown .dropdown-menu { margin-top: 0; }
+.bottom-header-top .top-right-nav .top-nav .dropdown:hover .dropdown-menu { display: block; }
+.bottom-header-top .top-right-nav .top-nav .dropdown .dropdown-menu ul { list-style: none; margin-bottom: 0; padding-left: 0; }
+.bottom-header-top .top-right-nav .top-nav .dropdown .dropdown-menu ul li { float: none; margin-left: 0; }
+.bottom-header-top .top-right-nav .top-nav .dropdown .dropdown-menu ul li a { background-image: none; padding-left: 0; text-align: center; }
+
+.navbar-collapse { justify-content: center; padding-bottom: 0; padding-top: 20px; position: relative; }
+
+.navbar-collapse .navbar-nav li { margin-left: 20px; margin-right: 20px; padding-bottom: 15px; position: static; }
+
+.navbar-collapse .navbar-nav li a { background-color: #fff; border-bottom: 3px solid #fff; color: #002855; font-weight: 500; padding: 0 0 5px 0 !important; }
+
+.navbar-collapse .navbar-nav li a:hover, .navbar-collapse .navbar-nav li:hover a { border-bottom: 3px solid #002855; }
+
+.navbar-collapse .navbar-nav li .active { border-bottom: 3px solid #002855; }
+
+.navbar-collapse .watches-btn { background-color: #002855; border: 2px solid #002855; border-radius: 30px; color: #fff; font-size: 13px; letter-spacing: 0.065px; line-height: 35px; padding: 0 24px; position: absolute; right: 30px; text-transform: uppercase; top: 12px; }
+
+.navbar-collapse .watches-btn:hover { background-color: #fff; color: #002855; text-decoration: none; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu { background: #fff; border-radius: 0; border: none; display: block; margin: 0; opacity: 0; padding: 40px 15px 60px 15px; visibility: hidden; width: 100%; }
+
+.navbar-collapse .navbar-nav li:hover .dropdown-menu { opacity: 1; visibility: visible; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu .col-border-right { border-right: 1px solid #EAEAEA; padding-left: 40px; padding-right: 40px; }
+.navbar-collapse .navbar-nav li .dropdown-menu .full-view { -ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%; }
+.navbar-collapse .navbar-nav li .dropdown-menu .hidden { display: none; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu .col-border-right:last-child { border-right: none; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu h3 { color: #002855; font-family: 'Mulish', sans-serif; font-size: 16px; font-weight: 700; margin: 20px 0 20px 0; text-transform: uppercase; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu h3 a { border-bottom: none; color: #002855; font-family: 'Mulish', sans-serif; font-size: 16px; font-weight: 700; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu h3 a:hover { text-decoration: none; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu ul { list-style: none; padding-left: 0; }
+.navbar-collapse .navbar-nav li .dropdown-menu .full-view ul { display: flex; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu ul li { margin-bottom: 5px; margin-left:  0; margin-right: 0; padding-bottom: 0; }
+.navbar-collapse .navbar-nav li .dropdown-menu .full-view ul li { padding-right: 30px; width: 16.66666666666667%; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu ul li a { border-bottom: none; color: #002855; font-size: 13px; font-weight: 500; line-height: 20px; padding-bottom: 0 !important; }
+.navbar-collapse .navbar-nav li .dropdown-menu ul li a:hover { text-decoration: none; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu ul li .shop-all-link { background: url(../img/right-arrow-icon.png) no-repeat right 2px; padding-right: 25px !important; }
+
+.navbar-collapse .navbar-nav li .dropdown-menu .CatFilterLetters { width: 100%; padding: 0; margin: 0 0 30px 0; }
+.navbar-collapse .navbar-nav li .dropdown-menu #menu_filter { display: flex; justify-content: space-around; margin: 0; padding: 0; width:100%; }
+.navbar-collapse .navbar-nav li .dropdown-menu #menu_filter li { width:auto; padding:0; list-style-type:none; margin:0; }
+.navbar-collapse .navbar-nav li .dropdown-menu #menu_filter li a { display: block; width:auto; padding: 0 15px !important; font-weight: 700; font-size: 16px; line-height: 23px; color:#002855; margin:0; outline:none; text-decoration:none; border:none !important;}
+.navbar-collapse .navbar-nav li .dropdown-menu #menu_filter li #All { text-transform:uppercase; padding-left: 0 !important; }
+
+/*.CategoryListDiv .hidden { display:none;}
+.CategoryListDiv .full-view { width:100%; float:left; padding:0; margin:0;}
+.CategoryListDiv .full-view .CatListItems li { width:16.66%; float:left; padding:0 5px; margin:0;}
+.CategoryListDiv .full-view .CatListItems .indexNo { display:none; }*/
+/*------------------------- Header End -------------------------*/
+
+
+
+.banner { float: left; margin: 0; width: 100%; }
+
+.banner img { width: 100%; }
+
+/* Inner Banner End */
+
+/*------------------------- Banner End -------------------------*/
+
+
+
+
+
+/* BODY
+
+-------------------------------------------------- */
+
+
+
+/************* Styles Number Start  *************/
+
+input[type="number"]::-webkit-inner-spin-button,
+
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; margin: 0; }
+
+input[type="number"] { -moz-appearance: textfield; }
+
+.quantity-block { background-color: #fff; border: 1px solid #CACACA; border-radius: 30px; float: left; margin: 0; padding: 0 24px 0 24px; }
+
+.quantity-block .quantity-arrow-minus,
+
+.quantity-block .quantity-arrow-plus { background-color: #fff; background-position: center; background-repeat: no-repeat; border: none; cursor: pointer; float: left; height: 37px; padding: 0; }
+
+.quantity-block .quantity-arrow-minus { background-image: url(../img/minus-icon.png); border-radius: 30px 0 0 30px; width: 16px; }
+
+.quantity-block .quantity-arrow-plus { background-image: url(../img/plus-icon.png); border-radius: 0 30px 30px 0; width: 17px; }
+
+.quantity-block .ql-quantity-arrow-minus,
+
+.quantity-block .ql-quantity-arrow-plus { background-color: #fff; background-position: center; background-repeat: no-repeat; border: none; cursor: pointer; float: left; height: 37px; padding: 0; }
+
+.quantity-block .ql-quantity-arrow-minus { background-image: url(../img/minus-icon.png); border-radius: 30px 0 0 30px; width: 16px; }
+
+.quantity-block .ql-quantity-arrow-plus { background-image: url(../img/plus-icon.png); border-radius: 0 30px 30px 0; width: 17px; }
+
+.quantity-block .quantity-num { border: none; float: left; font-size: 20px; height: 37px; line-height: 37px; padding: 0 10px 0 10px; text-align: center; width: 50px; }
+
+.quantity-block .quantity-num:focus { outline: none; }
+
+/************* Styles Number End  *************/
+
+
+
+/************* Styles Checkbox Start  *************/
+
+.form-check { padding-left: 0; }
+
+.form-check-label { cursor: pointer; color: #002855; display: block; font-size: 14px; font-weight: 500; padding-left: 32px; position: relative; user-select: none; }
+
+.form-check-label input { cursor: pointer; opacity: 0; position: absolute; height: 0; width: 0; }
+
+.form-check-label .checkmark { background-color: #fff; border: 3px solid #DAEAFF; border-radius: 6px; height: 24px; left: 0; position: absolute; top: 0; width: 24px; }
+
+.form-check-label input:checked ~ .checkmark { background-color: #002855; border: 3px solid #002855; }
+
+.form-check-label .checkmark:after { content: ""; display: none; position: absolute; }
+
+.form-check-label input:checked ~ .checkmark:after { display: block; }
+
+.form-check-label .checkmark:after { border: solid white; border-width: 0 2px 2px 0; height: 13px; left: 6px; transform: rotate(45deg); top: 1px; width: 6px; }
+
+/************* Styles Checkbox End  *************/
+
+
+
+/************* Styles Radio Start  *************/
+
+.form-radio-check { padding-left: 0; }
+
+.form-radio-check .form-check-label { cursor: pointer; color: #000; display: block; font-size: 16px; font-weight: 400; padding-left: 34px; position: relative; user-select: none; }
+
+.form-check-label input { cursor: pointer; opacity: 0; position: absolute; height: 0; width: 0; }
+
+.form-radio-check .form-check-label .checkmark { background-color: #fff; border: 2px solid #DAEAFF; border-radius: 100%; height: 26px; left: 0; position: absolute; top: 0; width: 26px; }
+
+.form-radio-check .form-check-label input:checked ~ .checkmark { background-color: #002855; border: 2px solid #002855; }
+
+.form-check-label .checkmark:after { content: ""; display: none; position: absolute; }
+
+.form-check-label input:checked ~ .checkmark:after { display: block; }
+
+.form-radio-check .form-check-label .checkmark:after { background-color: #fff; border: none; border-radius: 100%; height: 10px; left: 6px; transform: rotate(45deg); top: 6px; width: 10px; }
+
+/************* Styles Radio End  *************/
+
+
+
+/************* Styles Radio Switch Start  *************/
+
+.switch { display: inline-block; height: 25px; position: relative; width: 40px; }
+
+.switch input { appearance: none; cursor: pointer; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; width: 100%; z-index: 1; }
+
+.switch .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; -webkit-transition: .4s; transition: .4s; }
+
+.switch .slider:before { background-color: white; bottom: 3px; height: 20px; content: ""; left: 3px; position: absolute; width: 20px; -webkit-transition: .4s; transition: .4s; }
+
+.switch input:checked + .slider { background-color: #00b65a; }
+
+.switch input:focus + .slider { box-shadow: 0 0 1px #00b65a; }
+
+.switch input:checked + .slider:before { -webkit-transform: translateX(14px); -ms-transform: translateX(14px); transform: translateX(14px); }
+
+/* Rounded sliders */
+
+.slider.round { border-radius: 34px; }
+
+.slider.round:before { border-radius: 50%; }
+
+/************* Styles Radio Switch End  *************/
+
+
+
+
+
+/* Country Select Style Start */
+
+.country { margin: 0; padding: 0; position: relative; width: 100%; }
+
+.country .select { background: #fff; border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; cursor: pointer; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; overflow: hidden; padding: 0 24px 0 24px; position: relative; text-align: left;  text-overflow: ellipsis; white-space: nowrap; }
+
+.country .select .flagstrap-icon { background-color: #e3e5e7; background-image: url(https://zinee91.dothome.co.kr/codepen/flags.png); background-repeat: no-repeat; display: inline-block; height: 11px; margin-right: 10px; width: 16px; }
+
+.country .select .flagstrap-icon.flagstrap-ad {
+
+  background-position: -16px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ae {
+
+  background-position: -32px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-af {
+
+  background-position: -48px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ag {
+
+  background-position: -64px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ai {
+
+  background-position: -80px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-al {
+
+  background-position: -96px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-am {
+
+  background-position: -112px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-an {
+
+  background-position: -128px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ao {
+
+  background-position: -144px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ar {
+
+  background-position: -160px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-as {
+
+  background-position: -176px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-at {
+
+  background-position: -192px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-au {
+
+  background-position: -208px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-aw {
+
+  background-position: -224px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-az {
+
+  background-position: -240px 0;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ba {
+
+  background-position: 0 -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bb {
+
+  background-position: -16px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bd {
+
+  background-position: -32px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-be {
+
+  background-position: -48px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bf {
+
+  background-position: -64px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bg {
+
+  background-position: -80px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bh {
+
+  background-position: -96px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bi {
+
+  background-position: -112px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bj {
+
+  background-position: -128px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bm {
+
+  background-position: -144px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bn {
+
+  background-position: -160px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bo {
+
+  background-position: -176px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-br {
+
+  background-position: -192px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bs {
+
+  background-position: -208px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bt {
+
+  background-position: -224px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bv {
+
+  background-position: -240px -11px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bw {
+
+  background-position: 0 -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-by {
+
+  background-position: -16px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-bz {
+
+  background-position: -32px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ca {
+
+  background-position: -48px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-catalonia {
+
+  background-position: -64px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cd {
+
+  background-position: -80px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cf {
+
+  background-position: -96px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cg {
+
+  background-position: -112px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ch {
+
+  background-position: -128px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ci {
+
+  background-position: -144px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ck {
+
+  background-position: -160px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cl {
+
+  background-position: -176px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cm {
+
+  background-position: -192px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cn {
+
+  background-position: -208px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-co {
+
+  background-position: -224px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cr {
+
+  background-position: -240px -22px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cu {
+
+  background-position: 0 -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cv {
+
+  background-position: -16px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cw {
+
+  background-position: -32px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cy {
+
+  background-position: -48px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-cz {
+
+  background-position: -64px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-de {
+
+  background-position: -80px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-dj {
+
+  background-position: -96px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-dk {
+
+  background-position: -112px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-dm {
+
+  background-position: -128px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-do {
+
+  background-position: -144px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-dz {
+
+  background-position: -160px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ec {
+
+  background-position: -176px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ee {
+
+  background-position: -192px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-eg {
+
+  background-position: -208px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-eh {
+
+  background-position: -224px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-england {
+
+  background-position: -240px -33px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-er {
+
+  background-position: 0 -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-es {
+
+  background-position: -16px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-et {
+
+  background-position: -32px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-eu {
+
+  background-position: -48px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-fi {
+
+  background-position: -64px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-fj {
+
+  background-position: -80px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-fk {
+
+  background-position: -96px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-fm {
+
+  background-position: -112px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-fo {
+
+  background-position: -128px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-fr {
+
+  background-position: -144px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ga {
+
+  background-position: -160px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gb {
+
+  background-position: -176px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gd {
+
+  background-position: -192px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ge {
+
+  background-position: -208px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gf {
+
+  background-position: -224px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gg {
+
+  background-position: -240px -44px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gh {
+
+  background-position: 0 -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gi {
+
+  background-position: -16px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gl {
+
+  background-position: -32px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gm {
+
+  background-position: -48px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gn {
+
+  background-position: -64px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gp {
+
+  background-position: -80px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gq {
+
+  background-position: -96px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gr {
+
+  background-position: -112px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gs {
+
+  background-position: -128px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gt {
+
+  background-position: -144px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gu {
+
+  background-position: -160px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gw {
+
+  background-position: -176px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-gy {
+
+  background-position: -192px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-hk {
+
+  background-position: -208px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-hm {
+
+  background-position: -224px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-hn {
+
+  background-position: -240px -55px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-hr {
+
+  background-position: 0 -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ht {
+
+  background-position: -16px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-hu {
+
+  background-position: -32px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ic {
+
+  background-position: -48px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-id {
+
+  background-position: -64px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ie {
+
+  background-position: -80px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-il {
+
+  background-position: -96px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-im {
+
+  background-position: -112px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-in {
+
+  background-position: -128px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-io {
+
+  background-position: -144px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-iq {
+
+  background-position: -160px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ir {
+
+  background-position: -176px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-is {
+
+  background-position: -192px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-it {
+
+  background-position: -208px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-je {
+
+  background-position: -224px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-jm {
+
+  background-position: -240px -66px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-jo {
+
+  background-position: 0 -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-jp {
+
+  background-position: -16px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ke {
+
+  background-position: -32px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-kg {
+
+  background-position: -48px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-kh {
+
+  background-position: -64px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ki {
+
+  background-position: -80px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-km {
+
+  background-position: -96px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-kn {
+
+  background-position: -112px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-kp {
+
+  background-position: -128px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-kr {
+
+  background-position: -144px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-kurdistan {
+
+  background-position: -160px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-kw {
+
+  background-position: -176px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ky {
+
+  background-position: -192px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-kz {
+
+  background-position: -208px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-la {
+
+  background-position: -224px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-lb {
+
+  background-position: -240px -77px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-lc {
+
+  background-position: 0 -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-li {
+
+  background-position: -16px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-lk {
+
+  background-position: -32px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-lr {
+
+  background-position: -48px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ls {
+
+  background-position: -64px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-lt {
+
+  background-position: -80px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-lu {
+
+  background-position: -96px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-lv {
+
+  background-position: -112px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ly {
+
+  background-position: -128px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ma {
+
+  background-position: -144px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mc {
+
+  background-position: -160px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-md {
+
+  background-position: -176px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-me {
+
+  background-position: -192px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mg {
+
+  background-position: -208px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mh {
+
+  background-position: -224px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mk {
+
+  background-position: -240px -88px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ml {
+
+  background-position: 0 -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mm {
+
+  background-position: -16px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mn {
+
+  background-position: -32px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mo {
+
+  background-position: -48px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mp {
+
+  background-position: -64px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mq {
+
+  background-position: -80px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mr {
+
+  background-position: -96px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ms {
+
+  background-position: -112px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mt {
+
+  background-position: -128px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mu {
+
+  background-position: -144px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mv {
+
+  background-position: -160px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mw {
+
+  background-position: -176px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mx {
+
+  background-position: -192px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-my {
+
+  background-position: -208px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-mz {
+
+  background-position: -224px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-na {
+
+  background-position: -240px -99px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-nc {
+
+  background-position: 0 -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ne {
+
+  background-position: -16px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-nf {
+
+  background-position: -32px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ng {
+
+  background-position: -48px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ni {
+
+  background-position: -64px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-nl {
+
+  background-position: -80px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-no {
+
+  background-position: -96px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-np {
+
+  background-position: -112px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-nr {
+
+  background-position: -128px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-nu {
+
+  background-position: -144px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-nz {
+
+  background-position: -160px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-om {
+
+  background-position: -176px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pa {
+
+  background-position: -192px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pe {
+
+  background-position: -208px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pf {
+
+  background-position: -224px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pg {
+
+  background-position: -240px -110px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ph {
+
+  background-position: 0 -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pk {
+
+  background-position: -16px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pl {
+
+  background-position: -32px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pm {
+
+  background-position: -48px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pn {
+
+  background-position: -64px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pr {
+
+  background-position: -80px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ps {
+
+  background-position: -96px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pt {
+
+  background-position: -112px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-pw {
+
+  background-position: -128px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-py {
+
+  background-position: -144px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-qa {
+
+  background-position: -160px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-re {
+
+  background-position: -176px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ro {
+
+  background-position: -192px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-rs {
+
+  background-position: -208px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ru {
+
+  background-position: -224px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-rw {
+
+  background-position: -240px -121px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sa {
+
+  background-position: 0 -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sb {
+
+  background-position: -16px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sc {
+
+  background-position: -32px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-scotland {
+
+  background-position: -48px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sd {
+
+  background-position: -64px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-se {
+
+  background-position: -80px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sg {
+
+  background-position: -96px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sh {
+
+  background-position: -112px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-si {
+
+  background-position: -128px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sk {
+
+  background-position: -144px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sl {
+
+  background-position: -160px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sm {
+
+  background-position: -176px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sn {
+
+  background-position: -192px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-so {
+
+  background-position: -208px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-somaliland {
+
+  background-position: -224px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sr {
+
+  background-position: -240px -132px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ss {
+
+  background-position: 0 -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-st {
+
+  background-position: -16px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sv {
+
+  background-position: -32px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sx {
+
+  background-position: -48px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sy {
+
+  background-position: -64px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-sz {
+
+  background-position: -80px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tc {
+
+  background-position: -96px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-td {
+
+  background-position: -112px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tf {
+
+  background-position: -128px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tg {
+
+  background-position: -144px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-th {
+
+  background-position: -160px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tj {
+
+  background-position: -176px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tk {
+
+  background-position: -192px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tl {
+
+  background-position: -208px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tm {
+
+  background-position: -224px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tn {
+
+  background-position: -240px -143px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-to {
+
+  background-position: 0 -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tr {
+
+  background-position: -16px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tt {
+
+  background-position: -32px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tv {
+
+  background-position: -48px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tw {
+
+  background-position: -64px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-tz {
+
+  background-position: -80px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ua {
+
+  background-position: -96px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ug {
+
+  background-position: -112px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-um {
+
+  background-position: -128px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-us {
+
+  background-position: -144px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-uy {
+
+  background-position: -160px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-uz {
+
+  background-position: -176px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-va {
+
+  background-position: -192px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-vc {
+
+  background-position: -208px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ve {
+
+  background-position: -224px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-vg {
+
+  background-position: -240px -154px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-vi {
+
+  background-position: 0 -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-vn {
+
+  background-position: -16px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-vu {
+
+  background-position: -32px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-wales {
+
+  background-position: -48px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-wf {
+
+  background-position: -64px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ws {
+
+  background-position: -80px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-ye {
+
+  background-position: -96px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-yt {
+
+  background-position: -112px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-za {
+
+  background-position: -128px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-zanzibar {
+
+  background-position: -144px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-zm {
+
+  background-position: -160px -165px;
+
+}
+
+.country .select .flagstrap-icon.flagstrap-zw {
+
+  background-position: -176px -165px;
+
+}
+
+.country .select:after { background: url("https://zinee91.dothome.co.kr/codepen/ico_updown3.png") no-repeat; content: ""; display: block; height: 5px; position: absolute; right: 20px; top: 18px; width: 8px; }
+
+.country .select.open:after { background-position: 0 -5px; }
+
+.country .dropdown { background: #fff; /*border: 1px solid #cfcfcf;*/ border: none; /*border-top: 1px solid #a6a6a6;*/ /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);*/ display: none; /*height: 225px;*/ /*left: 0;*/ /*overflow-y: scroll;*/ /*position: absolute;*/ /*top: 56px;*/ width: 100% !important; z-index: 1; }
+
+.country .bootstrap-select .dropdown-toggle { background: none; border: 1px solid #B8BBC5; border-radius: 30px; padding: 0 24px; font-size: 13px; font-weight: 400; letter-spacing: 0.065px; line-height: 52px; }
+.country .bootstrap-select .dropdown-toggle:focus { box-shadow: none; outline: none !important; }
+.country .bootstrap-select .dropdown-toggle:active { background: none; }
+.country .bootstrap-select .dropdown-menu { max-width: 300px; overflow-x: hidden;}
+
+.country .bootstrap-select  .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #002855;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.country .bootstrap-select .dropdown-item:focus, .country .bootstrap-select .dropdown-item:hover, .country .bootstrap-select .dropdown-item.active, .country .bootstrap-select .dropdown-item:active {
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: #002855;
+}
+
+.country .dropdown .flagstrap-icon { background-color: #e3e5e7; background-image: url(https://zinee91.dothome.co.kr/codepen/flags.png); background-repeat: no-repeat; display: inline-block; height: 11px; margin-right: 10px; width: 16px;}
+
+.country .dropdown .flagstrap-icon.flagstrap-ad {
+
+  background-position: -16px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ae {
+
+  background-position: -32px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-af {
+
+  background-position: -48px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ag {
+
+  background-position: -64px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ai {
+
+  background-position: -80px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-al {
+
+  background-position: -96px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-am {
+
+  background-position: -112px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-an {
+
+  background-position: -128px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ao {
+
+  background-position: -144px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ar {
+
+  background-position: -160px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-as {
+
+  background-position: -176px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-at {
+
+  background-position: -192px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-au {
+
+  background-position: -208px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-aw {
+
+  background-position: -224px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-az {
+
+  background-position: -240px 0;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ba {
+
+  background-position: 0 -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bb {
+
+  background-position: -16px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bd {
+
+  background-position: -32px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-be {
+
+  background-position: -48px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bf {
+
+  background-position: -64px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bg {
+
+  background-position: -80px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bh {
+
+  background-position: -96px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bi {
+
+  background-position: -112px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bj {
+
+  background-position: -128px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bm {
+
+  background-position: -144px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bn {
+
+  background-position: -160px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bo {
+
+  background-position: -176px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-br {
+
+  background-position: -192px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bs {
+
+  background-position: -208px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bt {
+
+  background-position: -224px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bv {
+
+  background-position: -240px -11px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bw {
+
+  background-position: 0 -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-by {
+
+  background-position: -16px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-bz {
+
+  background-position: -32px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ca {
+
+  background-position: -48px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-catalonia {
+
+  background-position: -64px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cd {
+
+  background-position: -80px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cf {
+
+  background-position: -96px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cg {
+
+  background-position: -112px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ch {
+
+  background-position: -128px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ci {
+
+  background-position: -144px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ck {
+
+  background-position: -160px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cl {
+
+  background-position: -176px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cm {
+
+  background-position: -192px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cn {
+
+  background-position: -208px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-co {
+
+  background-position: -224px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cr {
+
+  background-position: -240px -22px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cu {
+
+  background-position: 0 -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cv {
+
+  background-position: -16px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cw {
+
+  background-position: -32px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cy {
+
+  background-position: -48px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-cz {
+
+  background-position: -64px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-de {
+
+  background-position: -80px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-dj {
+
+  background-position: -96px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-dk {
+
+  background-position: -112px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-dm {
+
+  background-position: -128px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-do {
+
+  background-position: -144px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-dz {
+
+  background-position: -160px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ec {
+
+  background-position: -176px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ee {
+
+  background-position: -192px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-eg {
+
+  background-position: -208px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-eh {
+
+  background-position: -224px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-england {
+
+  background-position: -240px -33px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-er {
+
+  background-position: 0 -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-es {
+
+  background-position: -16px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-et {
+
+  background-position: -32px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-eu {
+
+  background-position: -48px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-fi {
+
+  background-position: -64px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-fj {
+
+  background-position: -80px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-fk {
+
+  background-position: -96px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-fm {
+
+  background-position: -112px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-fo {
+
+  background-position: -128px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-fr {
+
+  background-position: -144px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ga {
+
+  background-position: -160px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gb {
+
+  background-position: -176px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gd {
+
+  background-position: -192px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ge {
+
+  background-position: -208px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gf {
+
+  background-position: -224px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gg {
+
+  background-position: -240px -44px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gh {
+
+  background-position: 0 -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gi {
+
+  background-position: -16px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gl {
+
+  background-position: -32px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gm {
+
+  background-position: -48px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gn {
+
+  background-position: -64px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gp {
+
+  background-position: -80px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gq {
+
+  background-position: -96px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gr {
+
+  background-position: -112px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gs {
+
+  background-position: -128px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gt {
+
+  background-position: -144px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gu {
+
+  background-position: -160px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gw {
+
+  background-position: -176px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-gy {
+
+  background-position: -192px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-hk {
+
+  background-position: -208px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-hm {
+
+  background-position: -224px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-hn {
+
+  background-position: -240px -55px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-hr {
+
+  background-position: 0 -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ht {
+
+  background-position: -16px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-hu {
+
+  background-position: -32px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ic {
+
+  background-position: -48px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-id {
+
+  background-position: -64px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ie {
+
+  background-position: -80px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-il {
+
+  background-position: -96px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-im {
+
+  background-position: -112px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-in {
+
+  background-position: -128px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-io {
+
+  background-position: -144px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-iq {
+
+  background-position: -160px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ir {
+
+  background-position: -176px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-is {
+
+  background-position: -192px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-it {
+
+  background-position: -208px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-je {
+
+  background-position: -224px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-jm {
+
+  background-position: -240px -66px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-jo {
+
+  background-position: 0 -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-jp {
+
+  background-position: -16px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ke {
+
+  background-position: -32px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-kg {
+
+  background-position: -48px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-kh {
+
+  background-position: -64px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ki {
+
+  background-position: -80px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-km {
+
+  background-position: -96px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-kn {
+
+  background-position: -112px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-kp {
+
+  background-position: -128px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-kr {
+
+  background-position: -144px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-kurdistan {
+
+  background-position: -160px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-kw {
+
+  background-position: -176px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ky {
+
+  background-position: -192px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-kz {
+
+  background-position: -208px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-la {
+
+  background-position: -224px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-lb {
+
+  background-position: -240px -77px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-lc {
+
+  background-position: 0 -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-li {
+
+  background-position: -16px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-lk {
+
+  background-position: -32px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-lr {
+
+  background-position: -48px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ls {
+
+  background-position: -64px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-lt {
+
+  background-position: -80px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-lu {
+
+  background-position: -96px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-lv {
+
+  background-position: -112px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ly {
+
+  background-position: -128px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ma {
+
+  background-position: -144px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mc {
+
+  background-position: -160px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-md {
+
+  background-position: -176px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-me {
+
+  background-position: -192px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mg {
+
+  background-position: -208px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mh {
+
+  background-position: -224px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mk {
+
+  background-position: -240px -88px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ml {
+
+  background-position: 0 -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mm {
+
+  background-position: -16px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mn {
+
+  background-position: -32px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mo {
+
+  background-position: -48px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mp {
+
+  background-position: -64px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mq {
+
+  background-position: -80px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mr {
+
+  background-position: -96px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ms {
+
+  background-position: -112px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mt {
+
+  background-position: -128px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mu {
+
+  background-position: -144px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mv {
+
+  background-position: -160px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mw {
+
+  background-position: -176px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mx {
+
+  background-position: -192px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-my {
+
+  background-position: -208px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-mz {
+
+  background-position: -224px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-na {
+
+  background-position: -240px -99px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-nc {
+
+  background-position: 0 -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ne {
+
+  background-position: -16px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-nf {
+
+  background-position: -32px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ng {
+
+  background-position: -48px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ni {
+
+  background-position: -64px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-nl {
+
+  background-position: -80px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-no {
+
+  background-position: -96px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-np {
+
+  background-position: -112px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-nr {
+
+  background-position: -128px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-nu {
+
+  background-position: -144px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-nz {
+
+  background-position: -160px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-om {
+
+  background-position: -176px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pa {
+
+  background-position: -192px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pe {
+
+  background-position: -208px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pf {
+
+  background-position: -224px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pg {
+
+  background-position: -240px -110px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ph {
+
+  background-position: 0 -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pk {
+
+  background-position: -16px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pl {
+
+  background-position: -32px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pm {
+
+  background-position: -48px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pn {
+
+  background-position: -64px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pr {
+
+  background-position: -80px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ps {
+
+  background-position: -96px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pt {
+
+  background-position: -112px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-pw {
+
+  background-position: -128px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-py {
+
+  background-position: -144px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-qa {
+
+  background-position: -160px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-re {
+
+  background-position: -176px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ro {
+
+  background-position: -192px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-rs {
+
+  background-position: -208px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ru {
+
+  background-position: -224px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-rw {
+
+  background-position: -240px -121px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sa {
+
+  background-position: 0 -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sb {
+
+  background-position: -16px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sc {
+
+  background-position: -32px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-scotland {
+
+  background-position: -48px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sd {
+
+  background-position: -64px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-se {
+
+  background-position: -80px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sg {
+
+  background-position: -96px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sh {
+
+  background-position: -112px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-si {
+
+  background-position: -128px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sk {
+
+  background-position: -144px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sl {
+
+  background-position: -160px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sm {
+
+  background-position: -176px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sn {
+
+  background-position: -192px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-so {
+
+  background-position: -208px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-somaliland {
+
+  background-position: -224px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sr {
+
+  background-position: -240px -132px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ss {
+
+  background-position: 0 -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-st {
+
+  background-position: -16px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sv {
+
+  background-position: -32px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sx {
+
+  background-position: -48px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sy {
+
+  background-position: -64px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-sz {
+
+  background-position: -80px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tc {
+
+  background-position: -96px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-td {
+
+  background-position: -112px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tf {
+
+  background-position: -128px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tg {
+
+  background-position: -144px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-th {
+
+  background-position: -160px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tj {
+
+  background-position: -176px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tk {
+
+  background-position: -192px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tl {
+
+  background-position: -208px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tm {
+
+  background-position: -224px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tn {
+
+  background-position: -240px -143px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-to {
+
+  background-position: 0 -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tr {
+
+  background-position: -16px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tt {
+
+  background-position: -32px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tv {
+
+  background-position: -48px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tw {
+
+  background-position: -64px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-tz {
+
+  background-position: -80px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ua {
+
+  background-position: -96px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ug {
+
+  background-position: -112px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-um {
+
+  background-position: -128px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-us {
+
+  background-position: -144px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-uy {
+
+  background-position: -160px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-uz {
+
+  background-position: -176px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-va {
+
+  background-position: -192px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-vc {
+
+  background-position: -208px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ve {
+
+  background-position: -224px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-vg {
+
+  background-position: -240px -154px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-vi {
+
+  background-position: 0 -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-vn {
+
+  background-position: -16px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-vu {
+
+  background-position: -32px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-wales {
+
+  background-position: -48px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-wf {
+
+  background-position: -64px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ws {
+
+  background-position: -80px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-ye {
+
+  background-position: -96px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-yt {
+
+  background-position: -112px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-za {
+
+  background-position: -128px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-zanzibar {
+
+  background-position: -144px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-zm {
+
+  background-position: -160px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon.flagstrap-zw {
+
+  background-position: -176px -165px;
+
+}
+
+.country .dropdown .flagstrap-icon { vertical-align: middle; }
+
+.country .dropdown ul { list-style: none; padding-left: 0; }
+
+.country .dropdown li { color: #828282; cursor: pointer; font-size: 13px; font-weight: 400; line-height: 34px; margin-bottom: 0 !important; margin-top: 0 !important; padding: 0; text-align: left; }
+
+.country .dropdown li:first-child { margin-top: 12px; }
+
+.country .dropdown li:last-child { margin-bottom: 12px; }
+
+.country .dropdown li:hover { background: #002855; color: #FFFFFF; }
+
+.country .dropdown li.open { display: block; }
+
+/* Country Select Style End */
+
+/*------------------------------------------- Breadcrumb Style Start -------------------------------------------*/
+.breadcrumb { background: none; padding: 0; }
+.breadcrumb .breadcrumb-item { height: 24px; }
+.breadcrumb .active { color: #002855; font-size: 12px; font-weight: 700; line-height: 24px; }
+.breadcrumb .breadcrumb-item a { color: #002855; font-size: 12px; font-weight: 500; line-height: 24px; }
+.breadcrumb .breadcrumb-item+.breadcrumb-item::before { font-size: 20px; font-weight: normal; }
+/*------------------------------------------- Breadcrumb Style End -------------------------------------------*/
+
+
+
+/*------------------------- Inner Page Body Start -------------------------*/
+
+
+
+/*~~~~~~~~~~~~~~ Inner Body Banner Section Start ~~~~~~~~~~~~~~*/
+
+.arrivalMain { background: #EFF5F5; float: left; padding-bottom: 5px; width: 100%; }
+
+.arrivalBanner { align-items: center; background-position:  right center; background-repeat: no-repeat; background-size: cover; display: flex; float: left; flex-direction: row-reverse; height: 479px; margin: 0; width: 100%; }
+
+.arrivalBanner .arrivalHolder { float: right; width: 44%; }
+
+.arrivalBanner h3 { color: #FFF; font: 400 42px 'Montserrat', sans-serif; margin: 30px 0px 40px 0; text-transform: uppercase; }
+
+.arrivalBanner a { background-color: #002855; border: 2px solid #002855; color: #FFF; display: inline-block; font: 400 13px 'Montserrat', sans-serif; border-radius: 30px; padding: 14px 48px 14px 48px; text-transform: uppercase; }
+
+.arrivalBanner .white-btn { background-color: #fff; border: 2px solid #fff; color: #002855; }
+
+.arrivalBanner a:hover { background-color: #fff; color:#002855; text-decoration: none; }
+
+.newArrivalBanner { align-items: center; background-position: right center; background-repeat: no-repeat; background-size: cover; display: flex; float: left; flex-direction: row-reverse; height: 479px; margin: 0; width: 100%; }
+
+.newArrivalBanner .container { max-width: 1440px; }
+
+.newArrivalBanner .arrivalHolder { float: left; width: 46%; }
+
+/*~~~~~~~~~~~~~~ Inner Body Banner Section End ~~~~~~~~~~~~~~*/
+
+
+/*~~~~~~~~~~~~~~ E-Gift Voucher Page Body Section Start ~~~~~~~~~~~~~~*/    
+.egift-voucher-section h3 { font-size: 24px; }
+.egift-voucher-section .section-title { font-weight: 500; }
+.egift-voucher-section #send_message { background: #FFF; border: 1px solid #D5D5D5; border-radius: 0; color: #002855; display: inline-block; font-size: 15px; font-weight: 400; height: 124px; line-height: 24px; padding: 16px 24px; width: 100%; }
+/*~~~~~~~~~~~~~~ E-Gift Voucher Page Body Section End ~~~~~~~~~~~~~~*/    
+
+
+
+/*~~~~~~~~~~~~~~ You May Also Like Body Section Start ~~~~~~~~~~~~~~*/
+
+.relatedDiv { float: left; margin: 86px 0 0; width:100%; }
+
+.relatedDiv .hdn { color: #002855; font: 400 42px 'Montserrat', sans-serif; text-align: center; text-transform: uppercase;  width: 100%; }
+
+.relatedSlider { float: left; margin-top: 40px; padding: 0 30px; width: 100%; }
+
+.relatedSlider .scroll-img-sec { display: none; }
+
+.sliderBox { background: #FFF; float: left; list-style-type: none; margin: 0 25px 25px 0; padding: 20px; position: relative; text-align: center; width: 100%; }
+
+.sliderBox .imgHldr { float: left; margin: 0; width: 100%; }
+.sliderBox .imgHldr img { display: inline-block; max-height: 300px; max-width: 100%; width: auto; }
+
+.sliderBox img { width: 100%; }
+
+.related-carousel .item .sliderBox img { max-height: 316px; }
+
+.sliderBox h2 { color: #002855; font: 400 18px 'Montserrat', sans-serif; margin: 10px 0 0 0; }
+
+.sliderBox h3 { color: #002855; font: 400 13px 'Montserrat', sans-serif; margin: 10px 0 10px 0; }
+.sliderBox h3 a { color: #002855; }
+
+.sliderBox h4 { color: #002855; font: 600 16px 'Montserrat', sans-serif; margin: 0 0 10px; }
+
+.sliderBox h5 { color: #F00; font: 400 16px 'Montserrat', sans-serif; margin: 0 0 8px; }
+
+.sliderBox h5 span { color: #002855; font: 400 16px 'Montserrat', sans-serif; text-decoration: line-through; }
+
+.sliderBox h6 { color: #002855; font: 400 16px 'Montserrat', sans-serif; margin:0; }
+
+/*~~~~~~~~~~~~~~ You May Also Like Body Section End ~~~~~~~~~~~~~~*/
+
+
+
+/*------------------------- Inner Page Body End -------------------------*/
+
+
+
+
+
+/* FOOTER
+
+-------------------------------------------------- */
+
+footer { background-color: #fff; }
+
+footer .container { max-width: 1450px; }
+
+.top-footer { border-bottom: 1px solid #E9E9E9; margin-bottom: 60px; padding-bottom: 50px; padding-top: 60px; }
+
+.top-footer .row { align-items: center; }
+
+.footer-news-list { align-items: center; display: flex; justify-content: flex-end; list-style: none; margin-bottom: 0; padding-left: 0; }
+
+.footer-news-list li { margin-right: 10px; }
+
+.footer-news-list li label { color: #002855; font-size: 18px; font-weight: 600; margin-bottom: 0; text-transform: uppercase; }
+
+.footer-news-list li .form-control { border: 1px solid #B8BBC5; border-radius: 0; color: #002855; font-size: 15px; height: 56px; line-height: 54px; padding: 0 39px 0 24px; width: 362px; }
+
+.footer-news-list li .news-btn { background: url(../img/news-btn-bg.svg) no-repeat center; border: none; cursor: pointer; float: right; height: 24px; margin: -38px 10px 0 0; width: 24px; }
+
+.midFooter { background-color: #fff; padding-bottom: 30px; }
+
+.midFooter .footer-menu { -ms-flex: 0 0 23%; flex: 0 0 23%; max-width: 23%; }
+
+.midFooter .footer-menu2 { -ms-flex: 0 0 29%; flex: 0 0 29%; max-width: 29%; }
+
+.midFooter .footer-menu h3 { color: #002855; font-size: 18px; font-weight: 600; margin: 0 0 25px 0; text-transform: uppercase; }
+
+.midFooter .footer-menu ul { list-style: none; padding-left: 0; }
+
+.midFooter .footer-menu ul li { color: #002855; font-size: 15px; font-weight: 500; margin-bottom: 20px; }
+
+.midFooter .footer-menu ul li a { color: #002855; display: block; text-decoration: none;}
+
+.midFooter .footer-menu .footer-contact-list .telIcon { background: url(../img/tell-icon.svg) no-repeat 0 0; padding-left: 34px; }
+
+.midFooter .footer-menu .footer-contact-list .mailIcon { background: url(../img/mail-icon.svg) no-repeat 0 0; padding-left: 34px; }
+
+.midFooter .footer-menu .footer-contact-list .locIcon { background: url(../img/footer-location-icon.png) no-repeat 0 0; background-size: 25px 24px; padding-left: 34px; }
+
+.bottomFooter { background-color: #fff; border-top: 1px solid #E9E9E9; float: left; padding-bottom: 0; padding-top: 10px; width: 100%; }
+
+.bottomFooter .left-bottom-footer { float: left; list-style: none; justify-content: left; }
+
+.bottomFooter .left-bottom-footer li { color: #002855; font-size: 15px; margin-right: 19px; }
+
+.bottomFooter .left-bottom-footer li a { display: block; }
+
+.bottomFooter .right-bottom-footer { float: right; list-style: none; justify-content: left; } 
+
+.bottomFooter .right-bottom-footer li { margin-left: 32px; }
+
+.bottomFooter .right-bottom-footer li a { color: #002855; display: block; }
+
+.bottomFooter .right-bottom-footer li i { font-size: 40px; }
+
+/*------------------------- Footer End -------------------------*/
+
+/*option:hover {
+  background-color: yellow;
+}
+
+select:focus > option:checked { 
+  background: #000 !important;
+}
+
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
+}*/
+
+
+
+/* MODAL Start
+
+-------------------------------------------------- */
+.cmnModal .modal-content { border: none; border-radius: 0; }
+
+.cmnModal .modal-header { border-bottom: none; display: block; }
+
+.cmnModal .modal-header .close { margin: 0; opacity: 1; padding: 0; position: absolute; right: 29px; top: 24px; text-shadow: none; z-index: 1; }
+
+.cmnModal .modal-header .modal-title { color: #002855; font-size: 42px; font-weight: 400; margin-top: 11px; text-transform: uppercase; }
+
+.cmnModal .modal-footer { border-top: none; }
+
+.cmnModal .modal-footer .btn-primary { background: #002855; border: 2px solid #002855; border-radius: 30px; font-size: 13px; font-weight: 400; letter-spacing: 0.065px; line-height: 52px; padding: 0 48px; text-transform: uppercase; }
+
+.cmnModal .modal-footer .btn-primary:hover { background: #fff; color: #002855; }
+
+.cmnModal .modal-footer .btn-default { background: #fff; border: 2px solid #002855; border-radius: 30px; color: #002855; font-size: 13px; font-weight: 400; letter-spacing: 0.065px; line-height: 52px; padding: 0 48px; text-transform: uppercase; }
+
+.cmnModal .modal-footer .btn-default:hover { background: #002855; color: #fff; }
+
+
+
+/*------------------------- Quick View Modal Start -------------------------*/ 
+.quickViewModal .modal-dialog { max-width: 1170px; }
+
+.quick-detail-img { margin-bottom: 30px; }
+
+/*.quick-detail-img img { height: auto; width: 100%; }*/
+
+.right-quick-view-detsils h3 { color: #002855; font-size: 42px; font-weight: 400; margin: 0 0 12px 0; text-transform: uppercase; }
+
+.right-quick-view-detsils h4 { color: #002855; font-size: 16px; font-weight: 400; margin: 0 0 25px 0; }
+
+.right-quick-view-detsils h5 { color: #002855; font-size: 18px; font-weight: 600; margin: 0 0 17px 0; }
+
+.right-quick-view-detsils h5 span { font-size: 14px; font-weight: 500; }
+
+.right-quick-view-detsils h5 .old-price { font-size: 18px; font-weight: 600; text-decoration: line-through; }
+
+.right-quick-view-detsils h5 .web-price { font-size: 18px; font-weight: 600; color:#002855;}
+
+.right-quick-view-detsils h6 { color: #002855; font-size: 14px; font-weight: 400; line-height: 24px; margin: 0 0 15px; }
+.right-quick-view-detsils h6 a { color: #002855; }
+
+.right-quick-view-detsils p { color: #002855; font-style: italic; line-height: 24px; margin:  0 0 20px; }
+
+.right-quick-view-detsils .add-to-basket-btn { background: #002855; border-radius: 30px; color: #FFF; display: inline-block; font-size: 13px; font-weight: 400; height: 56px; margin-bottom: 14px; letter-spacing: 0.065px; line-height: 56px; padding: 0 48px; text-align: center; text-transform: uppercase; }
+
+.right-quick-view-detsils .add-to-basket-btn img { margin-right: 4px; margin-top: -2px; }
+
+.right-quick-view-detsils .add-to-basket-btn .fa { margin-right: 4px; }
+
+.right-quick-view-detsils .add-to-basket-btn:hover { text-decoration: none; }
+
+.right-quick-view-detsils .add-loves-btn { border: 2px solid #002855; border-radius: 30px; color: #002855; display: inline-block; font-size: 14px; font-weight: 400; height: 56px; letter-spacing: 0.07px; line-height: 54px; margin-right: 11px; padding: 0 48px; text-transform: uppercase; }
+
+.right-quick-view-detsils .add-loves-btn img { margin-right: 4px; margin-top: -3px; }
+
+.right-quick-view-detsils .add-loves-btn .fa { margin-right: 4px; }
+
+.right-quick-view-detsils .add-loves-btn:hover { text-decoration: none; }
+
+.right-quick-view-detsils .size-list { float: left; list-style: none; margin: 0 0 20px 0; padding: 0; width: 100%; }
+
+.right-quick-view-detsils .size-list li { float: left; margin-bottom: 5px; margin-right: 5px; position: relative; }
+
+.right-quick-view-detsils .size-list li .radioInput { appearance: none; cursor: pointer; height: 100%; opacity: 0; position: absolute; width: 100%; }
+
+.right-quick-view-detsils .size-list li .quantity-text { border: 1px solid #002855; border-radius: 30px; color: #002855; display: block; font-size: 12px; font-weight: 400; letter-spacing: 0.06px; line-height: 37px; padding: 0 24px; text-transform: uppercase; }
+
+.right-quick-view-detsils .size-list li .radioInput:checked ~ .quantity-text { background-color: #002855; color: #fff; }
+
+.right-quick-view-detsils .color-list { float: left; list-style: none; padding-left: 0; }
+
+.right-quick-view-detsils .color-list li { float: left; margin-right: 8px; }
+
+.right-quick-view-detsils .color-list li .colour-box { cursor: pointer; display: block; height: 32px; margin-bottom: 0; padding-left: 0; position: relative; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; width: 32px; }
+
+.right-quick-view-detsils .color-list li .colour-box input { cursor: pointer; height: 100%; opacity: 0; position: absolute; width: 100%; z-index: 1; }
+
+.right-quick-view-detsils .color-list li .colour-box .checkmark { border: 1px solid #D4D4D4; border-radius: 100%; height: 32px; left: 0; position: absolute; top: 0; width: 32px; overflow: hidden; }
+
+.right-quick-view-detsils .color-list li .colour-box .checkmark img{width: 100%;}
+
+.right-quick-view-detsils .color-list li .colour-box input:checked ~ .checkmark { border-color: #D4D4D4 !important; }
+
+.right-quick-view-detsils .color-list li .colour-box .checkmark:after { content: ""; display: none; position: absolute; }
+
+.right-quick-view-detsils .color-list li .colour-box input:checked ~ .checkmark:after { display: block; }
+
+.right-quick-view-detsils .color-list li .colour-box .checkmark:after { border: solid white; border-width: 0 2px 2px 0; height: 14px; left: 10px; top: 5px; width: 8px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+
+.right-quick-view-detsils .qnty-list { float: left; list-style: none; margin: 0 0 20px 0; padding: 0; width: 100%; }
+
+.right-quick-view-detsils .qnty-list li { align-items: center;  display: flex; float: left; }
+
+.right-quick-view-detsils .qnty-list li label { color: #002855; float: left; font-size: 16px; font-weight: 400; margin-bottom: 0; margin-right: 8px; }
+
+.right-quick-view-detsils .rating-span { display: block; margin-bottom: 20px; }
+
+.right-quick-view-detsils .rating-span img { display: inline-block; }
+
+.right-quick-view-detsils .rating-span .text-span { color: #002855; display: inline-block; font-size: 14px; }
+
+
+
+/*------------------------- Add To Cart Modal Start -------------------------*/ 
+
+.addCartModal .modal-dialog { max-width: 878px; }
+
+.addCartModal .modal-header { padding-bottom: 0; padding-left: 32px; padding-right: 32px; }
+
+.addCartModal .modal-body { padding-left: 32px; padding-right: 32px; }
+
+.addCartModal .cart-sec .table { margin-bottom: 0; }
+
+.addCartModal .cart-sec .table td { border-bottom: 1px solid #D5D5D5; border-top: none;  padding: 25px 0 30px 0; vertical-align: middle; }
+
+.addCartModal .cart-sec .table td img { height: auto; max-height: 86px; max-width: 127px; width: auto; }
+
+.addCartModal .cart-sec .table td .price-spna { color: #002855; display: inline-block; font-size: 18px; font-weight: 600; line-height: 24px; }
+
+.addCartModal .cart-sec .table td .qty-text-span { color: #002855; float: left; font-size: 16px; font-weight: 400; line-height: 24px; margin: 6px 12px 0 0; }
+
+.addCartModal .cart-sec .table td h3 { color: #002855; font-size: 24px; font-weight: 400; margin: 0 0 5px 0; text-transform: uppercase; }
+
+.addCartModal .cart-sec .table td p { color: #002855; font-size: 16px; font-weight: 400; line-height: 24px; margin: 0; }
+
+.addCartModal .modal-footer { padding-bottom: 56px; padding-left: 32px; padding-right: 32px; }
+
+
+
+
+
+/*------------------------- Redeem Voucher Points Modal Start -------------------------*/ 
+
+.loyaltyPointsModal .modal-dialog { max-width: 716px; }
+
+.loyaltyPointsModal .modal-header { padding-top: 60px; }
+
+.loyaltyPointsModal .modal-header .modal-title { text-align: center; }
+
+.loyaltyPointsModal .modal-body { padding-bottom: 60px; }
+
+.loyaltyPointsModal .modal-body p { color: #002855; font-size: 16px; font-weight: 400; line-height: 24px; margin: 0 14% 35px 14%; text-align: center; }
+
+.loyaltyPointsModal .modal-body .redeem-small-box { margin: 0 auto; padding: 0; width: 404px; }
+
+.loyaltyPointsModal .modal-body .redeem-small-box .promo-list { float: left; list-style: none; margin-bottom: 0; padding-left: 0; width: 100%; }
+
+.loyaltyPointsModal .modal-body .redeem-small-box .promo-list li { float: left; margin: 0; padding: 0; width: 100%; }
+
+.loyaltyPointsModal .modal-body .redeem-small-box .promo-list li .form-control { background-color: #fff; border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; float: left; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; margin-bottom: 0; margin-top: 0; padding: 0 122px 0 24px; }
+
+.loyaltyPointsModal .modal-body .redeem-small-box .promo-list li .btn { background: #002855; border: none; border-radius: 30px; float: right; font-size: 18px; font-weight: 500; letter-spacing: 0.09px; margin-right: 5px; margin-top: -51px; padding: 9.5px 32px; text-transform: capitalize; }
+
+
+
+/*------------------------- Redeem Loyalty Points Modal Start -------------------------*/
+.redeemVoucherModal .modal-dialog { max-width: 600px; }
+
+/*------------------------- Review Modal Start -------------------------*/
+.ReviewModal .modal-dialog { max-width: 716px; }
+.ReviewModal .modal-header { padding-top: 60px; text-align: center; }
+.ReviewModal .modal-body { padding-left: 10%; padding-right: 10%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list { float: left; list-style: none; margin-bottom: 0; padding-left: 0; width: 100%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list li { float: left; margin: 0 0 20px; padding: 0; width: 100%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list li .form-control { background-color: #fff; border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; float: left; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; margin-bottom: 0; margin-top: 0; padding: 0 122px 0 24px; }
+.ReviewModal .modal-body .redeem-small-box .promo-list li .textarea-form { height: 120px; }
+.ReviewModal .modal-body .redeem-small-box .promo-list li .btn { background: #002855; border: none; border-radius: 30px; float: right; font-size: 18px; font-weight: 500; letter-spacing: 0.09px; margin-right: 5px; margin-top: -51px; padding: 9.5px 32px; text-transform: capitalize; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list { list-style: none; margin-bottom: 62px; padding-left: 0; text-align: center; width: 100%; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li { display: inline-block; float: none; margin:  0 15px 0 15px; text-align: center; width: auto; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li .text-span { color: #002855; display: block; font-size: 16px; font-weight: 400; line-height: 24px; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li .num-span { color: #002855; display: block; font-size: 16px; font-weight: 400; line-height: 24px; margin-bottom: 5px; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li .form-radio-check { color: #002855;display: block; margin-bottom: 0; }
+.ReviewModal .modal-body .redeem-small-box .promo-list .rating-list li .form-radio-check .form-check-label { display: inline-block; padding-left: 26px; vertical-align: top; }
+/*------------------------- Review Modal End -------------------------*/
+
+
+
+
+/*sushobhon*/
+
+/*------------------------------- Saved-items page start -------------------------------*/
+/*.saved_tbl { width:100%; height:auto; float:left; border:1px solid #c6c6c6; margin:0 0 20px 0;}*/
+/*.saved_tbl thead { background:#e7e7e7;}*/
+/*.saved_tbl thead th { padding:10px; font-size:14px; font-weight:normal; color:#002855; text-align:center; text-transform:uppercase;}*/
+/*.saved_tbl tbody td { padding:10px; font-size:16px; font-weight:normal; color:#002855; text-align:center;}*/
+/*.saved_tbl tbody td a { color:#002855; }*/
+/*.saved_tbl tbody td a:hover { text-decoration:none; }*/
+/*.saved_tbl tbody td p { font-size:16px; font-weight:normal; color:#002855; text-transform:uppercase; margin:0; text-align:left;}*/
+/*.saved_tbl tbody td p.prdt-id { color:#002855; font-size:14px; font-weight:normal; margin:0;}*/
+/*.saved_tbl tbody tr { border-bottom:1px solid #c6c6c6;}*/
+/*.saved_tbl tbody td .tblImgHldr { width:115px; height:auto; float:left; overflow:hidden;}*/
+/*.saved_tbl tbody td .tblImgHldr img { width:auto; height:auto; max-height:85px;}*/
+/*.saved_tbl tbody td select { width:73px; height:32px; border:1px solid #c6c6c6;}*/
+/*.saved_tbl tbody td input[type="checkbox"] { float:left; margin:65px 10px 0 0;}*/
+
+[class^="sprite-"] {
+  background: url(../img/star.png) no-repeat top left;
+}
+.sprite-gold-star {
+  background-position: 0 0;
+  display: inline-block;
+  height: 16px;
+  margin-right: 4px;
+  width: 17px;
+}
+.sprite-half-star {
+  background-position: 0 -54px;
+  width: 17px;
+  height: 16px;
+}
+.sprite-silver-star {
+  background-position: 0 -107px;
+  width: 17px;
+  height: 16px;
+}
+
+.offer_price{ color:#ff003c;}
+.normal_price{ text-decoration: line-through;}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media screen and (max-width: 991px) {
+
+}
+

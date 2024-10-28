@@ -1,0 +1,57 @@
+/*~~~~~~~~~~~~~~ Log In Body Section Start ~~~~~~~~~~~~~~*/
+.login-sec { display: flex; margin: 0 auto; max-width: 570px; padding-bottom: 88px; padding-top: 88px; width: 100%; }
+.login-white-box { background-color: #fff; float: left; margin: 0; padding: 56px 32px; text-align: center; width: 100%; }
+.login-white-box h3 { color: #002855; font-size: 42px; font-weight: 400; line-height: 112%; margin: 0 0 24px 0; text-transform: uppercase; }
+.login-white-box h4 { color: #002855; font-size: 18px; font-weight: 400; line-height: 24px; margin:  0 0 32px 0; }
+.login-white-box p { color: #002855; font-size: 16px; font-weight: 400; line-height: 24px; margin:  0 0 20px 0; }
+.login-white-box p.alert-msg { color: #ff003c; }
+.login-white-box .nav-tabs { border-bottom: none; justify-content: center; margin-bottom: 32px; }
+.login-white-box .nav-tabs .nav-item { position: relative; }
+.login-white-box .nav-tabs .nav-item:after { background-color: #D5D5D5; bottom: -1px; content: ""; height: 1px; left: 0; position: absolute; width: 100%; z-index: 0; }
+.login-white-box .nav-tabs .nav-item .nav-link { border: none; border-radius: 0; color: #002855; font-size: 18px; padding: 0 24px 20px 24px; position: relative; text-transform: uppercase; z-index: 1; }
+.login-white-box .nav-tabs .nav-item.show .nav-link, .login-white-box .nav-tabs .nav-link.active { background: none; border-bottom: 2px solid #002855; }
+.sign-in-list { list-style: none; margin-bottom: 0; padding-left: 0; }
+.sign-in-list li { margin-bottom: 24px; width: 100%; text-align: center; }
+.sign-in-list li .form-control { background-color: #fff; border: 1px solid #B8BBC5; border-radius: 40px; color: #002855; font-size: 15px; font-weight: 400; height: 56px; line-height: 54px; padding: 0 24px; width: 100%; }
+.sign-in-list li .form-check .form-check-label { text-align: left; }
+.sign-in-list li .topLang .btn-group { width: 100% !important; }
+.sign-in-list li .topLang .btn-group .dropdown-toggle { background: url(../img/select-sort-arrow-icon.png) no-repeat right 12px top 18px; color: #002855; font-size: 15px; padding: 0 24px; position: relative; }
+.sign-in-list li .topLang .btn-group .dropdown-toggle:hover { color: #002855; }
+.sign-in-list li .topLang .btn-group .dropdown-toggle:after { display: none; }
+.sign-in-list li .topLang .btn-group .dropdown-toggle:focus { box-shadow: none; outline: none !important; }
+.sign-in-list li .topLang .btn-group .dropdown-toggle .caret { display: none; }
+.sign-in-list li .topLang .btn-group .flag-icon { line-height: 32px; margin-right: 5px; width: 32px; }
+.sign-in-list li .topLang .btn-group .dropdown-menu { min-width: 151px; min-height: 251px !important; }
+.sign-in-list li .topLang .btn-group .dropdown-menu .dropdown-menu { display: block; }
+.sign-in-list li .topLang .btn-group .dropdown-menu .dropdown-menu li { margin-bottom: 5px; }
+.sign-in-list li .topLang .btn-group .dropdown-menu .dropdown-menu li a { color: #002855; display: block; font-size: 15px; line-height: normal; padding-left: 24px; padding-right: 24px; text-align: left; }
+.sign-in-list li .topLang .btn-group .dropdown-menu .dropdown-menu li a:hover { text-decoration: none; }
+.sign-in-list li .btn { background-color: #002855; border: 2px solid #002855; border-radius: 30px; font-size: 13px; font-weight: 400; height: 56px; letter-spacing: 0.065px; line-height: 52px; padding: 0; width: 100%; }
+.sign-in-list li .btn-primary { background-color: #002855; border: 2px solid #002855; border-radius: 30px; font-size: 13px; font-weight: 400; height: 56px; letter-spacing: 0.065px; line-height: 52px; padding: 0; text-transform: uppercase; width: 100%; }
+.sign-in-list li .btn-primary:hover { background-color: #FFFFFF; color: #002855; }
+.sign-in-list li .btn-default { background-color: #FFFFFF; border: 1px solid #B8BBC5; border-radius: 30px; font-size: 13px; font-weight: 400; height: 56px; letter-spacing: 0.065px; line-height: 52px; padding: 0; text-transform: uppercase; width: 100%; }
+.sign-in-list li .btn-default:hover { background-color: #002855; color: #FFFFFF; }
+.sign-in-list li .btn-default:active{ background-color: #002855; color: #FFFFFF; }
+.login-white-box .tab-content .regis-btn { color: #002855; text-decoration: underline; }
+.login-white-box .tab-content .regis-btn:hover { text-decoration: none; }
+.login-white-box .bottom-sign-in-sec { margin: 0; padding: 0; text-align: center; width: 100%; } 
+.login-white-box .bottom-sign-in-sec .or-span-text { color: #000; display: block; font-size: 14px; font-weight: 400; line-height: 24px; margin-bottom: 20px; text-transform: uppercase; }
+.login-white-box .bottom-sign-in-sec .guest-btn { border: 2px solid #002855; border-radius: 30px; color: #002855; cursor: pointer; display: block; font-size: 14px; line-height: normal; letter-spacing: 0.07px; padding: 16px 48px; text-transform: uppercase; }
+.login-white-box .bottom-sign-in-sec p { color: #002855; font-size: 18px; font-weight: 400; margin: 0 0 20px 0; text-transform: uppercase; }
+.login-white-box .bottom-sign-in-sec .guest-btn:hover { text-decoration: none; }
+.selectpicker { background:#fff;border:1px solid #B8BBC5;border-radius:40px;color:#002855;cursor:pointer;font-size:15px;font-weight:400;height:56px;line-height:54px;overflow:hidden;padding:0 24px 0 24px;position:relative;text-align:right;text-overflow:ellipsis;white-space:nowrap;width:150px; }
+/*~~~~~~~~~~~~~~ Log In Body Section End ~~~~~~~~~~~~~~*/
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media screen and (max-width: 991px) {
+.login-sec { padding-bottom: 60px; padding-top: 30px; }
+.login-white-box { background: none; padding: 0 0 0 0; }
+.login-white-box h3 { font-size: 28px; margin-bottom: 12px; }
+.login-white-box h4 { font-size: 16px; }
+.login-white-box .bottom-sign-in-sec p { font-size: 16px; margin-left: 15px; margin-right: 15px; }
+.login-white-box .bottom-sign-in-sec .guest-btn { margin-left: 15px; margin-right: 15px; }
+.sign-in-list { margin-left: 0; margin-right: 0; }
+.sign-in-list li { margin-bottom: 14px; }
+.sign-in-list li .btn { margin-top: 15px; }
+}
