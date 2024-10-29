@@ -32,6 +32,10 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
 
+- script: |
+    sudo chmod 777 /var
+  displayName: 'Change permissions for /var directory'
+
 - task: DownloadPipelineArtifact@2
   inputs:
     buildType: 'current'
@@ -58,5 +62,5 @@ steps:
           --name $(scaleSetName) \
           --instance-id $instanceId \
           --command-id RunShellScript \
-          --scripts "unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && chmod -R 777 /var/www/html/"
+          --scripts "sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
       done
