@@ -56,11 +56,11 @@ steps:
         instanceId=$(basename $instance)
         echo "Uploading artifact to instance $instanceId"
         
-        # Upload the ZIP file to the VM instance
+        # Install unzip if not installed and then upload the ZIP file to the VM instance
         az vmss run-command invoke \
           --resource-group $(resourceGroupName) \
           --name $(scaleSetName) \
           --instance-id $instanceId \
           --command-id RunShellScript \
-          --scripts "sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
+          --scripts "sudo apt-get update && sudo apt-get install -y unzip && sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
       done
