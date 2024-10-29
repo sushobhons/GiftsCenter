@@ -36,7 +36,7 @@ steps:
   inputs:
     buildType: 'current'
     artifactName: 'drop'
-    targetPath: '/var/www/html/'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
 
 - task: AzureCLI@2
   inputs:
@@ -49,11 +49,22 @@ steps:
       
       # Loop through each instance and upload the artifact
       for instance in $instances; do
+        instanceId=$(basename $instance)
+        echo "Uploading artifact to instance $instanceId"
+        
+        # Upload the ZIP file to the VM instance
         az vmss run-command invoke \
           --resource-group $(resourceGroupName) \
           --name $(scaleSetName) \
-          --instance-id $(basename $instance) \
+          --instance-id $instanceId \
           --command-id RunShellScript \
-          --scripts "mkdir -p /var/www/html/web && unzip -o /var/www/html/$(Build.BuildId).zip -d /var/www/html/web && chmod -R 777 /var/www/html/web" \
-          --parameters fileUris=/var/www/html/$(Build.BuildId).zip
+          --scripts "mkdir -p /var/www/html && curl -o /var/www/html/$(Build.BuildId).zip $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
+        
+        # Unzip the file in the target directory
+        az vmss run-command invoke \
+          --resource-group $(resourceGroupName) \
+          --name $(scaleSetName) \
+          --instance-id $instanceId \
+          --command-id RunShellScript \
+          --scripts "unzip -o /var/www/html/$(Build.BuildId).zip -d /var/www/html/ && chmod -R 777 /var/www/html/"
       done
