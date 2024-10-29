@@ -1,0 +1,59 @@
+trigger:
+  branches:
+    include:
+      - main  # Adjust as needed
+
+pool:
+  vmImage: 'ubuntu-latest'  # or windows-latest if you're using Windows agents
+
+variables:
+  azureSubscription: 'ikasco Subscription'
+  resourceGroupName: 'dbIKASCO'
+  scaleSetName: 'GiftsCenter'
+
+steps:
+#- checkout: self  # Check out the current repository
+
+- script: |
+    echo "Listing files in $(Build.SourcesDirectory)"
+    ls -R $(Build.SourcesDirectory)  # List files recursively
+  displayName: 'List source directory'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    artifactName: 'drop'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      # Get the list of VM instances in the scale set
+      instances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
+      
+      # Loop through each instance and upload the artifact
+      for instance in $instances; do
+        az vmss run-command invoke \
+          --resource-group $(resourceGroupName) \
+          --name $(scaleSetName) \
+          --instance-id $(basename $instance) \
+          --command-id RunShellScript \
+          --scripts "mkdir -p /var/www/html/web && unzip -o /var/lib/waagent/custom-script/download/0/$(Build.BuildId).zip -d /var/www/html/web && chmod -R 777 /var/www/html/web" \
+          --parameters fileUris=$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      done
