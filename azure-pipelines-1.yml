@@ -29,8 +29,17 @@ steps:
     secureFile: 'id_rsa'  # Name of your uploaded secure file
 
 - script: |
+    echo "Resource Group Name: $(resourceGroupName)"
+    echo "Scale Set Name: $(scaleSetName)"
+
     # Get the list of VM instances in the scale set
     instances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
+    
+    # Check if instances were found
+    if [ -z "$instances" ]; then
+      echo "No instances found in the scale set."
+      exit 1
+    fi
     
     # Loop through each instance and upload the artifact
     for instance in $instances; do
@@ -41,6 +50,8 @@ steps:
       ipAddress=$(az vmss get-instance-view --resource-group $(resourceGroupName) --name $(scaleSetName) --instance-id $instanceId --query "ipConfigurations[0].publicIpAddress.id" -o tsv)
       ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
       
+      echo "Public IP Address: $ipAddress"
+
       # Upload the ZIP file using scp
       chmod 600 $(Agent.TempDirectory)/id_rsa  # Set permissions for the private key
       scp -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip azureuser@$ipAddress:/var/$(Build.BuildId).zip
