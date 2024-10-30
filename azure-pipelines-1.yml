@@ -47,35 +47,28 @@ steps:
 
       echo "Instances: $instances"
 
-      # Check if instances were found
-      if [ -z "$instances" ]; then
-        echo "No instances found in the scale set."
+      # Get the Load Balancer Public IP
+      echo "Retrieving Load Balancer public IP..."
+      lbIp=$(az network lb show --resource-group $(resourceGroupName) --name NLBGiftsCenter --query "frontendIpConfigurations[0].publicIpAddress.id" -o tsv)
+      publicIp=$(az network public-ip show --ids $lbIp --query "ipAddress" -o tsv)
+
+      if [ -z "$publicIp" ]; then
+        echo "No public IP found for Load Balancer. Exiting..."
         exit 1
       fi
+
+      echo "Load Balancer Public IP: $publicIp"
 
       # Loop through each instance and upload the artifact
       for instance in $instances; do
         instanceId=$(basename $instance)
-        echo "Uploading artifact to instance $instanceId"
+        echo "Uploading artifact to instance $instanceId via Load Balancer IP $publicIp"
         
-        # Get the public IP of the instance
-        echo "Retrieving public IP for instance $instanceId..."
-        ipAddress=$(az vmss get-instance-view --resource-group $(resourceGroupName) --name $(scaleSetName) --instance-id $instanceId --query "ipConfigurations[0].publicIpAddress.id" -o tsv)
-
-        if [ -z "$ipAddress" ]; then
-          echo "No public IP found for instance $instanceId. Exiting..."
-          exit 1
-        fi
-
-        ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
-
-        echo "Public IP Address: $ipAddress"
-
         # Upload the ZIP file using scp
         chmod 600 $(Agent.TempDirectory)/id_rsa  # Set permissions for the private key
-        scp -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip azureuser@$ipAddress:/var/$(Build.BuildId).zip
+        scp -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip azureuser@$publicIp:/var/$(Build.BuildId).zip
         
-        # Unzip the file and set permissions
-        ssh -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no azureuser@$ipAddress "sudo apt-get update && sudo apt-get install -y unzip && sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
+        # Unzip the file and set permissions using Load Balancer IP
+        ssh -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no azureuser@$publicIp "sudo apt-get update && sudo apt-get install -y unzip && sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
       done
   displayName: 'Upload and Deploy to VMSS'
