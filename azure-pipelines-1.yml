@@ -15,11 +15,6 @@ variables:
 steps:
 #- checkout: self  # Check out the current repository
 
-- script: |
-    echo "Listing files in $(Build.SourcesDirectory)"
-    ls -R $(Build.SourcesDirectory)  # List files recursively
-  displayName: 'List source directory'
-
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.SourcesDirectory)'
@@ -36,19 +31,17 @@ steps:
     inlineScript: |
       # Upload the zip file to a storage account
       az storage blob upload \
-        --account-name '$StorageAccountName' \
-        --container-name '$ContainerName' \
+        --account-name $StorageAccountName \
+        --container-name $ContainerName \
         --name $(Build.BuildId).zip \
         --file $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      echo 'Upload the zip file to a storage account'
-      
+
       # Get the SAS URL for the uploaded blob
       sas_url=$(az storage blob url \
-        --account-name '$StorageAccountName' \
-        --container-name '$ContainerName' \
+        --account-name $StorageAccountName \
+        --container-name $ContainerName \
         --name $(Build.BuildId).zip \
         --output tsv)
-      echo 'Get the SAS URL for the uploaded blob'
 
       # Update the VMSS with the new package
       az vmss update-instances \
