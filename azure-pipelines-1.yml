@@ -26,7 +26,7 @@ steps:
 
 - script: |
     # Get the list of VM instances in the scale set
-    instances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
+    instances=$(az vmss list-instances --resource-group ${{ variables.resourceGroupName }} --name ${{ variables.scaleSetName }} --query "[].id" -o tsv)
     
     # Loop through each instance and upload the artifact
     for instance in $instances; do
@@ -34,7 +34,7 @@ steps:
       echo "Uploading artifact to instance $instanceId"
       
       # Get the public IP of the instance
-      ipAddress=$(az vmss get-instance-view --resource-group $(resourceGroupName) --name $(scaleSetName) --instance-id $instanceId --query "ipConfigurations[0].publicIpAddress.id" -o tsv)
+      ipAddress=$(az vmss get-instance-view --resource-group ${{ variables.resourceGroupName }} --name ${{ variables.scaleSetName }} --instance-id $instanceId --query "ipConfigurations[0].publicIpAddress.id" -o tsv)
       ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
       
       # Upload the ZIP file using scp
@@ -45,3 +45,4 @@ steps:
       ssh -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no azureuser@$ipAddress "sudo apt-get update && sudo apt-get install -y unzip && sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
     done
   displayName: 'Upload and Deploy to VMSS'
+
