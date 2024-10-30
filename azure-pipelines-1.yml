@@ -31,16 +31,6 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      # Install unzip on all instances in the VMSS
-      az vmss run-command invoke --resource-group $resourceGroupName --name $scaleSetName --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y unzip"
-  displayName: 'Install unzip on all VMSS instances'
-
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: '$(azureSubscription)'  # Your Azure subscription
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
       # Get the instance ID of the VM to target
       INSTANCE_ID=$(az vmss list-instances --resource-group $resourceGroupName --vmss-name $scaleSetName --query "[0].instanceId" -o tsv)
 
