@@ -27,7 +27,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $azureSubscription  # Your Azure subscription
+    azureSubscription: '$(azureSubscription)'  # Your Azure subscription
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -37,7 +37,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $azureSubscription  # Your Azure subscription
+    azureSubscription: '$(azureSubscription)'  # Your Azure subscription
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
