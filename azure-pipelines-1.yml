@@ -7,7 +7,7 @@ pool:
   vmImage: 'ubuntu-latest'  # or windows-latest if you're using Windows agents
 
 variables:
-  azureSubscriptionname: 'ikascoConn'
+  azureSubscription: 'ikascoConn'
   resourceGroupName: 'dbIKASCO'
   scaleSetName: 'GiftsCenter'
   StorageAccountName: 'ikascostorage'
@@ -30,7 +30,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $azureSubscriptionname
+    azureSubscription: $azureSubscription
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
