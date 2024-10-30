@@ -4,13 +4,17 @@ trigger:
       - main  # Adjust as needed
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-latest'  # or windows-latest if you're using Windows agents
 
 variables:
+  azureSubscription: 'ikasco Subscription'
   resourceGroupName: 'dbIKASCO'
   scaleSetName: 'GiftsCenter'
-
+  StorageAccountName: 'ikascostorage'
+  ContainerName: 'deploys'
 steps:
+#- checkout: self  # Check out the current repository
+
 - script: |
     echo "Listing files in $(Build.SourcesDirectory)"
     ls -R $(Build.SourcesDirectory)  # List files recursively
@@ -24,57 +28,36 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: 'id_rsa'  # Name of your uploaded secure file
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'ikasco Subscription'  # Replace with your service connection name
+    azureSubscription: '$azureSubscription'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      echo "Resource Group Name: $(resourceGroupName)"
-      echo "Scale Set Name: $(scaleSetName)"
-      
-      # Attempt to get the list of VM instances in the scale set
-      echo "Retrieving VM instances..."
-      instances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
+      # Upload the zip file to a storage account
+      az storage blob upload \
+        --account-name $StorageAccountName \
+        --container-name $ContainerName \
+        --name $(Build.BuildId).zip \
+        --file $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
 
-      if [ $? -ne 0 ]; then
-        echo "Failed to retrieve instances. Check your Azure CLI command and permissions."
-        exit 1
-      fi
+      # Get the SAS URL for the uploaded blob
+      sas_url=$(az storage blob url \
+        --account-name $StorageAccountName \
+        --container-name $ContainerName \
+        --name $(Build.BuildId).zip \
+        --output tsv)
 
-      echo "Instances: $instances"
+      # Update the VMSS with the new package
+      az vmss update-instances \
+        --resource-group $resourceGroupName \
+        --name $scaleSetName \
+        --instance-ids '*'
 
-      # Get the Load Balancer Public IP
-      echo "Retrieving Load Balancer public IP..."
-      lbIp=$(az network lb show --resource-group $(resourceGroupName) --name NLBGiftsCenter --query "frontendIpConfigurations[0].publicIpAddress.id" -o tsv)
-
-      if [ -z "$lbIp" ]; then
-        echo "Failed to retrieve Load Balancer IP configuration. Check the Load Balancer name and resource group."
-        exit 1
-      fi
-
-      publicIp=$(az network public-ip show --ids $lbIp --query "ipAddress" -o tsv)
-
-      if [ -z "$publicIp" ]; then
-        echo "No public IP found for Load Balancer. Exiting..."
-        exit 1
-      fi
-
-      echo "Load Balancer Public IP: $publicIp"
-
-      # Loop through each instance and upload the artifact
-      for instance in $instances; do
-        instanceId=$(basename $instance)
-        echo "Uploading artifact to instance $instanceId via Load Balancer IP $publicIp"
-        
-        # Upload the ZIP file using scp
-        chmod 600 $(Agent.TempDirectory)/id_rsa  # Set permissions for the private key
-        scp -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip azureuser@$publicIp:/var/$(Build.BuildId).zip
-        
-        # Unzip the file and set permissions using Load Balancer IP
-        ssh -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no azureuser@$publicIp "sudo apt-get update && sudo apt-get install -y unzip && sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
-      done
-  displayName: 'Upload and Deploy to VMSS'
+      # Run a custom script extension to download and unzip the package on each instance
+      az vmss extension set \
+        --resource-group $resourceGroupName \
+        --vmss-name $scaleSetName \
+        --name CustomScript \
+        --publisher Microsoft.Azure.Extensions \
+        --settings "{\"fileUris\": [\"$sas_url\"], \"commandToExecute\": \"unzip -o /var/www/html/$(Build.BuildId).zip -d /var/www/html/web && chmod -R 777 /var/www/html/web\"}"
