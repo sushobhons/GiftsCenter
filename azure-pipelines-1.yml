@@ -12,6 +12,7 @@ variables:
   scaleSetName: 'GiftsCenter'
   StorageAccountName: 'ikascostorage'
   ContainerName: 'deploys'
+
 steps:
 #- checkout: self  # Check out the current repository
 
