@@ -50,7 +50,13 @@ steps:
       # Get the Load Balancer Public IP
       echo "Retrieving Load Balancer public IP..."
       lbIp=$(az network lb show --resource-group $(resourceGroupName) --name NLBGiftsCenter --query "frontendIpConfigurations[0].publicIpAddress.id" -o tsv)
-      publicIp='172.207.249.201:50000'
+
+      if [ -z "$lbIp" ]; then
+        echo "Failed to retrieve Load Balancer IP configuration. Check the Load Balancer name and resource group."
+        exit 1
+      fi
+
+      publicIp=$(az network public-ip show --ids $lbIp --query "ipAddress" -o tsv)
 
       if [ -z "$publicIp" ]; then
         echo "No public IP found for Load Balancer. Exiting..."
