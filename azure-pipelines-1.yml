@@ -53,7 +53,7 @@ steps:
         
         # Get the public IP of the instance
         ipAddress=$(az vmss get-instance-view --resource-group $(resourceGroupName) --name $(scaleSetName) --instance-id $instanceId --query "ipConfigurations[0].publicIpAddress.id" -o tsv)
-        ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
+        #ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
         
         echo "Public IP Address: $ipAddress"
 
