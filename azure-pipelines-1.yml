@@ -28,35 +28,40 @@ steps:
   inputs:
     secureFile: 'id_rsa'  # Name of your uploaded secure file
 
-- script: |
-    echo "Resource Group Name: $(resourceGroupName)"
-    echo "Scale Set Name: $(scaleSetName)"
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ikasco Subscription'  # Update with your service connection name
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      echo "Resource Group Name: $(resourceGroupName)"
+      echo "Scale Set Name: $(scaleSetName)"
 
-    # Get the list of VM instances in the scale set
-    instances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
-    
-    # Check if instances were found
-    if [ -z "$instances" ]; then
-      echo "No instances found in the scale set."
-      exit 1
-    fi
-    
-    # Loop through each instance and upload the artifact
-    for instance in $instances; do
-      instanceId=$(basename $instance)
-      echo "Uploading artifact to instance $instanceId"
+      # Get the list of VM instances in the scale set
+      instances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
       
-      # Get the public IP of the instance
-      ipAddress=$(az vmss get-instance-view --resource-group $(resourceGroupName) --name $(scaleSetName) --instance-id $instanceId --query "ipConfigurations[0].publicIpAddress.id" -o tsv)
-      ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
+      # Check if instances were found
+      if [ -z "$instances" ]; then
+        echo "No instances found in the scale set."
+        exit 1
+      fi
       
-      echo "Public IP Address: $ipAddress"
+      # Loop through each instance and upload the artifact
+      for instance in $instances; do
+        instanceId=$(basename $instance)
+        echo "Uploading artifact to instance $instanceId"
+        
+        # Get the public IP of the instance
+        ipAddress=$(az vmss get-instance-view --resource-group $(resourceGroupName) --name $(scaleSetName) --instance-id $instanceId --query "ipConfigurations[0].publicIpAddress.id" -o tsv)
+        ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
+        
+        echo "Public IP Address: $ipAddress"
 
-      # Upload the ZIP file using scp
-      chmod 600 $(Agent.TempDirectory)/id_rsa  # Set permissions for the private key
-      scp -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip azureuser@$ipAddress:/var/$(Build.BuildId).zip
-      
-      # Unzip the file and set permissions
-      ssh -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no azureuser@$ipAddress "sudo apt-get update && sudo apt-get install -y unzip && sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
-    done
+        # Upload the ZIP file using scp
+        chmod 600 $(Agent.TempDirectory)/id_rsa  # Set permissions for the private key
+        scp -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip azureuser@$ipAddress:/var/$(Build.BuildId).zip
+        
+        # Unzip the file and set permissions
+        ssh -i $(Agent.TempDirectory)/id_rsa -o StrictHostKeyChecking=no azureuser@$ipAddress "sudo apt-get update && sudo apt-get install -y unzip && sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
+      done
   displayName: 'Upload and Deploy to VMSS'
