@@ -4,7 +4,7 @@ trigger:
       - main  # Adjust as needed
 
 pool:
-  vmImage: 'ubuntu-latest'  # or windows-latest if you're using Windows agents
+  vmImage: 'ubuntu-latest'
 
 variables:
   azureSubscription: 'ikasco Subscription'
@@ -12,8 +12,6 @@ variables:
   scaleSetName: 'GiftsCenter'
 
 steps:
-#- checkout: self  # Check out the current repository
-
 - script: |
     echo "Listing files in $(Build.SourcesDirectory)"
     ls -R $(Build.SourcesDirectory)  # List files recursively
@@ -27,40 +25,29 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-
-- script: |
-    sudo chmod 777 /var
-  displayName: 'Change permissions for /var directory'
-
-- task: DownloadPipelineArtifact@2
-  inputs:
-    buildType: 'current'
-    artifactName: 'drop'
-    targetPath: '/var/'
-
 - task: AzureCLI@2
   inputs:
-    azureSubscription: '$(azureSubscription)'
+    azureSubscription: $azureSubscription  # Your Azure subscription
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      # Get the list of VM instances in the scale set
-      instances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
-      
-      # Loop through each instance and upload the artifact
-      for instance in $instances; do
-        instanceId=$(basename $instance)
-        echo "Uploading artifact to instance $instanceId"
-        
-        # Install unzip if not installed and then upload the ZIP file to the VM instance
-        az vmss run-command invoke \
-          --resource-group $(resourceGroupName) \
-          --name $(scaleSetName) \
-          --instance-id $instanceId \
-          --command-id RunShellScript \
-          --scripts "sudo apt-get update && sudo apt-get install -y unzip && sudo unzip -o /var/$(Build.BuildId).zip -d /var/www/html/web && sudo chmod -R 777 /var/www/html/"
-      done
+      # Install unzip on all instances in the VMSS
+      az vmss run-command invoke --resource-group $resourceGroupName --name $scaleSetName --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y unzip"
+  displayName: 'Install unzip on all VMSS instances'
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: $azureSubscription  # Your Azure subscription
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      # Get the instance ID of the VM to target
+      INSTANCE_ID=$(az vmss list-instances --resource-group $resourceGroupName --vmss-name $scaleSetName --query "[0].instanceId" -o tsv)
+
+      # Upload the artifact to the VM instance
+      az vm run-command invoke --resource-group $resourceGroupName --name $scaleSetName --instance-id $INSTANCE_ID --command-id RunShellScript --scripts "mkdir -p /var/www/html/ && echo 'Uploading files...' && unzip -o /var/www/html/$(Build.BuildId).zip -d /var/www/html/web"
+
+      # Adjust permissions
+      az vm run-command invoke --resource-group $resourceGroupName --name $scaleSetName --instance-id $INSTANCE_ID --command-id RunShellScript --scripts "chmod -R 777 /var/www/html/web"
+
+  displayName: 'Deploy to VMSS'
