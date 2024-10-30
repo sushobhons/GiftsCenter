@@ -27,33 +27,41 @@ steps:
 - task: DownloadSecureFile@1
   inputs:
     secureFile: 'id_rsa'  # Name of your uploaded secure file
-
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'ikasco Subscription'  # Update with your service connection name
+    azureSubscription: 'ikasco Subscription'  # Replace with your service connection name
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
       echo "Resource Group Name: $(resourceGroupName)"
       echo "Scale Set Name: $(scaleSetName)"
-
-      # Get the list of VM instances in the scale set
+      
+      # Attempt to get the list of VM instances in the scale set
+      echo "Retrieving VM instances..."
       instances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
       
+      if [ $? -ne 0 ]; then
+        echo "Failed to retrieve instances. Check your Azure CLI command and permissions."
+        exit 1
+      fi
+
+      echo "Instances: $instances"
+
       # Check if instances were found
       if [ -z "$instances" ]; then
         echo "No instances found in the scale set."
         exit 1
       fi
-      
+
       # Loop through each instance and upload the artifact
       for instance in $instances; do
         instanceId=$(basename $instance)
         echo "Uploading artifact to instance $instanceId"
         
         # Get the public IP of the instance
+        echo "Retrieving public IP for instance $instanceId..."
         ipAddress=$(az vmss get-instance-view --resource-group $(resourceGroupName) --name $(scaleSetName) --instance-id $instanceId --query "ipConfigurations[0].publicIpAddress.id" -o tsv)
-        #ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
+        ipAddress=$(az network public-ip show --ids $ipAddress --query "ipAddress" -o tsv)
         
         echo "Public IP Address: $ipAddress"
 
