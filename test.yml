@@ -40,7 +40,7 @@ steps:
       
       # Loop through each VM instance and upload the file
       for vm in $vmssInstances; do
-      echo "uploading to instance $(vm)"
+      echo "uploading to instance $vm"
       echo "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
         az vm run-command invoke --ids $vm --command-id RunShellScript --scripts "mkdir -p /var/www/html/web && unzip -o /var/www/html/$(Build.BuildId).zip -d /var/www/html/web && chmod -R 777 /var/www/html/web" --parameters "zipFile=$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
       done
