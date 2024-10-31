@@ -42,6 +42,7 @@ steps:
     inlineScript: |
       instance_ids=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" --output tsv)
       for instance_id in $instance_ids; do
+      echo "uploading to instance $($instance_id)"
         az vmss run-command invoke \
           --ids $instance_id \
           --command-id RunShellScript \
