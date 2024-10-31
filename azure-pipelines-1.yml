@@ -48,5 +48,5 @@ steps:
           --name $(scaleSetName) \
           --instance-id $instance_id \
           --command-id RunShellScript \
-          --scripts "az storage blob download --account-name $(StorageAccountName) --container-name $(ContainerName) --name $(Build.BuildId).zip --file /var/www/html/$(Build.BuildId).zip"
+          --scripts "az storage blob download --account-name $(StorageAccountName) --container-name $(ContainerName) --name $(Build.BuildId).zip --file /var/$(Build.BuildId).zip"
       done
