@@ -8,8 +8,8 @@ pool:
 
 variables:
   azureSubscription: 'ikasco Subscription'
-  resourceGroupName: 'dbIKASCO'
-  scaleSetName: 'GiftsCenter'
+  resourceGroupName: 'ikascoRG'
+  scaleSetName: 'GiftsCenterVMSS'
   StorageAccountName: 'ikascostorage'
   ContainerName: 'deploys'
 
