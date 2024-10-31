@@ -36,7 +36,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       # Get the list of VM instances in the scale set
-      vmssInstances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" -o tsv)
+      vmssInstances=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].instanceId" --output tsv)
       
       # Loop through each VM instance and upload the file
       for vm in $vmssInstances; do
