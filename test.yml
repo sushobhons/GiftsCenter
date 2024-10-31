@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureFileCopy@6
+  inputs:
+    SourcePath: '*'
+    azureSubscription: 'ikascoConn'
+    Destination: 'AzureVMs'
+    storage: 'ikascostorage'
+    resourceGroup: 'IKASCORG'
+    vmsAdminUserName: 'IKASCOAdmin'
+    vmsAdminPassword: 'YOmopbAX6BqoV8voVtF0'
+    TargetPath: '/var/www/html/'
+    skipCACheck: false
