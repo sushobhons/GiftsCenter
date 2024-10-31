@@ -40,7 +40,7 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      instance_ids=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].id" --output tsv)
+      instance_ids=$(az vmss list-instances --resource-group $(resourceGroupName) --name $(scaleSetName) --query "[].instanceId" --output tsv)
       for instance_id in $instance_ids; do
         echo "uploading to instance $instance_id"
         az vmss run-command invoke \
