@@ -24,36 +24,13 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
-- task: AzureCLI@2
+- task: AzureFileCopy@6
   inputs:
+    SourcePath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     azureSubscription: 'ikascoConn'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      # Upload the zip file to a storage account
-      az storage blob upload \
-        --account-name $StorageAccountName \
-        --container-name $ContainerName \
-        --name $(Build.BuildId).zip \
-        --file $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-
-      # Get the SAS URL for the uploaded blob
-      sas_url=$(az storage blob url \
-        --account-name $StorageAccountName \
-        --container-name $ContainerName \
-        --name $(Build.BuildId).zip \
-        --output tsv)
-
-      # Update the VMSS with the new package
-      az vmss update-instances \
-        --resource-group $resourceGroupName \
-        --name $scaleSetName \
-        --instance-ids '*'
-
-      # Run a custom script extension to download and unzip the package on each instance
-      az vmss extension set \
-        --resource-group $resourceGroupName \
-        --vmss-name $scaleSetName \
-        --name CustomScript \
-        --publisher Microsoft.Azure.Extensions \
-        --settings "{\"fileUris\": [\"$sas_url\"], \"commandToExecute\": \"unzip -o /var/www/html/$(Build.BuildId).zip -d /var/www/html/web && chmod -R 777 /var/www/html/web\"}"
+    Destination: 'AzureVMs'
+    storage: 'ikascostorage'
+    resourceGroup: 'DBIKASCO'
+    vmsAdminUserName: 'IKASCOAdmin'
+    vmsAdminPassword: 'YOmopbAX6BqoV8voVtF0'
+    TargetPath: '/var/www/html/'
