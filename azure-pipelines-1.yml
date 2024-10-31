@@ -14,8 +14,6 @@ variables:
   ContainerName: 'deploys'
 
 steps:
-#- checkout: self  # Check out the current repository
-
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.SourcesDirectory)'
@@ -24,13 +22,26 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
-- task: AzureFileCopy@6
+- task: AzureCLI@2
   inputs:
-    SourcePath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     azureSubscription: 'ikascoConn'
-    Destination: 'AzureVMs'
-    storage: 'ikascostorage'
-    resourceGroup: 'DBIKASCO'
-    vmsAdminUserName: 'IKASCOAdmin'
-    vmsAdminPassword: 'YOmopbAX6BqoV8voVtF0'
-    TargetPath: '/var/www/html/'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az storage blob upload \
+        --account-name $(StorageAccountName) \
+        --container-name $(ContainerName) \
+        --name $(Build.BuildId).zip \
+        --file $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ikascoConn'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az vmss run-command invoke \
+        --resource-group $(resourceGroupName) \
+        --name $(scaleSetName) \
+        --command-id RunShellScript \
+        --scripts "az storage blob download --account-name $(StorageAccountName) --container-name $(ContainerName) --name $(Build.BuildId).zip --file /var/www/html/$(Build.BuildId).zip"
