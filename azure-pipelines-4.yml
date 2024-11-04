@@ -23,10 +23,9 @@ steps:
     inlineScript: |
       # Get instance IDs
       instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
-
       # Install dependencies on each VMSS instance
       for instance_id in $instance_ids; do
-      echo "setup instance $(instance_id)"
+      echo "setup instance $instance_id"
         az vmss run-command invoke \
           --resource-group $(RESOURCE_GROUP) \
           --name $(VMSS_NAME) \
