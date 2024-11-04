@@ -21,19 +21,24 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      # Install dependencies on VMSS instances
-      az vmss run-command invoke \
-        --resource-group $(RESOURCE_GROUP) \
-        --name $(VMSS_NAME) \
-        --command-id RunShellScript \
-        --instance-id '*' \
-        --scripts "
-          sudo apt update &&
-          sudo apt install -y git nginx php php-fpm php-mysql unzip &&
-          sudo mkdir -p /www/html/gc &&
-          sudo chown -R www-data:www-data /www/html/gc &&
-          sudo chmod -R 755 /www/html/gc
-        "
+      # Get instance IDs
+      instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
+
+      # Install dependencies on each VMSS instance
+      for instance_id in $instance_ids; do
+        az vmss run-command invoke \
+          --resource-group $(RESOURCE_GROUP) \
+          --name $(VMSS_NAME) \
+          --command-id RunShellScript \
+          --instance-id $instance_id \
+          --scripts "
+            sudo apt update &&
+            sudo apt install -y git nginx php php-fpm php-mysql unzip &&
+            sudo mkdir -p /www/html/gc &&
+            sudo chown -R www-data:www-data /www/html/gc &&
+            sudo chmod -R 755 /www/html/gc
+          "
+      done
 
 - task: AzureCLI@2
   inputs:
@@ -41,17 +46,22 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      # Clone repository on VMSS instances
-      az vmss run-command invoke \
-        --resource-group $(RESOURCE_GROUP) \
-        --name $(VMSS_NAME) \
-        --command-id RunShellScript \
-        --instance-id '*' \
-        --scripts "
-          cd /var/www/html/gc &&
-          sudo git clone https://IKASCO@dev.azure.com/IKASCO/Website/_git/Website . &&
-          sudo composer install
-        "
+      # Get instance IDs
+      instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
+
+      # Clone repository on each VMSS instance
+      for instance_id in $instance_ids; do
+        az vmss run-command invoke \
+          --resource-group $(RESOURCE_GROUP) \
+          --name $(VMSS_NAME) \
+          --command-id RunShellScript \
+          --instance-id $instance_id \
+          --scripts "
+            cd /var/www/html/gc &&
+            sudo git clone https://IKASCO@dev.azure.com/IKASCO/Website/_git/Website . &&
+            sudo composer install
+          "
+      done
 
 - task: AzureCLI@2
   inputs:
@@ -59,29 +69,34 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      # Configure Nginx
-      az vmss run-command invoke \
-        --resource-group $(RESOURCE_GROUP) \
-        --name $(VMSS_NAME) \
-        --command-id RunShellScript \
-        --instance-id '*' \
-        --scripts "
-          echo 'server {
-              listen 80;
-              server_name taraf-jo.com www.taraf-jo.com;
-              root /var/www/html/gc;
-              index index.php index.html;
-              
-              location / {
-                  try_files \$uri \$uri/ /index.php?\$query_string;
-              }
-              
-              location ~ \.php$ {
-                  include snippets/fastcgi-php.conf;
-                  fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
-              }
-          }' | sudo tee /etc/nginx/sites-available/gc
+      # Get instance IDs
+      instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
 
-          sudo ln -s /etc/nginx/sites-available/gc /etc/nginx/sites-enabled/
-          sudo systemctl restart nginx
-        "
+      # Configure Nginx on each VMSS instance
+      for instance_id in $instance_ids; do
+        az vmss run-command invoke \
+          --resource-group $(RESOURCE_GROUP) \
+          --name $(VMSS_NAME) \
+          --command-id RunShellScript \
+          --instance-id $instance_id \
+          --scripts "
+            echo 'server {
+                listen 80;
+                server_name taraf-jo.com www.taraf-jo.com;
+                root /var/www/html/gc;
+                index index.php index.html;
+                
+                location / {
+                    try_files \$uri \$uri/ /index.php?\$query_string;
+                }
+                
+                location ~ \.php$ {
+                    include snippets/fastcgi-php.conf;
+                    fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+                }
+            }' | sudo tee /etc/nginx/sites-available/gc
+
+            sudo ln -s /etc/nginx/sites-available/gc /etc/nginx/sites-enabled/
+            sudo systemctl restart nginx
+          "
+      done
