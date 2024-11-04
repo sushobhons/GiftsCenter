@@ -26,6 +26,7 @@ steps:
 
       # Install dependencies on each VMSS instance
       for instance_id in $instance_ids; do
+      echo "setup instance $(instance_id)"
         az vmss run-command invoke \
           --resource-group $(RESOURCE_GROUP) \
           --name $(VMSS_NAME) \
@@ -34,9 +35,9 @@ steps:
           --scripts "
             sudo apt update &&
             sudo apt install -y git nginx php php-fpm php-mysql unzip &&
-            sudo mkdir -p /www/html/gc &&
-            sudo chown -R www-data:www-data /www/html/gc &&
-            sudo chmod -R 755 /www/html/gc
+            sudo mkdir -p /var/www/html/gc &&
+            sudo chown -R IKASCOAdmin:IKASCOAdmin /var/www/html/gc &&
+            sudo chmod -R 755 /var/www/html/gc
           "
       done
 
