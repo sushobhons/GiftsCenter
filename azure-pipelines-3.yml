@@ -8,7 +8,7 @@ pool:
 
 variables:
   resourceGroupName: 'ikascoRG'
-  vmssName: 'GiftsCenterVMSS_87'
+  vmssName: 'GiftsCenterVMSS'
   instanceId: '87'  # Specify which instance to deploy to
 
 stages:
