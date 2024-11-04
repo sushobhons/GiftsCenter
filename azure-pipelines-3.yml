@@ -1,0 +1,35 @@
+trigger:
+  branches:
+    include:
+      - main  # Change this to your branch name
+
+pool:
+  vmImage: 'ubuntu-latest'  # Use an appropriate VM image
+
+variables:
+  resourceGroupName: 'ikascoRG'
+  vmssName: 'GiftsCenterVMSS_87'
+  instanceId: '87'  # Specify which instance to deploy to
+
+stages:
+- stage: Deploy
+  jobs:
+  - job: DeployToVMSS
+    steps:
+    - checkout: self
+
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'ikascoConn'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az vmss update-instances --resource-group $(resourceGroupName) --name $(vmssName) --instance-ids $(instanceId)
+          # Add commands to deploy the zip file to your specific VM instance here
