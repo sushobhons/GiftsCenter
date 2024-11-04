@@ -1,0 +1,85 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  VMSS_NAME: 'your-vmss-name'
+  RESOURCE_GROUP: 'your-resource-group'
+  ADMIN_USERNAME: 'your-admin-username'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Your-Azure-Subscription'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      # Install dependencies on VMSS instances
+      az vmss run-command invoke \
+        --resource-group $(RESOURCE_GROUP) \
+        --name $(VMSS_NAME) \
+        --command-id RunShellScript \
+        --scripts "
+          sudo apt update &&
+          sudo apt install -y git nginx php php-fpm php-mysql unzip &&
+          sudo mkdir -p /www/html/myproject &&
+          sudo chown -R www-data:www-data /www/html/myproject &&
+          sudo chmod -R 755 /www/html/myproject
+        "
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Your-Azure-Subscription'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      # Clone repository on VMSS instances
+      az vmss run-command invoke \
+        --resource-group $(RESOURCE_GROUP) \
+        --name $(VMSS_NAME) \
+        --command-id RunShellScript \
+        --scripts "
+          cd /www/html/myproject &&
+          sudo git clone https://github.com/your-repository-url.git . &&
+          sudo composer install
+        "
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Your-Azure-Subscription'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      # Configure Nginx
+      az vmss run-command invoke \
+        --resource-group $(RESOURCE_GROUP) \
+        --name $(VMSS_NAME) \
+        --command-id RunShellScript \
+        --scripts "
+          echo 'server {
+              listen 80;
+              server_name your_domain_or_ip;
+              root /www/html/myproject/public;
+              index index.php index.html;
+              
+              location / {
+                  try_files \$uri \$uri/ /index.php?\$query_string;
+              }
+              
+              location ~ \.php$ {
+                  include snippets/fastcgi-php.conf;
+                  fastcgi_pass unix:/var/run/php/php-fpm.sock;
+              }
+          }' | sudo tee /etc/nginx/sites-available/myproject
+
+          sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled/
+          sudo systemctl restart nginx
+        "
