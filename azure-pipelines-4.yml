@@ -15,7 +15,6 @@ steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.x'
-
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'ikascoConn'
@@ -27,6 +26,7 @@ steps:
         --resource-group $(RESOURCE_GROUP) \
         --name $(VMSS_NAME) \
         --command-id RunShellScript \
+        --instance-id '*' \
         --scripts "
           sudo apt update &&
           sudo apt install -y git nginx php php-fpm php-mysql unzip &&
@@ -46,6 +46,7 @@ steps:
         --resource-group $(RESOURCE_GROUP) \
         --name $(VMSS_NAME) \
         --command-id RunShellScript \
+        --instance-id '*' \
         --scripts "
           cd /var/www/html/gc &&
           sudo git clone https://IKASCO@dev.azure.com/IKASCO/Website/_git/Website . &&
@@ -63,6 +64,7 @@ steps:
         --resource-group $(RESOURCE_GROUP) \
         --name $(VMSS_NAME) \
         --command-id RunShellScript \
+        --instance-id '*' \
         --scripts "
           echo 'server {
               listen 80;
@@ -83,4 +85,3 @@ steps:
           sudo ln -s /etc/nginx/sites-available/gc /etc/nginx/sites-enabled/
           sudo systemctl restart nginx
         "
-
