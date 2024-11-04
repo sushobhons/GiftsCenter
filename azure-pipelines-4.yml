@@ -7,9 +7,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  VMSS_NAME: 'your-vmss-name'
-  RESOURCE_GROUP: 'your-resource-group'
-  ADMIN_USERNAME: 'your-admin-username'
+  VMSS_NAME: 'GiftsCenterVMSS'
+  RESOURCE_GROUP: 'ikascoRG'
+  ADMIN_USERNAME: 'IKASCOAdmin'
 
 steps:
 - task: UsePythonVersion@0
@@ -18,7 +18,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Your-Azure-Subscription'
+    azureSubscription: 'ikascoConn'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -30,14 +30,14 @@ steps:
         --scripts "
           sudo apt update &&
           sudo apt install -y git nginx php php-fpm php-mysql unzip &&
-          sudo mkdir -p /www/html/myproject &&
-          sudo chown -R www-data:www-data /www/html/myproject &&
-          sudo chmod -R 755 /www/html/myproject
+          sudo mkdir -p /www/html/gc &&
+          sudo chown -R www-data:www-data /www/html/gc &&
+          sudo chmod -R 755 /www/html/gc
         "
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Your-Azure-Subscription'
+    azureSubscription: 'ikascoConn'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -47,14 +47,14 @@ steps:
         --name $(VMSS_NAME) \
         --command-id RunShellScript \
         --scripts "
-          cd /www/html/myproject &&
-          sudo git clone https://github.com/your-repository-url.git . &&
+          cd /var/www/html/gc &&
+          sudo git clone https://IKASCO@dev.azure.com/IKASCO/Website/_git/Website . &&
           sudo composer install
         "
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Your-Azure-Subscription'
+    azureSubscription: 'ikascoConn'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -66,8 +66,8 @@ steps:
         --scripts "
           echo 'server {
               listen 80;
-              server_name your_domain_or_ip;
-              root /www/html/myproject/public;
+              server_name taraf-jo.com www.taraf-jo.com;
+              root /var/www/html/gc;
               index index.php index.html;
               
               location / {
@@ -76,11 +76,11 @@ steps:
               
               location ~ \.php$ {
                   include snippets/fastcgi-php.conf;
-                  fastcgi_pass unix:/var/run/php/php-fpm.sock;
+                  fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
               }
-          }' | sudo tee /etc/nginx/sites-available/myproject
+          }' | sudo tee /etc/nginx/sites-available/gc
 
-          sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled/
+          sudo ln -s /etc/nginx/sites-available/gc /etc/nginx/sites-enabled/
           sudo systemctl restart nginx
         "
 
