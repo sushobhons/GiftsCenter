@@ -23,7 +23,7 @@ stages:
         rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
         includeRootFolder: false
         archiveType: 'zip'
-        archiveFile: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
 
     - task: AzureCLI@2
       inputs:
@@ -32,4 +32,13 @@ stages:
         scriptLocation: 'inlineScript'
         inlineScript: |
           az vmss update-instances --resource-group $(resourceGroupName) --name $(vmssName) --instance-ids $(instanceId)
-          # Add commands to deploy the zip file to your specific VM instance here
+          
+          # Download the ZIP file from the build artifacts
+          curl -o /var/www/html/$(Build.BuildId).zip "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
+          
+          # Unzip the file
+          unzip /var/www/html/$(Build.BuildId).zip -d /var/www/html
+          
+          # Set the correct permissions
+          sudo chown -R www-data:www-data /var/www/html
+          sudo chmod -R 755 /var/www/html
