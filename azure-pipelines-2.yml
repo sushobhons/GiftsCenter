@@ -5,9 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  resourceGroupName: 'ikascoRG'
-  vmssName: 'GiftsCenterVMSS'
-  instanceId: '87'  # Change this to the instance ID you want to deploy to
+- group : AZ
 
 steps:
 - task: UsePythonVersion@0
