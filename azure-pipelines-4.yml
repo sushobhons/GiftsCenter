@@ -22,23 +22,23 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       # Get instance IDs
-      instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
+      #instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
       # Install dependencies on each VMSS instance
-      for instance_id in $instance_ids; do
-      echo "setup instance $instance_id"
+      # for instance_id in $instance_ids; do
+      echo "setup instance 7"
         az vmss run-command invoke \
           --resource-group $(RESOURCE_GROUP) \
           --name $(VMSS_NAME) \
           --command-id RunShellScript \
-          --instance-id $instance_id \
+          --instance-id 7 \
           --scripts "
             sudo apt update &&
-            sudo apt install -y git nginx php php-fpm php-mysql unzip &&
+            sudo apt install -y git nginx php-fpm php-mysql unzip composer &&
             sudo mkdir -p /var/www/html/gc &&
             sudo chown -R IKASCOAdmin:IKASCOAdmin /var/www/html/gc &&
             sudo chmod -R 755 /var/www/html/gc
           "
-      done
+      #done
 
 - task: AzureCLI@2
   inputs:
@@ -47,21 +47,21 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       # Get instance IDs
-      instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
+      #instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
 
       # Clone repository on each VMSS instance
-      for instance_id in $instance_ids; do
+      #for instance_id in $instance_ids; do
         az vmss run-command invoke \
           --resource-group $(RESOURCE_GROUP) \
           --name $(VMSS_NAME) \
           --command-id RunShellScript \
-          --instance-id $instance_id \
+          --instance-id 7 \
           --scripts "
             cd /var/www/html/gc &&
             sudo git clone https://9dByNAOPJmNVnt0KWjqCBWa2gDRrd8EUdKhnFjUIaDnBqfytL6V1JQQJ99AKACAAAAAhxyoqAAASAZDO4JX9@dev.azure.com/IKASCO/Website/_git/Website . &&
             sudo composer install
           "
-      done
+      #done
 
 - task: AzureCLI@2
   inputs:
@@ -70,15 +70,15 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       # Get instance IDs
-      instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
+      #instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
 
       # Configure Nginx on each VMSS instance
-      for instance_id in $instance_ids; do
+      #for instance_id in $instance_ids; do
         az vmss run-command invoke \
           --resource-group $(RESOURCE_GROUP) \
           --name $(VMSS_NAME) \
           --command-id RunShellScript \
-          --instance-id $instance_id \
+          --instance-id 7 \
           --scripts "
             echo 'server {
                 listen 80;
@@ -99,4 +99,4 @@ steps:
             sudo ln -s /etc/nginx/sites-available/gc /etc/nginx/sites-enabled/
             sudo systemctl restart nginx
           "
-      done
+      #done
