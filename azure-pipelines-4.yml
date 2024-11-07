@@ -25,12 +25,12 @@ steps:
       #instance_ids=$(az vmss list-instances --resource-group $(RESOURCE_GROUP) --name $(VMSS_NAME) --query "[].instanceId" -o tsv)
       # Install dependencies on each VMSS instance
       # for instance_id in $instance_ids; do
-      echo "setup instance 13"
+      echo "setup instance 12"
         az vmss run-command invoke \
           --resource-group $(RESOURCE_GROUP) \
           --name $(VMSS_NAME) \
           --command-id RunShellScript \
-          --instance-id 13 \
+          --instance-id 12 \
           --scripts "
             sudo apt update &&
             sudo apt install -y git nginx php-fpm php-mysql unzip composer &&
@@ -55,7 +55,7 @@ steps:
           --resource-group $(RESOURCE_GROUP) \
           --name $(VMSS_NAME) \
           --command-id RunShellScript \
-          --instance-id 13 \
+          --instance-id 12 \
           --scripts "
             cd /var/www/html/gc &&
             sudo git clone https://9dByNAOPJmNVnt0KWjqCBWa2gDRrd8EUdKhnFjUIaDnBqfytL6V1JQQJ99AKACAAAAAhxyoqAAASAZDO4JX9@dev.azure.com/IKASCO/Website/_git/Website . &&
@@ -78,7 +78,7 @@ steps:
           --resource-group $(RESOURCE_GROUP) \
           --name $(VMSS_NAME) \
           --command-id RunShellScript \
-          --instance-id 13 \
+          --instance-id 12 \
           --scripts "
             echo 'server {
                 listen 80;
