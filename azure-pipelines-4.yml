@@ -58,7 +58,7 @@ steps:
           --instance-id $instance_id \
           --scripts "
             cd /var/www/html/gc &&
-            sudo git clone https://IKASCO@dev.azure.com/IKASCO/Website/_git/Website . &&
+            sudo git clone https://9dByNAOPJmNVnt0KWjqCBWa2gDRrd8EUdKhnFjUIaDnBqfytL6V1JQQJ99AKACAAAAAhxyoqAAASAZDO4JX9@dev.azure.com/IKASCO/Website/_git/Website . &&
             sudo composer install
           "
       done
