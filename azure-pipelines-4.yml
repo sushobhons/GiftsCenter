@@ -33,7 +33,7 @@ steps:
           --instance-id $instance_id \
           --scripts "
             sudo apt update &&
-            sudo apt install -y git nginx php-fpm php-mysql unzip composer &&
+            sudo apt install -y git nginx php-fpm php-mysql php-xml php-gd unzip composer &&
             sudo mkdir -p /var/www/html/gc &&
             sudo chown -R IKASCOAdmin:IKASCOAdmin /var/www/html/gc &&
             sudo chmod -R 755 /var/www/html/gc
@@ -59,6 +59,8 @@ steps:
           --scripts "
             cd /var/www/html/gc &&
             sudo git clone https://9dByNAOPJmNVnt0KWjqCBWa2gDRrd8EUdKhnFjUIaDnBqfytL6V1JQQJ99AKACAAAAAhxyoqAAASAZDO4JX9@dev.azure.com/IKASCO/Website/_git/Website . &&
+            sudo chown -R IKASCOAdmin:IKASCOAdmin /var/www/html/gc &&
+            sudo chmod -R 755 /var/www/html/gc
             sudo composer install
           "
       done
