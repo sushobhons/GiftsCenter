@@ -60,8 +60,12 @@ steps:
             cd /var/www/html/gc &&
             sudo git clone https://9dByNAOPJmNVnt0KWjqCBWa2gDRrd8EUdKhnFjUIaDnBqfytL6V1JQQJ99AKACAAAAAhxyoqAAASAZDO4JX9@dev.azure.com/IKASCO/Website/_git/Website . &&
             sudo chown -R IKASCOAdmin:IKASCOAdmin /var/www/html/gc &&
-            sudo chmod -R 755 /var/www/html/gc
-            sudo composer install
+            sudo chmod -R 755 /var/www/html/gc && 
+            sudo composer install &&
+            sudo chmod -R 777 /var/www/html/gc/storage  &&
+            cd /var/www/html/gc/watches.giftscenter.com &&
+            sudo composer install &&
+            sudo chmod -R 777 /var/www/html/gc/watches.giftscenter.com/storage
           "
       done
 
@@ -99,6 +103,23 @@ steps:
             }' | sudo tee /etc/nginx/sites-available/gc
 
             sudo ln -s /etc/nginx/sites-available/gc /etc/nginx/sites-enabled/
+            echo 'server {
+                listen 80;
+                server_name watches.taraf-jo.com www.watches.taraf-jo.com;
+                root /var/www/html/gc/watches.giftscenter.com;
+                index index.php index.html;
+                
+                location / {
+                    try_files \$uri \$uri/ /index.php?\$query_string;
+                }
+                
+                location ~ \.php$ {
+                    include snippets/fastcgi-php.conf;
+                    fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+                }
+            }' | sudo tee /etc/nginx/sites-available/watches
+
+            sudo ln -s /etc/nginx/sites-available/watches /etc/nginx/sites-enabled/
             sudo systemctl restart nginx
           "
       done
