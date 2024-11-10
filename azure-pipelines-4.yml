@@ -57,14 +57,15 @@ steps:
           --command-id RunShellScript \
           --instance-id $instance_id \
           --scripts "
+            export COMPOSER_HOME=/var/www/.composer &&
             cd /var/www/html/gc &&
             sudo git clone https://9dByNAOPJmNVnt0KWjqCBWa2gDRrd8EUdKhnFjUIaDnBqfytL6V1JQQJ99AKACAAAAAhxyoqAAASAZDO4JX9@dev.azure.com/IKASCO/Website/_git/Website . &&
             sudo chown -R IKASCOAdmin:IKASCOAdmin /var/www/html/gc &&
             sudo chmod -R 755 /var/www/html/gc && 
-            composer update &&
+            sudo -u IKASCOAdmin -H sh -c 'composer update' &&
             sudo chmod -R 777 /var/www/html/gc/storage  &&
             cd /var/www/html/gc/watches.giftscenter.com &&
-            composer update &&
+            sudo -u IKASCOAdmin -H sh -c 'composer update' &&
             sudo chmod -R 777 /var/www/html/gc/watches.giftscenter.com/storage
           "
       done
