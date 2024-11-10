@@ -61,7 +61,7 @@ class Helper
         ];
     }
 
-    function getCurrentDomain()
+    public static function getCurrentDomain()
     {
         $currentDomain = config('app.domain_name');
 
@@ -976,7 +976,7 @@ class Helper
         return $response->body();
     }
 
-    function getReferenceURLs()
+    public static function getReferenceURLs()
     {
         $currentDomain = self::getCurrentDomain();
         $domainId = $currentDomain ? $currentDomain->id : 1;
