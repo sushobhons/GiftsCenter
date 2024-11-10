@@ -4,11 +4,11 @@ server {
           root /var/www/html/gcssl;
           index index.php index.html;
 
-    ssl_certificate /etc/ssl/certs/97acc7280c9775a7.crt;
-    ssl_certificate_key /etc/ssl/private/trf-generated-private.key;
+    ssl_certificate /etc/ssl/certs/gc_crt.crt;
+    ssl_certificate_key /etc/ssl/private/gc_private.key;
 
     # Intermediate certificate (optional but recommended for full chain)
-    ssl_trusted_certificate /etc/ssl/certs/gd_bundle-g2-g1.crt;
+    ssl_trusted_certificate /etc/ssl/certs/gc_bundle.crt;
 
     # Recommended SSL settings
     ssl_protocols TLSv1.2 TLSv1.3;
