@@ -35,16 +35,16 @@
 @stack('styles')
 <!-- Google tag (gtag.js) -->
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ97858GBH"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BY02261CB0"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments);}
     gtag('js', new Date());
 
   //  gtag('config', 'G-3NC6MZ8024');G-PQ97858GBH
-// gtag('config', 'G-PQ97858GBH');
-  gtag('config', 'G-PQ97858GBH');
-  gtag('config', 'AW-866317736');
+gtag('config', 'G-BY02261CB0');
+ // gtag('config', 'G-PQ97858GBH');
+ gtag('config', 'AW-866317736');
 </script>
 
 <!-- Facebook Pixel Code -->
