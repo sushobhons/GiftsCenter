@@ -87,40 +87,11 @@ steps:
           --command-id RunShellScript \
           --instance-id $instance_id \
           --scripts "
-            echo 'server {
-                listen 80;
-                server_name taraf-jo.com www.taraf-jo.com;
-                root /var/www/html/gc;
-                index index.php index.html;
-                
-                location / {
-                    try_files \$uri \$uri/ /index.php?\$query_string;
-                }
-                
-                location ~ \.php$ {
-                    include snippets/fastcgi-php.conf;
-                    fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
-                }
-            }' | sudo tee /etc/nginx/sites-available/gc
-
-            sudo ln -s /etc/nginx/sites-available/gc /etc/nginx/sites-enabled/
-            echo 'server {
-                listen 80;
-                server_name watches.taraf-jo.com www.watches.taraf-jo.com;
-                root /var/www/html/gc/watches.giftscenter.com;
-                index index.php index.html;
-                
-                location / {
-                    try_files \$uri \$uri/ /index.php?\$query_string;
-                }
-                
-                location ~ \.php$ {
-                    include snippets/fastcgi-php.conf;
-                    fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
-                }
-            }' | sudo tee /etc/nginx/sites-available/watches
-
-            sudo ln -s /etc/nginx/sites-available/watches /etc/nginx/sites-enabled/
+            sudo cp /var/www/html/gc/SSL/gc_crt.crt /etc/ssl/certs/ &&
+            sudo cp /var/www/html/gc/SSL/gc_private.key /etc/ssl/private/ &&
+            sudo cp /var/www/html/gc/SSL/gc_bundle.crt /etc/ssl/certs/ &&
+            sudo cp /var/www/html/gc/SSL/GCssl /etc/nginx/sites-available/ &&
+            sudo ln -s /etc/nginx/sites-available/GCssl /etc/nginx/sites-enabled/
             sudo systemctl restart nginx
           "
       done
