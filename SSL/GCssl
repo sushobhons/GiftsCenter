@@ -1,0 +1,56 @@
+server {
+    listen 443 ssl;
+    server_name taraf-jo.com www.taraf-jo.com;
+          root /var/www/html/gcssl;
+          index index.php index.html;
+
+    ssl_certificate /etc/ssl/certs/97acc7280c9775a7.crt;
+    ssl_certificate_key /etc/ssl/private/trf-generated-private.key;
+
+    # Intermediate certificate (optional but recommended for full chain)
+    ssl_trusted_certificate /etc/ssl/certs/gd_bundle-g2-g1.crt;
+
+    # Recommended SSL settings
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock; # Adjust PHP version if needed
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+
+
+server {
+    listen 443 ssl;
+    server_name watches.taraf-jo.com www.watches.taraf-jo.com;
+          root /var/www/html/gcssl/watches.taraf-jo.com;
+          index index.php index.html;
+
+    ssl_certificate /etc/ssl/certs/gc_crt.crt;
+    ssl_certificate_key /etc/ssl/private/gc_private.key;
+
+    # Intermediate certificate (optional but recommended for full chain)
+    ssl_trusted_certificate /etc/ssl/certs/gc_bundle.crt;
+
+    # Recommended SSL settings
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock; # Adjust PHP version if needed
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
