@@ -1,7 +1,7 @@
 server {
     listen 443 ssl;
     server_name taraf-jo.com www.taraf-jo.com;
-          root /var/www/html/gcssl;
+          root /var/www/html/gc;
           index index.php index.html;
 
     ssl_certificate /etc/ssl/certs/gc_crt.crt;
@@ -30,7 +30,7 @@ server {
 server {
     listen 443 ssl;
     server_name watches.taraf-jo.com www.watches.taraf-jo.com;
-          root /var/www/html/gcssl/watches.giftscenter.com;
+          root /var/www/html/gc/watches.giftscenter.com;
           index index.php index.html;
 
     ssl_certificate /etc/ssl/certs/gc_crt.crt;
