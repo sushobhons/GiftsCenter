@@ -12,11 +12,8 @@ variables:
   ADMIN_USERNAME: 'IKASCOAdmin'
 
 steps:
-- task: UsePythonVersion@0
+- task: AzureCLI@2
   inputs:
-    versionSpec: '3.x'
-
-inputs:
     azureSubscription: 'ikascoConn'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
@@ -35,4 +32,4 @@ inputs:
             cd /var/www/html/gc || exit
             sudo git pull origin main
           "
-          done
+      done
