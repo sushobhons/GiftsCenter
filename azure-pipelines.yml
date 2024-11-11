@@ -30,6 +30,6 @@ steps:
           --instance-id $instance_id \
           --scripts "
             cd /var/www/html/gc || exit
-            sudo git pull origin main
-          "
+            sudo git config --global --add safe.directory /var/www/html/gc
+            sudo git pull origin main"
       done
