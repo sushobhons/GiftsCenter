@@ -17,7 +17,7 @@ use Spatie\Sitemap\SitemapGenerator;
 
 
 Route::get('/generate-sitemap', function () {
-    SitemapGenerator::create('https://www.giftscenter.com/')->writeToFile(public_path('sitemap.xml'));
+    SitemapGenerator::create('https://www.taraf-jo.com/')->writeToFile(public_path('sitemap.xml'));
 
     return 'Sitemap generated!';
 });
