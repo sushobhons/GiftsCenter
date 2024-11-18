@@ -19,7 +19,7 @@ server {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-    location ~ /\.env {
+    location ~ /\. {
     deny all;
 }
 
@@ -52,7 +52,7 @@ server {
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
-    location ~ /\.env {
+    location ~ /\. {
     deny all;
 }
     location ~ \.php$ {
