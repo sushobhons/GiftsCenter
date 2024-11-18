@@ -1,28 +1,39 @@
+# Redirect all HTTP traffic to HTTPS
+server {
+    listen 80;
+    server_name taraf-jo.com www.taraf-jo.com watches.taraf-jo.com www.watches.taraf-jo.com;
+    return 301 https://$host$request_uri;
+}
+
+# Main domain configuration
 server {
     listen 443 ssl;
     server_name taraf-jo.com www.taraf-jo.com;
-    #  https://www.taraf-jo.com$request_uri;
-          root /var/www/html/gc;
-          index index.php index.html;
+    root /var/www/html/gc;
+    index index.php index.html;
 
+    # SSL certificates
     ssl_certificate /etc/ssl/certs/gc_crt.crt;
     ssl_certificate_key /etc/ssl/private/gc_private.key;
-
-    # Intermediate certificate (optional but recommended for full chain)
     ssl_trusted_certificate /etc/ssl/certs/gc_bundle.crt;
 
-    # Recommended SSL settings
+    # SSL protocols and ciphers
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers HIGH:!aNULL:!MD5;
 
+    # Block all hidden files starting with a dot
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+
+    # Main location
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-    location ~ /\. {
-    deny all;
-}
-
+    # PHP handling
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
         fastcgi_pass unix:/var/run/php/php8.3-fpm.sock; # Adjust PHP version if needed
@@ -31,30 +42,35 @@ server {
     }
 }
 
-
+# Subdomain configuration
 server {
     listen 443 ssl;
     server_name watches.taraf-jo.com www.watches.taraf-jo.com;
-     #  https://www.watches.taraf-jo.com$request_uri;
-          root /var/www/html/gc/watches.giftscenter.com;
-          index index.php index.html;
+    root /var/www/html/gc/watches.giftscenter.com;
+    index index.php index.html;
 
+    # SSL certificates
     ssl_certificate /etc/ssl/certs/gc_crt.crt;
     ssl_certificate_key /etc/ssl/private/gc_private.key;
-
-    # Intermediate certificate (optional but recommended for full chain)
     ssl_trusted_certificate /etc/ssl/certs/gc_bundle.crt;
 
-    # Recommended SSL settings
+    # SSL protocols and ciphers
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers HIGH:!aNULL:!MD5;
 
+    # Block all hidden files starting with a dot
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+
+    # Main location
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
-    location ~ /\. {
-    deny all;
-}
+
+    # PHP handling
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
         fastcgi_pass unix:/var/run/php/php8.3-fpm.sock; # Adjust PHP version if needed
