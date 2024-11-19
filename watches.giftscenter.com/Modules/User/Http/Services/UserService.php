@@ -194,7 +194,7 @@ class UserService
         try {
             //Server settings
             $mail->SMTPDebug  = 0;
-            //$mail->isSMTP();
+            $mail->isSMTP();
             $mail->Host = config('mail.mailers.smtp.host');
             $mail->SMTPAuth   = true;
             $mail->Username   = config('mail.mailers.smtp.username');
