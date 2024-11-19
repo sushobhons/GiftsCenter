@@ -935,9 +935,6 @@ class Helper
             $mail->Subject = $subject;
             $mail->Body = $content;
 
-            echo '<pre>';
-            print_r($mail);
-            echo '</pre>';
             if( !$mail->send() ) {
                 return false;
             }
