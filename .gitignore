@@ -1,6 +1,8 @@
+*.log
+.gitignore
 composer.lock
-/vendor
-/storage
+/vendor/
+/storage/
 /watches.giftscenter.com/composer.lock
 /watches.giftscenter.com/vendor
 /watches.giftscenter.com/storage
