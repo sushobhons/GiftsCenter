@@ -481,6 +481,10 @@ class FrontendController extends Controller
 
     public function fetchHomeSegments(Request $request)
     {
+        $allHeaders = request()->headers->all();
+        return [
+            "headers" => $allHeaders,
+        ];
         $user = Auth::user();
         if ($user) {
             $customerId = $user->customer_id;
@@ -2464,7 +2468,7 @@ class FrontendController extends Controller
                     "filter_fragtype" => $fragranceTypesData,
                     "filter_collection" => $collectionData,
                     "filter_concern" => $concernData,
-                    "min_price" => !empty($priceData) ? min($priceData) : 0, 
+                    "min_price" => !empty($priceData) ? min($priceData) : 0,
                     "max_price" => !empty($priceData) ? max($priceData) : 0,
                 ];
                 break;
@@ -2968,32 +2972,32 @@ class FrontendController extends Controller
                 DB::raw("0 AS `offer_discount_value`"),
                 DB::raw("NULL AS `offer_discount_type`"),
                 DB::raw("NULL AS `offer_offer_name`"),
-                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0 
-            WHEN disc.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0
+            WHEN disc.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc.gift_discount_value / 100)
             ELSE pt.main_price - disc.gift_discount_value END as discount_value_1"),
-                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0 
-            WHEN disc.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0
+            WHEN disc.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc.gift_discount_value / 100)
             ELSE MAX(pt.main_price) - disc.gift_discount_value END as max_price_1"),
-                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0 
-            WHEN disc.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0
+            WHEN disc.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc.gift_discount_value / 100)
             ELSE MIN(pt.main_price) - disc.gift_discount_value END as min_price_1"),
-                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0 
-            WHEN disc2.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc2.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0
+            WHEN disc2.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc2.gift_discount_value / 100)
             ELSE pt.main_price - disc2.gift_discount_value END as discount_value_2"),
-                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0 
-            WHEN disc2.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc2.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0
+            WHEN disc2.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc2.gift_discount_value / 100)
             ELSE MAX(pt.main_price) - disc2.gift_discount_value END as max_price_2"),
-                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0 
-            WHEN disc2.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc2.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0
+            WHEN disc2.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc2.gift_discount_value / 100)
             ELSE MIN(pt.main_price) - disc2.gift_discount_value END as min_price_2"),
-                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0 
-            WHEN disc3.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc3.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0
+            WHEN disc3.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc3.gift_discount_value / 100)
             ELSE pt.main_price - disc3.gift_discount_value END as discount_value_3"),
-                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0 
-            WHEN disc3.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc3.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0
+            WHEN disc3.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc3.gift_discount_value / 100)
             ELSE MAX(pt.main_price) - disc3.gift_discount_value END as max_price_3"),
-                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0 
-            WHEN disc3.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc3.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0
+            WHEN disc3.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc3.gift_discount_value / 100)
             ELSE MIN(pt.main_price) - disc3.gift_discount_value END as min_price_3"),
 //                DB::raw("CAST(GREATEST(
 //                    (CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0
@@ -3042,8 +3046,8 @@ class FrontendController extends Controller
             ->where('pt.web_status', '=', '1')
             ->where('pt.main_price', '>', 0)
             ->whereRaw('FIND_IN_SET(?, pt.in_domain)', [$domainId])
-            ->leftJoin(DB::raw("(SELECT `oo1`.`item_flag`,`oo1`.`item_brand`,`oo1`.`item_sub_category`,`oo1`.`item_category`,`oo1`.`item_main_category`,`oo1`.`item_distributor`,`oo1`.`offer_id`,`oo1`.`items`,`oo1`.`gift_discount_type`,`oo1`.`gift_discount_value`,oo1.`gift_points`,oo1.`offer_name` 
-                                FROM `offer_tbl` as `oo1` WHERE oo1.`auto_apply`='1' AND oo1.`status`='1' AND FIND_IN_SET('" . $domainId . "',`oo1`.`in_domain`) AND `oo1`.`offer_type` = 'store' AND  `oo1`.`offer_for` IN ('1','2') 
+            ->leftJoin(DB::raw("(SELECT `oo1`.`item_flag`,`oo1`.`item_brand`,`oo1`.`item_sub_category`,`oo1`.`item_category`,`oo1`.`item_main_category`,`oo1`.`item_distributor`,`oo1`.`offer_id`,`oo1`.`items`,`oo1`.`gift_discount_type`,`oo1`.`gift_discount_value`,oo1.`gift_points`,oo1.`offer_name`
+                                FROM `offer_tbl` as `oo1` WHERE oo1.`auto_apply`='1' AND oo1.`status`='1' AND FIND_IN_SET('" . $domainId . "',`oo1`.`in_domain`) AND `oo1`.`offer_type` = 'store' AND  `oo1`.`offer_for` IN ('1','2')
                                 " . $offerWhere1 . " AND FIND_IN_SET(50, (SELECT `os1`.`offer_store` FROM `offer_tbl` as `os1` WHERE os1.`offer_id`=`oo1`.`offer_id`))
                                 AND ((('" . $currentDate . "' BETWEEN oo1.`from_date` AND oo1.`to_date`) OR (oo1.`from_date` <= '" . $currentDate . "' AND oo1.`to_date`='0000-00-00 00:00:00')) OR (FIND_IN_SET('" . $currentDay . "', (SELECT oo2.`week_days` FROM `offer_tbl` as `oo2` WHERE oo2.`offer_id`=oo1.`offer_id`))))
                                 ) as `disc`"), function ($join) {
@@ -3059,7 +3063,7 @@ class FrontendController extends Controller
             })
             ->leftJoin(DB::raw("(SELECT `oo2`.`item_brand`, `oo2`.`item_flag`, `oo2`.`item_sub_category`, `oo2`.`item_distributor`, `oo2`.`item_main_category`, `oo2`.`item_category`, `oo2`.`items`, `oo2`.`offer_id`, `oo2`.`gift_discount_type`, `oo2`.`gift_discount_value`, `oo2`.`gift_points`, `oo2`.`offer_name`
                                 FROM `offer_tbl` as `oo2` WHERE `oo2`.`auto_apply` = '1' AND `oo2`.`status` = '1' AND FIND_IN_SET(" . $domainId . ", `oo2`.`in_domain`) AND `oo2`.`offer_type` = 'tier' AND  `oo2`.`offer_for` IN ('1', '2')
-                                 " . $offerWhere2 . " AND (FIND_IN_SET('" . $customerTier . "', (SELECT group_concat(`oo`.`offer_tier` )FROM `offer_tbl` as `oo` WHERE `oo2`.`offer_id`= `oo2`.`offer_id` ))) 
+                                 " . $offerWhere2 . " AND (FIND_IN_SET('" . $customerTier . "', (SELECT group_concat(`oo`.`offer_tier` )FROM `offer_tbl` as `oo` WHERE `oo2`.`offer_id`= `oo2`.`offer_id` )))
                                  AND ((('" . $currentDate . "' BETWEEN `oo2`.`from_date` AND `oo2`.`to_date`) OR (`oo2`.`from_date` <= '" . $currentDate . "' AND `oo2`.`to_date` = '0000-00-00 00:00:00')) OR (FIND_IN_SET('" . $currentDay . "', (SELECT `oo2`.`week_days` FROM `offer_tbl` as `o1` WHERE o1.`offer_id` = `oo2`.`offer_id`))))
                                  ) as `disc2`"), function ($join) {
                 $join->on(function ($query) {
@@ -3074,7 +3078,7 @@ class FrontendController extends Controller
             })
             ->leftJoin(DB::raw("(SELECT `oo3`.`item_brand`, `oo3`.`item_flag`, `oo3`.`item_sub_category`, `oo3`.`item_distributor`, `oo3`.`item_main_category`, `oo3`.`item_category`, `oo3`.`items`, `oo3`.`offer_id`, `oo3`.`gift_discount_type`, `oo3`.`gift_discount_value`, `oo3`.`gift_points`, `oo3`.`offer_name`
                                 FROM `offer_tbl` as `oo3` WHERE `oo3`.`auto_apply` = '1' AND `oo3`.`status` = '1' AND FIND_IN_SET(" . $domainId . ", `oo3`.`in_domain`) AND `oo3`.`offer_type`IN ('location','organization','store') AND  `oo3`.`offer_for` IN ('1', '2') " . $offerWhere3 . " AND
-                                 ((FIND_IN_SET('" . $customerTier . "', (SELECT oc.`offer_location` FROM `offer_tbl` as `oc` WHERE oc.`offer_id`=`oo3`.`offer_id`))) 
+                                 ((FIND_IN_SET('" . $customerTier . "', (SELECT oc.`offer_location` FROM `offer_tbl` as `oc` WHERE oc.`offer_id`=`oo3`.`offer_id`)))
                                  OR (FIND_IN_SET('" . $customerOrganization . "', (SELECT oo.`offer_organization` FROM `offer_tbl` as `oo` WHERE oo.`offer_id`=`oo3`.`offer_id`))))
                                  AND ((('" . $currentDate . "' BETWEEN `oo3`.`from_date` AND `oo3`.`to_date`) OR (`oo3`.`from_date` <= '" . $currentDate . "' AND `oo3`.`to_date` = '0000-00-00 00:00:00')) OR (FIND_IN_SET('" . $currentDay . "', (SELECT `oo3`.`week_days` FROM `offer_tbl` as `o1` WHERE o1.`offer_id` = `oo3`.`offer_id`))))
                                  ) as `disc3`"), function ($join) {
@@ -4012,32 +4016,32 @@ class FrontendController extends Controller
                 DB::raw("disc3.gift_discount_value as `organisation_discount_value`"),
                 DB::raw("disc3.gift_discount_type as `organisation_discount_type`"),
                 DB::raw("disc3.offer_name as `organisation_offer_name`"),
-                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0 
-            WHEN disc.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0
+            WHEN disc.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc.gift_discount_value / 100)
             ELSE pt.main_price - disc.gift_discount_value END as discount_value_1"),
-                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0 
-            WHEN disc.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0
+            WHEN disc.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc.gift_discount_value / 100)
             ELSE MAX(pt.main_price) - disc.gift_discount_value END as max_price_1"),
-                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0 
-            WHEN disc.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0
+            WHEN disc.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc.gift_discount_value / 100)
             ELSE MIN(pt.main_price) - disc.gift_discount_value END as min_price_1"),
-                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0 
-            WHEN disc2.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc2.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0
+            WHEN disc2.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc2.gift_discount_value / 100)
             ELSE pt.main_price - disc2.gift_discount_value END as discount_value_2"),
-                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0 
-            WHEN disc2.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc2.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0
+            WHEN disc2.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc2.gift_discount_value / 100)
             ELSE MAX(pt.main_price) - disc2.gift_discount_value END as max_price_2"),
-                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0 
-            WHEN disc2.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc2.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc2.gift_discount_value IS NULL OR disc2.gift_discount_value = '' THEN 0
+            WHEN disc2.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc2.gift_discount_value / 100)
             ELSE MIN(pt.main_price) - disc2.gift_discount_value END as min_price_2"),
-                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0 
-            WHEN disc3.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc3.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0
+            WHEN disc3.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc3.gift_discount_value / 100)
             ELSE pt.main_price - disc3.gift_discount_value END as discount_value_3"),
-                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0 
-            WHEN disc3.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc3.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0
+            WHEN disc3.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc3.gift_discount_value / 100)
             ELSE MAX(pt.main_price) - disc3.gift_discount_value END as max_price_3"),
-                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0 
-            WHEN disc3.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc3.gift_discount_value / 100) 
+                DB::raw("CASE WHEN disc3.gift_discount_value IS NULL OR disc3.gift_discount_value = '' THEN 0
+            WHEN disc3.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc3.gift_discount_value / 100)
             ELSE MIN(pt.main_price) - disc3.gift_discount_value END as min_price_3"),
 //                DB::raw("CAST(GREATEST(
 //                    (CASE WHEN disc.gift_discount_value IS NULL OR disc.gift_discount_value = '' THEN 0
@@ -4086,8 +4090,8 @@ class FrontendController extends Controller
             ->where('pt.web_status', '=', '1')
             ->where('pt.main_price', '>', 0)
             ->whereRaw('FIND_IN_SET(?, pt.in_domain)', [$domainId])
-            ->leftJoin(DB::raw("(SELECT `oo1`.`item_flag`,`oo1`.`item_brand`,`oo1`.`item_sub_category`,`oo1`.`item_category`,`oo1`.`item_main_category`,`oo1`.`item_distributor`,`oo1`.`offer_id`,`oo1`.`items`,`oo1`.`gift_discount_type`,`oo1`.`gift_discount_value`,oo1.`gift_points`,oo1.`offer_name` 
-                                FROM `offer_tbl` as `oo1` WHERE oo1.`auto_apply`='1' AND oo1.`status`='1' AND FIND_IN_SET('" . $domainId . "',`oo1`.`in_domain`) AND `oo1`.`offer_type` = 'store' AND  `oo1`.`offer_for` IN ('1','2') 
+            ->leftJoin(DB::raw("(SELECT `oo1`.`item_flag`,`oo1`.`item_brand`,`oo1`.`item_sub_category`,`oo1`.`item_category`,`oo1`.`item_main_category`,`oo1`.`item_distributor`,`oo1`.`offer_id`,`oo1`.`items`,`oo1`.`gift_discount_type`,`oo1`.`gift_discount_value`,oo1.`gift_points`,oo1.`offer_name`
+                                FROM `offer_tbl` as `oo1` WHERE oo1.`auto_apply`='1' AND oo1.`status`='1' AND FIND_IN_SET('" . $domainId . "',`oo1`.`in_domain`) AND `oo1`.`offer_type` = 'store' AND  `oo1`.`offer_for` IN ('1','2')
                                 " . $offerWhere1 . " AND FIND_IN_SET(50, (SELECT `os1`.`offer_store` FROM `offer_tbl` as `os1` WHERE os1.`offer_id`=`oo1`.`offer_id`))
                                 AND ((('" . $currentDate . "' BETWEEN oo1.`from_date` AND oo1.`to_date`) OR (oo1.`from_date` <= '" . $currentDate . "' AND oo1.`to_date`='0000-00-00 00:00:00')) OR (FIND_IN_SET('" . $currentDay . "', (SELECT oo2.`week_days` FROM `offer_tbl` as `oo2` WHERE oo2.`offer_id`=oo1.`offer_id`))))
                                 ) as `disc`"), function ($join) {
@@ -4103,7 +4107,7 @@ class FrontendController extends Controller
             })
             ->leftJoin(DB::raw("(SELECT `oo2`.`item_brand`, `oo2`.`item_flag`, `oo2`.`item_sub_category`, `oo2`.`item_distributor`, `oo2`.`item_main_category`, `oo2`.`item_category`, `oo2`.`items`, `oo2`.`offer_id`, `oo2`.`gift_discount_type`, `oo2`.`gift_discount_value`, `oo2`.`gift_points`, `oo2`.`offer_name`
                                 FROM `offer_tbl` as `oo2` WHERE `oo2`.`auto_apply` = '1' AND `oo2`.`status` = '1' AND FIND_IN_SET(" . $domainId . ", `oo2`.`in_domain`) AND `oo2`.`offer_type` = 'tier' AND  `oo2`.`offer_for` IN ('1', '2')
-                                 " . $offerWhere2 . " AND (FIND_IN_SET('" . $customerTier . "', (SELECT group_concat(`oo`.`offer_tier` )FROM `offer_tbl` as `oo` WHERE `oo2`.`offer_id`= `oo2`.`offer_id` ))) 
+                                 " . $offerWhere2 . " AND (FIND_IN_SET('" . $customerTier . "', (SELECT group_concat(`oo`.`offer_tier` )FROM `offer_tbl` as `oo` WHERE `oo2`.`offer_id`= `oo2`.`offer_id` )))
                                  AND ((('" . $currentDate . "' BETWEEN `oo2`.`from_date` AND `oo2`.`to_date`) OR (`oo2`.`from_date` <= '" . $currentDate . "' AND `oo2`.`to_date` = '0000-00-00 00:00:00')) OR (FIND_IN_SET('" . $currentDay . "', (SELECT `oo2`.`week_days` FROM `offer_tbl` as `o1` WHERE o1.`offer_id` = `oo2`.`offer_id`))))
                                  ) as `disc2`"), function ($join) {
                 $join->on(function ($query) {
@@ -4118,7 +4122,7 @@ class FrontendController extends Controller
             })
             ->leftJoin(DB::raw("(SELECT `oo3`.`item_brand`, `oo3`.`item_flag`, `oo3`.`item_sub_category`, `oo3`.`item_distributor`, `oo3`.`item_main_category`, `oo3`.`item_category`, `oo3`.`items`, `oo3`.`offer_id`, `oo3`.`gift_discount_type`, `oo3`.`gift_discount_value`, `oo3`.`gift_points`, `oo3`.`offer_name`
                                 FROM `offer_tbl` as `oo3` WHERE `oo3`.`auto_apply` = '1' AND `oo3`.`status` = '1' AND FIND_IN_SET(" . $domainId . ", `oo3`.`in_domain`) AND `oo3`.`offer_type`IN ('location','organization','store') AND  `oo3`.`offer_for` IN ('1', '2') " . $offerWhere3 . " AND
-                                 ((FIND_IN_SET('" . $customerTier . "', (SELECT oc.`offer_location` FROM `offer_tbl` as `oc` WHERE oc.`offer_id`=`oo3`.`offer_id`))) 
+                                 ((FIND_IN_SET('" . $customerTier . "', (SELECT oc.`offer_location` FROM `offer_tbl` as `oc` WHERE oc.`offer_id`=`oo3`.`offer_id`)))
                                  OR (FIND_IN_SET('" . $customerOrganization . "', (SELECT oo.`offer_organization` FROM `offer_tbl` as `oo` WHERE oo.`offer_id`=`oo3`.`offer_id`))))
                                  AND ((('" . $currentDate . "' BETWEEN `oo3`.`from_date` AND `oo3`.`to_date`) OR (`oo3`.`from_date` <= '" . $currentDate . "' AND `oo3`.`to_date` = '0000-00-00 00:00:00')) OR (FIND_IN_SET('" . $currentDay . "', (SELECT `oo3`.`week_days` FROM `offer_tbl` as `o1` WHERE o1.`offer_id` = `oo3`.`offer_id`))))
                                  ) as `disc3`"), function ($join) {
@@ -4135,7 +4139,7 @@ class FrontendController extends Controller
 
         if ($keyType == "offer" || ($keyType == "search")) {
             $productsRecord->join(DB::raw("(SELECT `oo4`.`item_brand`, `oo4`.`item_flag`, `oo4`.`item_sub_category`, `oo4`.`item_distributor`, `oo4`.`item_main_category`, `oo4`.`item_category`, `oo4`.`items`, `oo4`.`offer_id`, `oo4`.`gift_discount_type`, `oo4`.`gift_discount_value`, `oo4`.`gift_points`, `oo4`.`offer_name`
-                                FROM `offer_tbl` as `oo4` WHERE `oo4`.`show_status` = '1' " . $offerWhere4 . " 
+                                FROM `offer_tbl` as `oo4` WHERE `oo4`.`show_status` = '1' " . $offerWhere4 . "
                                  ) as `disc4`"), function ($join) {
                 $join->on(function ($query) {
                     $query->whereRaw("(`disc4`.`item_distributor` = '' OR `disc4`.`item_distributor` = 'all' OR (FIND_IN_SET(`br`.`distributor`, (SELECT `disc4`.`item_distributor` FROM `offer_tbl` as `o2` WHERE o2.`offer_id` = `disc4`.`offer_id`))))")
@@ -4154,18 +4158,18 @@ class FrontendController extends Controller
                                 disc4.offer_name as offer_offer_name,
                                 CASE
                                     WHEN disc4.gift_discount_value IS NULL OR disc4.gift_discount_value = '' THEN 0
-                                    WHEN disc4.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc4.gift_discount_value / 100) 
-                                    ELSE pt.main_price - disc4.gift_discount_value 
+                                    WHEN disc4.gift_discount_type = 'percentage' THEN pt.main_price - (pt.main_price * disc4.gift_discount_value / 100)
+                                    ELSE pt.main_price - disc4.gift_discount_value
                                 END AS discount_value_4,
                                 CASE
                                     WHEN disc4.gift_discount_value IS NULL OR disc4.gift_discount_value = '' THEN 0
-                                    WHEN disc4.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc4.gift_discount_value / 100) 
-                                    ELSE MAX(pt.main_price) - disc4.gift_discount_value 
+                                    WHEN disc4.gift_discount_type = 'percentage' THEN MAX(pt.main_price) - (MAX(pt.main_price) * disc4.gift_discount_value / 100)
+                                    ELSE MAX(pt.main_price) - disc4.gift_discount_value
                                 END AS max_price_4,
                                 CASE
                                     WHEN disc4.gift_discount_value IS NULL OR disc4.gift_discount_value = '' THEN 0
-                                    WHEN disc4.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc4.gift_discount_value / 100) 
-                                    ELSE MIN(pt.main_price) - disc4.gift_discount_value 
+                                    WHEN disc4.gift_discount_type = 'percentage' THEN MIN(pt.main_price) - (MIN(pt.main_price) * disc4.gift_discount_value / 100)
+                                    ELSE MIN(pt.main_price) - disc4.gift_discount_value
                                 END AS min_price_4");
         } else {
             $productsRecord->selectRaw("null as start_date,
@@ -6967,7 +6971,7 @@ class FrontendController extends Controller
                                     <p style="font:normal 12px/18px Arial, Helvetica, sans-serif; color:#fff; margin:15px 0 0 0;"><a style="color:#fff; text-decoration:none;" href="tel:+962%207%2098889966">+962 7 98889966 ext 504</a></p>
                                 </td>
                             </tr>
-                            
+
                         </tbody>
                     </table>
                     </div>
@@ -7036,7 +7040,7 @@ class FrontendController extends Controller
                         if ($sendDetails["send_type"] == "recipient") {
                             $recipientHtml = '<td colspan="2" style="text-align:left; padding:20px;">
                                         <p style="color: #002855;font: normal 17px/22px Arial, Helvetica, sans-serif;">Hello ' . $voucherName . ',</p>
-                                        <p style="font:normal 17px/22px Arial, Helvetica, sans-serif; color:#444; margin:0 0 10px 0;">' . $sendDetails['send_from'] . ' gifted you e-Gift Card.</p>            
+                                        <p style="font:normal 17px/22px Arial, Helvetica, sans-serif; color:#444; margin:0 0 10px 0;">' . $sendDetails['send_from'] . ' gifted you e-Gift Card.</p>
                                     </td>';
                         } else {
                             $recipientHtml = '<td colspan="2" style="text-align:left; padding:20px;">
@@ -7056,7 +7060,7 @@ class FrontendController extends Controller
                                 <tr><td colspan="2" style="text-align:center; padding:10px;"><img src="' . $productRecord->family_pic . '" alt="' . $productRecord->title . '" title="' . $productRecord->title . '" width="350"></td></tr>
                                 <tr>
                                   <td colspan="2" style="text-align:left; padding:20px;">
-                                    <p style="font:normal 17px/22px Arial, Helvetica, sans-serif; color:#444; margin:0 0 10px 0;">' . $sendDetails['send_message'] . '</p>   
+                                    <p style="font:normal 17px/22px Arial, Helvetica, sans-serif; color:#444; margin:0 0 10px 0;">' . $sendDetails['send_message'] . '</p>
                                     <p style="font:normal 17px/22px Arial, Helvetica, sans-serif; color:#444; margin:0 0 10px 0;">View your gift card <a style="color:#3c8dbc;" href="' . $ikascoUrl . 'e-voucher/' . $voucherData->code . '">click here</a></p>
                                    </td>
                                 </tr>
