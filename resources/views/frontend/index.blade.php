@@ -420,7 +420,8 @@
                 type: "POST",
                 data: {'segmentSlug': segmentSlug},
                 dataType: "json",
-                beforeSend: function () {
+                beforeSend: function (xhr) {
+                    console.log('CSRF Token being sent:', xhr.getResponseHeader('X-CSRF-TOKEN'));
                 },
                 success: function (data) {
                     populateGroupTabs(data.slug, data.categories);
@@ -567,7 +568,8 @@
                 type: "POST",
                 data: {'brandId': brandId},
                 dataType: "json",
-                beforeSend: function () {
+                beforeSend: function (xhr) {
+                    console.log('CSRF Token being sent:', xhr.getResponseHeader('X-CSRF-TOKEN'));
                 },
                 success: function (data) {
                     populateBrandProducts(brandId, data);
