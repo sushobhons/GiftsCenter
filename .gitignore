@@ -2,7 +2,6 @@
 /storage/*.key
 .gitignore
 composer.lock
-/vendor/
 /watches.giftscenter.com/composer.lock
 /watches.giftscenter.com/vendor
 /watches.giftscenter.com/storage
