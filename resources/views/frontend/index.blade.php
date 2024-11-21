@@ -420,6 +420,9 @@
                 type: "POST",
                 data: {'segmentSlug': segmentSlug},
                 dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 beforeSend: function (xhr) {
                     console.log('CSRF Token being sent:', xhr.getResponseHeader('X-CSRF-TOKEN'));
                 },
@@ -568,6 +571,9 @@
                 type: "POST",
                 data: {'brandId': brandId},
                 dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 beforeSend: function (xhr) {
                     console.log('CSRF Token being sent:', xhr.getResponseHeader('X-CSRF-TOKEN'));
                 },
