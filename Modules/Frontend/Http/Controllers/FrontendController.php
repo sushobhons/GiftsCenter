@@ -481,10 +481,6 @@ class FrontendController extends Controller
 
     public function fetchHomeSegments(Request $request)
     {
-        $allHeaders = request()->headers->all();
-        return [
-            "headers" => $allHeaders,
-        ];
         $user = Auth::user();
         if ($user) {
             $customerId = $user->customer_id;
