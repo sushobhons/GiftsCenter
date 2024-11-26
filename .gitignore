@@ -1,8 +1,11 @@
 *.log
+/.idea
+/vendor
 /storage/*.key
 .gitignore
 composer.lock
 /watches.giftscenter.com/composer.lock
 /watches.giftscenter.com/vendor
 /watches.giftscenter.com/storage
+
 
