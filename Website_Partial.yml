@@ -31,7 +31,8 @@ steps:
           --scripts "
             cd /var/www/html/gc || exit
             sudo -u IKASCOAdmin git config --global --add safe.directory /var/www/html/gc
-            sudo -u IKASCOAdmin git pull origin main"
+            sudo -u IKASCOAdmin git pull origin main
+          
             # Check if Composer is installed
             if ! command -v composer &> /dev/null
             then
