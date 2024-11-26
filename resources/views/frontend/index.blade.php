@@ -237,8 +237,8 @@
                 <div class="modal-header">
                     <h5 class="web-hide">Quick View</h5>
                     <button type="button" class="close" data-dismiss="modal"><img
-                                src="{{asset('public/img/modal-cross.png')}}"
-                                alt=""/></button>
+                            src="{{asset('public/img/modal-cross.png')}}"
+                            alt=""/></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -251,8 +251,8 @@
                             <h4 id="product_name_html"></h4>
                             <span class="rating-span mobile-hide rating_review_html"></span>
                             <h5><span id="product_discounted_price_html" class="web-price"></span> <span
-                                        id="product_price_html" class="old-price"></span> <span class="earn_point_span">Earn <span
-                                            id="earn_point"></span> points</span></h5>
+                                    id="product_price_html" class="old-price"></span> <span class="earn_point_span">Earn <span
+                                        id="earn_point"></span> points</span></h5>
                             <ul class="size-list mobile-hide ql_variations_content_html" id="ql_texts_content_html">
 
 
@@ -277,10 +277,10 @@
                             </ul>
                             <div class="clearfix"></div>
                             <a href="#" class="add-to-basket-btn" id="ql_add_to_cart_btn"><i
-                                        class="fa fa-shopping-cart" aria-hidden="true" id="ql_add_to_cart_icon"></i>
+                                    class="fa fa-shopping-cart" aria-hidden="true" id="ql_add_to_cart_icon"></i>
                                 ADD TO BASKET</a>
                             <a href="#" class="add-loves-btn" id="ql_save_item_btn"><i
-                                        class="fa fa-heart-o" aria-hidden="true" id="ql_save_item_icon"></i> ADD TO
+                                    class="fa fa-heart-o" aria-hidden="true" id="ql_save_item_icon"></i> ADD TO
                                 LOVES</a>
                         </div>
                     </div>
@@ -299,7 +299,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><img
-                                src="{{asset('public/img/modal-cross.png')}}" alt=""/>
+                            src="{{asset('public/img/modal-cross.png')}}" alt=""/>
                     </button>
                     <h4 class="modal-title">ADDED TO YOUR CART</h4>
                 </div>
