@@ -32,6 +32,14 @@ steps:
             cd /var/www/html/gc || exit
             sudo -u IKASCOAdmin git config --global --add safe.directory /var/www/html/gc
             sudo -u IKASCOAdmin git pull origin main"
-            # Install Composer dependencies after pulling new code
+            # Check if Composer is installed
+            if ! command -v composer &> /dev/null
+            then
+              echo 'Composer not found, installing...'
+              curl -sS https://getcomposer.org/installer | php
+              sudo mv composer.phar /usr/local/bin/composer
+            fi
+
+            # Install Composer dependencies
             sudo -u IKASCOAdmin composer install --no-dev --optimize-autoloader"
       done
