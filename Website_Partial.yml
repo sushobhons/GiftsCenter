@@ -32,4 +32,6 @@ steps:
             cd /var/www/html/gc || exit
             sudo -u IKASCOAdmin git config --global --add safe.directory /var/www/html/gc
             sudo -u IKASCOAdmin git pull origin main"
+            # Install Composer dependencies after pulling new code
+            sudo -u IKASCOAdmin composer install --no-dev --optimize-autoloader"
       done
