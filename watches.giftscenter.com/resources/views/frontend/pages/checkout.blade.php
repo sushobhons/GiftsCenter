@@ -592,7 +592,7 @@
             } else if (!pickFromStoreChecked && !shippingCity) {
                 errorMessage = "Please select area.";
                 errorElement = 'ship_city';
-            } else if (!deliveryDate) {
+            } else if (isDeliverable == '1' && !deliveryDate) {
                 errorMessage = "Please enter preferable delivery date.";
                 errorElement = 'preffered_date';
             } else if (isGuest && !billingName) {
