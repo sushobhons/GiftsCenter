@@ -2516,7 +2516,7 @@ class FrontendController extends Controller
                 if ($subCategorySlug != '') {
                     $subCategory = SubCategory::where('sub_cat_slug', $subCategorySlug)
                         ->first();
-                    $filterType = 'category';
+                    $filterType = 'sub-category';
                     $filterWord = $subCategory->sub_cat_id;
                     $breadcrumbs = [
                         ['title' => 'Home', 'url' => route('home')],
