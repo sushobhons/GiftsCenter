@@ -2497,7 +2497,7 @@ class FrontendController extends Controller
                         ['title' => 'Home', 'url' => route('home')],
                         ['title' => 'Offers', 'url' => route('products.offer.all')],
                         ['title' => Str::title($rowOffersRecord->first()->offer_desc), 'url' => route('products.offer' , ['offerSlug' => $offerSlug])],
-                        ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
+                        ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['offerSlug' => $offerSlug, 'mainCategorySlug' => $mainCategorySlug])],
                     ];
                 }
                 if ($categorySlug != '') {
@@ -2509,8 +2509,8 @@ class FrontendController extends Controller
                         ['title' => 'Home', 'url' => route('home')],
                         ['title' => 'Offers', 'url' => route('products.offer.all')],
                         ['title' => Str::title($rowOffersRecord->first()->offer_desc), 'url' => route('products.offer', ['offerSlug' => $offerSlug])],
-                        ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
-                        ['title' => Str::title($category->cat_name), 'url' => route('products.offer.category', ['mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug])],
+                        ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['offerSlug' => $offerSlug, 'mainCategorySlug' => $mainCategorySlug])],
+                        ['title' => Str::title($category->cat_name), 'url' => route('products.offer.category', ['offerSlug' => $offerSlug, 'mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug])],
                     ];
                 }
                 if ($subCategorySlug != '') {
@@ -2522,9 +2522,9 @@ class FrontendController extends Controller
                         ['title' => 'Home', 'url' => route('home')],
                         ['title' => 'Offers', 'url' => route('products.offer.all')],
                         ['title' => Str::title($rowOffersRecord->first()->offer_desc), 'url' => route('products.offer', ['offerSlug' => $offerSlug])],
-                        ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
-                        ['title' => Str::title($category->cat_name), 'url' => route('products.offer.category', ['mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug])],
-                        ['title' => Str::title($subCategory->sub_cat_name), 'url' => route('products.offer.category', ['mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug, 'subCategorySlug' => $subCategorySlug])],
+                        ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['offerSlug' => $offerSlug, 'mainCategorySlug' => $mainCategorySlug])],
+                        ['title' => Str::title($category->cat_name), 'url' => route('products.offer.category', ['offerSlug' => $offerSlug, 'mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug])],
+                        ['title' => Str::title($subCategory->sub_cat_name), 'url' => route('products.offer.category', ['offerSlug' => $offerSlug, 'mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug, 'subCategorySlug' => $subCategorySlug])],
                     ];
                 }
                 $mainCategoryId = '';
