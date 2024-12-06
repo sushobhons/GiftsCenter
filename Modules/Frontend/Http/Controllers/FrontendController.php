@@ -2495,7 +2495,7 @@ class FrontendController extends Controller
                     $mainCategoryId = $mainCategory->main_cat_id;
                     $breadcrumbs = [
                         ['title' => 'Home', 'url' => route('home')],
-                        ['title' => 'Offers', 'url' => route('products.offer')],
+                        ['title' => 'Offers', 'url' => route('products.offer.all')],
                         ['title' => Str::title($rowOffersRecord->offer_desc), 'url' => route('products.offer' , ['offerSlug' => $offerSlug])],
                         ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
                     ];
@@ -2507,7 +2507,7 @@ class FrontendController extends Controller
                     $filterWord = $category->cat_id;
                     $breadcrumbs = [
                         ['title' => 'Home', 'url' => route('home')],
-                        ['title' => 'Offers', 'url' => route('products.offer')],
+                        ['title' => 'Offers', 'url' => route('products.offer.all')],
                         ['title' => Str::title($rowOffersRecord->offer_desc), 'url' => route('products.offer', ['offerSlug' => $offerSlug])],
                         ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
                         ['title' => Str::title($category->cat_name), 'url' => route('products.offer.category', ['mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug])],
@@ -2520,7 +2520,7 @@ class FrontendController extends Controller
                     $filterWord = $subCategory->sub_cat_id;
                     $breadcrumbs = [
                         ['title' => 'Home', 'url' => route('home')],
-                        ['title' => 'Offers', 'url' => route('products.offer')],
+                        ['title' => 'Offers', 'url' => route('products.offer.all')],
                         ['title' => Str::title($rowOffersRecord->offer_desc), 'url' => route('products.offer', ['offerSlug' => $offerSlug])],
                         ['title' => Str::title($$mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
                         ['title' => Str::title($category->cat_name), 'url' => route('products.offer.category', ['mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug])],
