@@ -40,6 +40,7 @@ class GenerateProductFeed extends Command
     {
         $brandIds = [1185, 46, 52, 229, 1205, 1187, 74, 4, 1182, 15, 1206, 26, 197, 1214, 1183, 1207, 201, 202, 225, 1];
         $productUrl = config('app.product_url');
+        $productUrlWatches = 'https://watches.giftscenter.com/product/';
         $productsRecord = DB::table('product_table as pt')
             ->select([
                 'pt.product_id as id',
@@ -52,8 +53,14 @@ class GenerateProductFeed extends Command
                     REPLACE(`f`.`family_desc`, '\\\', '')
                 ) AS `description`"),
                 DB::raw("IF(pt.type_flag = '2',
-                    CONCAT('$productUrl', pt.seo_url),
-                    CONCAT('$productUrl', f.seo_url)
+                    IF(FIND_IN_SET(1, pt.in_domain),
+                        CONCAT('$productUrl', pt.seo_url),
+                        CONCAT('$productUrlWatches', pt.seo_url)
+                    ),
+                    IF(FIND_IN_SET(1, pt.in_domain),
+                        CONCAT('$productUrl', f.seo_url),
+                        CONCAT('$productUrlWatches', f.seo_url)
+                    )
                 ) as link"),
                 DB::raw("'yes' AS identifier_exists"),
                 DB::raw("'in_stock' AS availability"),

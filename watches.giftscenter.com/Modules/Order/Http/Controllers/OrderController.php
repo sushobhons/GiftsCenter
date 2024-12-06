@@ -169,8 +169,10 @@ class OrderController extends Controller
         if ($request->pickfrm_store_id == '0') {
             $shipCharge = $request->ship_charge;
 
-            $deliveryDate = Carbon::createFromFormat('Y-m-d', $request->delivery_date);
             $currentDate = Carbon::now();
+            $deliveryDate = $request->delivery_date
+                ? Carbon::createFromFormat('Y-m-d', $request->delivery_date)
+                : $currentDate->addDays(3);
             $daysDifference = $currentDate->diffInDays($deliveryDate);
 
             if ($request->input('ship_state') == 'Amman') {
@@ -232,7 +234,7 @@ class OrderController extends Controller
             'ship_street' => 'nullable|string',
             'ship_street_number' => 'nullable|string',
             'ship_zip_code' => 'nullable|string',
-            'delivery_date' => 'required|date',
+            'delivery_date' => 'nullable|date',
             'pickfrm_store_id' => 'nullable|numeric',
             'default_address' => 'nullable|boolean',
             'ship_charge' => 'nullable|numeric|min:0',

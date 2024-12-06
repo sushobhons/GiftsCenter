@@ -168,9 +168,11 @@ class OrderController extends Controller
 
         if ($request->pickfrm_store_id == '0') {
             $shipCharge = $request->ship_charge;
-
-            $deliveryDate = Carbon::createFromFormat('Y-m-d', $request->delivery_date);
+            
             $currentDate = Carbon::now();
+            $deliveryDate = $request->delivery_date
+                ? Carbon::createFromFormat('Y-m-d', $request->delivery_date)
+                : $currentDate->addDays(3);
             $daysDifference = $currentDate->diffInDays($deliveryDate);
 
             if ($request->input('ship_state') == 'Amman') {
@@ -232,7 +234,7 @@ class OrderController extends Controller
             'ship_street' => 'nullable|string',
             'ship_street_number' => 'nullable|string',
             'ship_zip_code' => 'nullable|string',
-            'delivery_date' => 'required|date',
+            'delivery_date' => 'nullable|date',
             'pickfrm_store_id' => 'nullable|numeric',
             'default_address' => 'nullable|boolean',
             'ship_charge' => 'nullable|numeric|min:0',
@@ -3476,10 +3478,19 @@ class OrderController extends Controller
         $gainedLoyalty = 0;
         if (!empty($orders)) {
             foreach ($orders as $order) {
-                $rowCategory = SubCategory::select('Old_Value')
-                    ->where('sub_cat_id', $order->sub_cat_id)
-                    ->first();
-                $order->old_id = $rowCategory->Old_Value;
+                $product = Product::select('product_id', 'product_no', 'title', 'sub_cat_id', 'brand_id')->where('product_id', $order->product_id)->first();
+                $brand = Brand::select('name', 'ax_id', 'distributor', 'supplier_id')->where('id', $product->brand_id)->first();
+                $subCategory = SubCategory::select('sub_cat_name', 'cat_id', 'Old_value')->where('sub_cat_id', $product->sub_cat_id)->first();
+                $oldCategory = $subCategory->Old_value;
+                $category = Category::select('cat_name', 'main_cat_id')->where('cat_id', $subCategory->cat_id)->first();
+                $mainCategory = MainCategory::select('main_cat_name')->where('main_cat_id', $category->main_cat_id)->first();
+
+                $categoryName = $mainCategory->main_cat_name . '->' . $category->cat_name . '->' . $subCategory->sub_cat_name;
+                $order->product_no = $product->product_no;
+                $order->title = $product->title;
+                $order->old_id = $oldCategory;
+                $order->brand = $brand->name;
+                $order->category = $categoryName;
 
                 if ($order->qty < 0) {
                     $orderItemQuantity = 1;
