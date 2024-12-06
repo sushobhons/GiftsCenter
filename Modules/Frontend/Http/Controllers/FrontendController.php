@@ -2488,6 +2488,45 @@ class FrontendController extends Controller
 
                 $keyWord = $offerSlug != '' ? $rowOffersRecord->first()->offer_slug : '';
                 $keyTerm = $offerSlug != '' ? 'Offer ' . $rowOffersRecord->first()->offer_desc : 'Offer';
+                if ($mainCategorySlug != '') {
+                    $mainCategory = MainCategory::where('main_cat_slug', $mainCategorySlug)->first();
+                    $filterType = 'main-category';
+                    $filterWord = $mainCategory->main_cat_id;
+                    $mainCategoryId = $mainCategory->main_cat_id;
+                    $breadcrumbs = [
+                        ['title' => 'Home', 'url' => route('home')],
+                        ['title' => 'Offers', 'url' => route('products.offer')],
+                        ['title' => Str::title($rowOffersRecord->offer_desc), 'url' => route('products.offer' , ['offerSlug' => $offerSlug])],
+                        ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
+                    ];
+                }
+                if ($categorySlug != '') {
+                    $catData = [];
+                    $category = Category::where('cat_slug', $categorySlug)->first();
+                    $filterType = 'category';
+                    $filterWord = $category->cat_id;
+                    $breadcrumbs = [
+                        ['title' => 'Home', 'url' => route('home')],
+                        ['title' => 'Offers', 'url' => route('products.offer')],
+                        ['title' => Str::title($rowOffersRecord->offer_desc), 'url' => route('products.offer', ['offerSlug' => $offerSlug])],
+                        ['title' => Str::title($mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
+                        ['title' => Str::title($category->cat_name), 'url' => route('products.offer.category', ['mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug])],
+                    ];
+                }
+                if ($subCategorySlug != '') {
+                    $subCategory = SubCategory::where('sub_cat_slug', $subCategorySlug)
+                        ->first();
+                    $filterType = 'category';
+                    $filterWord = $subCategory->sub_cat_id;
+                    $breadcrumbs = [
+                        ['title' => 'Home', 'url' => route('home')],
+                        ['title' => 'Offers', 'url' => route('products.offer')],
+                        ['title' => Str::title($rowOffersRecord->offer_desc), 'url' => route('products.offer', ['offerSlug' => $offerSlug])],
+                        ['title' => Str::title($$mainCategory->main_cat_name), 'url' => route('products.offer.main-category', ['mainCategorySlug' => $mainCategorySlug])],
+                        ['title' => Str::title($category->cat_name), 'url' => route('products.offer.category', ['mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug])],
+                        ['title' => Str::title($subCategory->sub_cat_name), 'url' => route('products.offer.category', ['mainCategorySlug' => $mainCategorySlug, 'categorySlug' => $categorySlug, 'subCategorySlug' => $subCategorySlug])],
+                    ];
+                }
                 $mainCategoryId = '';
                 $brandFilter = '';
 
@@ -2539,7 +2578,26 @@ class FrontendController extends Controller
                     ->where('pt.main_price', '>', 0)
                     ->whereRaw("FIND_IN_SET(?, pt.in_domain)", [$domainId])
                     ->whereNotNull('st.stock');
-
+                switch ($filterType) {
+                    case 'main-category':
+                        $mainCategoryId = $filterWord;
+                        $subCategoryIds = SubCategory::whereIn('cat_id', function ($query) use ($mainCategoryId) {
+                            $query->select('cat_id')
+                                ->from('cat_table')
+                                ->where('main_cat_id', $mainCategoryId);
+                        })->pluck('sub_cat_id');
+                        $qryProductsRecordData->whereIn('pt.sub_cat_id', $subCategoryIds);
+                        break;
+                    case 'category':
+                        $subCategoryIds = SubCategory::where('cat_id', $filterWord)->pluck('sub_cat_id');
+                        $qryProductsRecordData->whereIn('pt.sub_cat_id', $subCategoryIds);
+                        break;
+                    case 'sub-category':
+                        $qryProductsRecordData->where('pt.sub_cat_id', '=', $filterWord);
+                        break;
+                    default:
+                        break;
+                }
                 if ($rowOffersRecord->isNotEmpty()) {
                     if ($rowOffersRecord->count() > 1) {
                         $qryProductsRecordData->where(function ($query) use ($rowOffersRecord) {

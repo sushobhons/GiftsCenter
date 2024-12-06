@@ -120,18 +120,24 @@ Route::get('/category/{mainCategorySlug}', 'FrontendController@productList')
     ->defaults('keyType', 'main-category')
     ->name('products.main-category');
 
+Route::get('/offer/{offerSlug}/{mainCategorySlug}/{categorySlug}/{subCategorySlug}', 'FrontendController@productList')
+    ->where(['mainCategorySlug' => '[0-9A-Za-z_-]+', 'categorySlug' => '[0-9A-Za-z_-]+', 'subCategorySlug' => '[0-9A-Za-z_-]+'])
+    ->defaults('offerSlug', '[0-9A-Za-z_-]+')
+    ->defaults('keyType', 'offer')
+    ->name('products.offer.sub-category');
+
 Route::get('/offer/{offerSlug}/{mainCategorySlug}/{categorySlug}', 'FrontendController@productList')
     ->where(['mainCategorySlug' => '[0-9A-Za-z_-]+', 'categorySlug' => '[0-9A-Za-z_-]+'])
     ->defaults('offerSlug', '[0-9A-Za-z_-]+')
     ->defaults('keyType', 'offer')
-    ->name('products.new-arrival.category');
+    ->name('products.offer.category');
 
 // Rule: category/([0-9A-Za-z_-]+)
 Route::get('/offer/{offerSlug}/{mainCategorySlug}', 'FrontendController@productList')
     ->where('mainCategorySlug', '[0-9A-Za-z_-]+')
     ->defaults('offerSlug', '[0-9A-Za-z_-]+')
     ->defaults('keyType', 'offer')
-    ->name('products.new-arrival.main-category');
+    ->name('products.offer.main-category');
 
 // Rule: offer/([0-9A-Za-z_-]+)
 Route::get('/offer/{offerSlug}', 'FrontendController@productList')
